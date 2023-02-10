@@ -3,8 +3,12 @@ const router = new express.Router();
 
 const loginController = require('../controllers/login');
 
-router.get('/api/login/showAll', loginController.showAll);
+const loginRequired = require('../middlewares/login');
+
+// router.get('/api/login/showAll', loginController.showAll);
 router.post('/api/login/createUser', loginController.createUser);
-router.delete('/api/login/deleteUser', loginController.deleteUser);
+router.post('/api/login/logUser', loginController.logUser);
+router.get('/api/login/getUser', loginRequired, loginController.getUser);
+router.delete('/api/login/deleteUser', loginRequired, loginController.deleteUser);
 
 module.exports = router;

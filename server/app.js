@@ -2,6 +2,7 @@ const express = require('express');
 const homeRoutes = require('./src/routes/home');
 const loginRoutes = require('./src/routes/login');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 
 class App {
     constructor() {
@@ -11,7 +12,7 @@ class App {
     }
 
     middlewares() {
-        this.app.use(express.urlencoded({ extended: true }));
+        this.app.use(bodyParser.urlencoded({ extended: true }));
         this.app.use(express.json());
         this.app.use(cors());
     }
@@ -27,8 +28,10 @@ class App {
         this.app.use('/api/qr/createLink', homeRoutes);
         this.app.use('/api/qr/updateLink', homeRoutes);
         this.app.use('/', loginRoutes);
-        this.app.use('/api/login/showAll', loginRoutes);
+        // this.app.use('/api/login/showAll', loginRoutes);
         this.app.use('/api/login/createUser', loginRoutes);
+        this.app.use('/api/login/logUser', loginRoutes);
+        this.app.use('/api/login/getUser', loginRoutes);
         this.app.use('/api/login/deleteUser', loginRoutes);
     }
 }

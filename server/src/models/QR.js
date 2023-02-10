@@ -12,12 +12,12 @@ const QRSchema = new mongoose.Schema({
     },
 
     belongsTo: {
-        // required: true
+        required: true,
         type: String
     },
 
     defaultLink: {
-        // required: true,
+        required: true,
         type: String
     },
 

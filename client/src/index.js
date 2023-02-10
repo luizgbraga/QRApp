@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client';
 import Redirect from './routes/Redirect';
 import Signin from './routes/Signin';
 import Login from './routes/Login';
+import Profile from './routes/Profile';
 
 import {
   createBrowserRouter,
@@ -24,6 +25,11 @@ const router = createBrowserRouter([
   {
     path: '/login',
     element: <Login />
+  },
+
+  {
+    path: '/profile',
+    element: <Profile />
   },
 ])
 
