@@ -22,9 +22,7 @@ class LoginController {
                         const token = jwt.sign({ id, email }, process.env.TOKEN_SECRET, {
                             expiresIn: process.env.TOKEN_EXPIRATION
                         });
-                        console.log(isMatch)
-                        console.log(token);
-                        return res.send(token);
+                        return res.json(token)
                     } else { return res.send('credenciais inválidas!') }
                 });
             }

@@ -8,7 +8,7 @@ function Signin() {
     const [password, setPassword] = useState('');
 
     const createUser = () => {
-        axios.post(`http://192.168.68.123:3001/api/login/createUser`, { 
+        axios.post(`http://localhost:3001/api/login/createUser`, { 
           userName, password, email
         });
         setUserName('');

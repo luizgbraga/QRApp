@@ -17,7 +17,7 @@ const QRSchema = new mongoose.Schema({
     },
 
     defaultLink: {
-        required: true,
+        // required: true,
         type: String
     },
 

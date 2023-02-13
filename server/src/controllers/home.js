@@ -20,6 +20,14 @@ class HomeController {
         });
     }
 
+    showUserQR(req, res) {
+        const userId = req.userId;
+        QR.find({ "belongsTo": userId }, (err, result) => {
+            if(err) { res.send(err) } 
+            else { res.json(result) }  
+        })
+    }
+
     showScans(req, res) {
         const qrId = req.query.qrId;
         QR.find({ "_id": qrId }, (err, result) => {
@@ -29,8 +37,7 @@ class HomeController {
     }
 
     createQR(req, res) {
-        const qrName = req.query.qrName;
-        const qr = { "qrName": qrName };
+        const qr = req.body;
         QR.create(qr, (err, result) => {
             if(err) { res.send(err) }
             else { res.send(result) }

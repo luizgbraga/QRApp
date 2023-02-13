@@ -4,18 +4,17 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import * as login_actions from '../store/actions/setToken';
 
-function Login({ dispatch, token }) {
+function Login() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
     const logUser = () => {
-        axios.post(`http://192.168.68.123:3001/api/login/logUser`, { 
+        axios.post(`http://localhost:3001/api/login/logUser`, { 
           email, password
         })
             .then((response) => {
-                console.log(response.data);
-                dispatch(login_actions.set_token(response.data));
+                console.log('res: ', response.data);
+                localStorage.setItem('token', response.data);
             });
         setPassword('');
         setEmail('');
