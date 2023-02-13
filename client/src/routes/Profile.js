@@ -2,11 +2,14 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
 import { connect } from 'react-redux';
+import { useNavigate } from "react-router-dom";
 
 function Profile() {
+  
+    let navigate = useNavigate(); 
+    const routeChange = (path) => navigate(path);
 
     const [user, setUser] = useState({});
-    const [qrList, setQRList] = useState([]);
 
     const token = localStorage.getItem('token');
 
@@ -20,23 +23,18 @@ function Profile() {
         });
       }, []);
 
-    useEffect(() => {
-        axios.get(`http://localhost:3001/api/qr/showUserQR`, {
-          headers: {
-            authorization: token
-          }
-        }).then((response) => {
-          setQRList(response.data);
-        });
-      }, []);
+    const logOut = () => {
+      localStorage.removeItem('token');
+      routeChange('/login');
+    }
 
     return(
         <div>
             <p>{user.userName}</p>
             <p>{user._id}</p>
-            {
-              qrList.map(el => (<p key={el._id}>{el.qrName}</p>))
-            }
+            <button onClick={() => routeChange('/home')}>Home</button>
+            <button onClick={() => routeChange('/new')}>New QR</button>
+            <button onClick={logOut}>LogOut</button>
         </div>
     )
 }

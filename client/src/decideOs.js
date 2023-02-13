@@ -1,4 +1,4 @@
-export default function getOperatingSystem() {
+const getOperatingSystem = () => {
     if (/windows phone/i.test(navigator.userAgent)) {
         return 'windowsPhone';
     }
@@ -13,3 +13,5 @@ export default function getOperatingSystem() {
 
     return 'unknown';
 }
+
+export default getOperatingSystem;

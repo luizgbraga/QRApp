@@ -6,6 +6,8 @@ import Signin from './routes/Signin';
 import Login from './routes/Login';
 import Profile from './routes/Profile';
 import NewQR from './routes/NewQR';
+import QR from './routes/QR';
+import Home from './routes/Home';
 
 import { Provider } from 'react-redux';
 import store from './store';
@@ -39,6 +41,16 @@ const router = createBrowserRouter([
   {
     path: '/new',
     element: <NewQR />
+  },
+
+  {
+    path: '/qr',
+    element: <QR />
+  },
+
+  {
+    path: '/home',
+    element: <Home />
   },
 ])
 

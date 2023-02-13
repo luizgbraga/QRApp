@@ -21,21 +21,31 @@ class App {
 
     routes() {
         this.app.use('/', homeRoutes);
-        this.app.use('/api/qr/showAll', homeRoutes);
-        this.app.use('/api/qr/showQR', homeRoutes);
-        this.app.use('/api/qr/showUserQR', homeRoutes);
-        this.app.use('/api/qr/showScans', homeRoutes);
-        this.app.use('/api/qr/createQR', homeRoutes);
-        this.app.use('/api/qr/deleteQR', homeRoutes);
-        this.app.use('/api/qr/updateScans', homeRoutes);
-        this.app.use('/api/qr/createLink', homeRoutes);
-        this.app.use('/api/qr/updateLink', homeRoutes);
         this.app.use('/', loginRoutes);
-        // this.app.use('/api/login/showAll', loginRoutes);
+
+        //  ** All User related methods **
         this.app.use('/api/login/createUser', loginRoutes);
         this.app.use('/api/login/logUser', loginRoutes);
         this.app.use('/api/login/getUser', loginRoutes);
         this.app.use('/api/login/deleteUser', loginRoutes);
+
+        //  ** All QR Code related methods **
+        this.app.use('/api/qr/createQR', homeRoutes);
+        this.app.use('/api/qr/showQR', homeRoutes);
+        this.app.use('/api/qr/showUserQR', homeRoutes);
+        this.app.use('/api/qr/updateQR', homeRoutes);
+        this.app.use('/api/qr/deleteQR', homeRoutes);
+
+        //  ** All Links related methods **
+        this.app.use('/api/qr/createLink', homeRoutes);
+        this.app.use('/api/qr/updateLink', homeRoutes);
+
+        //  ** All Scans related methods **
+        this.app.use('/api/qr/showScans', homeRoutes);
+        this.app.use('/api/qr/updateScans', homeRoutes);
+
+        // this.app.use('/api/qr/showAll', homeRoutes);
+        // this.app.use('/api/login/showAll', loginRoutes);
     }
 }
 

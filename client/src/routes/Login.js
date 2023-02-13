@@ -2,22 +2,26 @@ import React, { useState } from "react";
 import axios from 'axios';
 
 import { connect } from 'react-redux';
-import * as login_actions from '../store/actions/setToken';
+import { useNavigate } from "react-router-dom";
 
 function Login() {
 
+    let navigate = useNavigate(); 
+    const routeChange = (path) => navigate(path);
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
     const logUser = () => {
         axios.post(`http://localhost:3001/api/login/logUser`, { 
           email, password
         })
             .then((response) => {
-                console.log('res: ', response.data);
                 localStorage.setItem('token', response.data);
+                setPassword('');
+                setEmail('');
+                routeChange('/profile');
             });
-        setPassword('');
-        setEmail('');
     }
 
     return(

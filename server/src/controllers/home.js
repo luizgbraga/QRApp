@@ -4,38 +4,20 @@ class HomeController {
     index(req, res) {
         res.send('success!');
     }
-    
+
+    //  ** All QR Code related methods **
+
+    /* Showing all QR Codes should not be possible for any user
+
     showAll(req, res) {
         QR.find({}, (err, result) => {
             if(err) { res.send(err) } 
             else { res.send(result) }
         })
     }
+    */
 
-    showQR(req, res) {
-        const qrId = req.query.qrId;
-        QR.find({ "_id": qrId }, (err, result) => {
-            if(err) { res.send(err) } 
-            else { res.send(result) }
-        });
-    }
-
-    showUserQR(req, res) {
-        const userId = req.userId;
-        QR.find({ "belongsTo": userId }, (err, result) => {
-            if(err) { res.send(err) } 
-            else { res.json(result) }  
-        })
-    }
-
-    showScans(req, res) {
-        const qrId = req.query.qrId;
-        QR.find({ "_id": qrId }, (err, result) => {
-            if(err) { res.send(err) } 
-            else { res.send(result) }
-        }).select('scans');
-    }
-
+    // Given all information about the new QR Code, creates new QR Code associated to logged user
     createQR(req, res) {
         const qr = req.body;
         QR.create(qr, (err, result) => {
@@ -44,23 +26,49 @@ class HomeController {
         }); 
     }
 
-    updateScans(req, res) {
+    // By user's id saved in JWT Token, returns all QR Codes belonging to him
+    showUserQR(req, res) {
+        const userId = req.userId;
+        QR.find({ "belongsTo": userId }, (err, result) => {
+            if(err) { res.send(err) } 
+            else { res.json(result) }  
+        })
+    }
+
+    // Given the QR id as a query param, returns all informations about the QR Code
+    showQR(req, res) {
         const qrId = req.query.qrId;
-        const os = req.query.os;
-        const scanDate = Date.now();
-        let info = { os, scanDate };
-        QR.updateOne({ "_id": qrId }, { $push: { scans: info } }, (err, result) => {
+        QR.find({ "_id": qrId }, (err, result) => {
+            if(err) { res.send(err) } 
+            else { res.send(result) }
+        });
+    }
+
+    // Given the QR id, updates its name 
+    updateQR(req, res) {
+        const newQRName = req.body.params.newQRNAme;
+        const qrId = req.body.params.qrId;
+        QR.updateOne({ "_id": qrId }, { $set: { qrName: newQRName } }, (err, result) => {
             if(err) { res.send(err) } 
             else { res.send(result) }
         })
     }
 
-    createLink(req, res) {
+    // Given the QR id as a query param, deletes it
+    deleteQR(req, res) {
         const qrId = req.query.qrId;
-        const os = req.query.os;
-        const timeRestriction = req.query.timeRestriction;
-        const link = req.query.link;
-        let info = { os, timeRestriction, link };
+        QR.deleteOne({ "_id": qrId }, (err, result) => {
+            if(err) { res.send(err) } 
+            else { res.send(result) }
+        })
+    }
+
+    //  ** All Link related methods **
+
+    createLink(req, res) {
+        const { linkName, osName, timeRestriction, link } = req.body.params;
+        const qrId = req.body.params.qrId;
+        let info = { linkName, osName, timeRestriction, link };
         QR.updateOne({ "_id": qrId }, { $push: { links: info } }, (err, result) => {
             if(err) { res.send(err) } 
             else { res.send(result) }
@@ -83,13 +91,30 @@ class HomeController {
         })
     }
 
-    deleteQR(req, res) {
+
+    //  ** All Scans related methods **
+        
+    // Given the QR id, shows every scan it has
+    showScans(req, res) {
         const qrId = req.query.qrId;
-        QR.deleteOne({ "_id": qrId }, (err, result) => {
+        QR.find({ "_id": qrId }, (err, result) => {
+            if(err) { res.send(err) } 
+            else { res.send(result) }
+        }).select('scans');
+    }
+
+    // Responsible to push scan information everytime the QR Code is scanned
+    updateScans(req, res) {
+        const qrId = req.query.qrId;
+        const os = req.query.os;
+        const scanDate = Date.now();
+        let info = { os, scanDate };
+        QR.updateOne({ "_id": qrId }, { $push: { scans: info } }, (err, result) => {
             if(err) { res.send(err) } 
             else { res.send(result) }
         })
     }
+
 }
 
 module.exports = new HomeController();

@@ -16,11 +16,13 @@ function NewQR() {
       }, []);
 
     const [qrName, setQRName] = useState('');
+    const [defaultLink, setDefaultLink] = useState('');
 
     const createQR = () => {
         axios.post(`http://localhost:3001/api/qr/createQR`, { 
           "qrName": qrName,
-          "belongsTo": user._id
+          "belongsTo": user._id,
+          "defaultLink": defaultLink
         }, { headers: {
               authorization: localStorage.getItem('token')
                 }
@@ -31,7 +33,9 @@ function NewQR() {
     return(
         <div>
             <label>qrName</label>
-            <input id='qrName' name='qrName' onChange={(e) => setQRName(e.target.value)} />
+            <input id='qrName' name='qrName' onChange={(e) => setQRName(e.target.value)} /><br></br>
+            <label>Default Link</label>
+            <input id='defaultLink' name='defaultLink' onChange={(e) => setDefaultLink(e.target.value)} />
             <button onClick={createQR}>Create QR</button>
         </div>
     )

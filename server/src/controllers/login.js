@@ -2,14 +2,26 @@ const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 
 class LoginController {
+    /* Showing all users should not be possible for any user
+
     showAll(req, res) {
         User.find({}, (err, result) => {
             res.send(result);
         })
     }
+    */
+
+    createUser(req, res) {
+        const user = req.body;
+        User.create(user, (err, result) => {
+            if(err) { res.send(err) }
+            else { res.send(result) }
+        });
+    }
 
     logUser(req, res) {
         const { email, password } = req.body;
+        console.log(req.body)
         User.findOne({ email }, (err, result) => {
             if(err || !result) { return res.send(err) }
             else { 
@@ -26,14 +38,6 @@ class LoginController {
                     } else { return res.send('credenciais inválidas!') }
                 });
             }
-        });
-    }
-
-    createUser(req, res) {
-        const user = req.body;
-        User.create(user, (err, result) => {
-            if(err) { res.send(err) }
-            else { res.send(result) }
         });
     }
 

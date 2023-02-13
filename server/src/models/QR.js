@@ -17,12 +17,13 @@ const QRSchema = new mongoose.Schema({
     },
 
     defaultLink: {
-        // required: true,
+        required: true,
         type: String
     },
 
     links: [{
-        os: { type: String },
+        linkName: { type: String },
+        osName: { type: String },
         timeRestriction: { type: String },
         link: { type: String }
     }],
