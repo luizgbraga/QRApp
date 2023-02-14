@@ -1,27 +1,21 @@
 import React, { useState, useEffect } from "react";
-import axios from 'axios';
 
 import { connect } from 'react-redux';
 import { useNavigate } from "react-router-dom";
+
+import useFetchUser from "../hooks/getUser";
+
+import styles from "../assets/styles/ProfileStyles";
+
+import Button from "../components/Button";
 
 function Profile() {
   
     let navigate = useNavigate(); 
     const routeChange = (path) => navigate(path);
 
-    const [user, setUser] = useState({});
-
     const token = localStorage.getItem('token');
-
-    useEffect(() => {
-        axios.get(`http://localhost:3001/api/login/getUser`, {
-          headers: {
-            authorization: token
-          }
-        }).then((response) => {
-          setUser(response.data);
-        });
-      }, []);
+    const user = useFetchUser(token);
 
     const logOut = () => {
       localStorage.removeItem('token');
@@ -29,12 +23,26 @@ function Profile() {
     }
 
     return(
-        <div>
-            <p>{user.userName}</p>
-            <p>{user._id}</p>
-            <button onClick={() => routeChange('/home')}>Home</button>
-            <button onClick={() => routeChange('/new')}>New QR</button>
-            <button onClick={logOut}>LogOut</button>
+        <div style={styles.profileStyles}>
+            <p style={styles.userName}>Nome do usuário: {user.userName}</p>
+            <Button 
+                w='160px' 
+                h='40px' 
+                color='#A4DBE8'
+                buttonText='Home'
+                onClick={() => routeChange('/home')} />
+            <Button 
+                w='160px' 
+                h='40px' 
+                color='#A4DBE8'
+                buttonText='Novo QR'
+                onClick={() => routeChange('/new')} />
+            <Button 
+                w='100px' 
+                h='40px' 
+                color='#FF8080'
+                buttonText='Sair'
+                onClick={logOut} />
         </div>
     )
 }

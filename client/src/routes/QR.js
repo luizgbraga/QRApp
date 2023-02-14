@@ -4,12 +4,9 @@ import QRCode from "react-qr-code";
 
 import { connect } from 'react-redux';
 
-function QR() {
+import useFetchQR from "../hooks/getQR";
 
-    const [user, setUser] = useState({});
-    const [qr, setQR] = useState({});
-    const [links, setLinks] = useState([]);
-    const [scans, setScans] = useState([]);
+function QR() {
 
     const [linkName, setLinkName] = useState('');
     const [osName, setOsName] = useState('');
@@ -19,42 +16,7 @@ function QR() {
     const token = localStorage.getItem('token');
     const selectedQR = localStorage.getItem('selectedQR');
 
-    useEffect(() => {
-        axios.get(`http://localhost:3001/api/login/getUser`, {
-          headers: {
-            authorization: token
-          }
-        }).then((response) => {
-          setUser(response.data);
-        });
-      }, []);
-
-      useEffect(() => {
-        axios.get(`http://localhost:3001/api/qr/showQR`, {
-          headers: {
-            authorization: token
-          },
-          params: {
-            qrId: selectedQR
-          }
-        }).then((response) => {
-          setQR(response.data[0]);
-          setLinks(response.data[0].links);
-        });
-      }, []);
-
-      useEffect(() => {
-        axios.get(`http://localhost:3001/api/qr/showScans`, {
-          headers: {
-            authorization: token
-          },
-          params: {
-            qrId: selectedQR
-          }
-        }).then((response) => {
-          console.log(response.data[0])
-        });
-      }, []);
+    const { qr, links, scans } = useFetchQR(token, selectedQR);
 
       const createLink = () => {
         axios.put(`http://localhost:3001/api/qr/createLink`, {
@@ -72,11 +34,11 @@ function QR() {
       }
 
     const redirect = `http://localhost:3000/redirect?qrId=${selectedQR}`;
-    console.log(qr)
 
     return(
         <div>
             <p>{qr.qrName}</p>
+            <p>Scans: {scans.length}</p>
             <QRCode value={redirect} size={120} />
             <p>Adicione um link</p>
             <label>Nome</label>

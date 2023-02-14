@@ -4,35 +4,15 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 
+import useFetchUserQR from "../hooks/getUserQR";
+
 function Home() {
 
     let navigate = useNavigate(); 
     const routeChange = (path) => navigate(path);
 
-    const [user, setUser] = useState({});
-    const [qrList, setQRList] = useState([]);
-
     const token = localStorage.getItem('token');
-
-    useEffect(() => {
-        axios.get(`http://localhost:3001/api/login/getUser`, {
-          headers: {
-            authorization: token
-          }
-        }).then((response) => {
-          setUser(response.data);
-        });
-      }, []);
-
-    useEffect(() => {
-        axios.get(`http://localhost:3001/api/qr/showUserQR`, {
-          headers: {
-            authorization: token
-          }
-        }).then((response) => {
-          setQRList(response.data);
-        });
-      }, []);
+    const qrList = useFetchUserQR(token)
 
     const selectQR = (qrId) => {
         localStorage.setItem('selectedQR', qrId);

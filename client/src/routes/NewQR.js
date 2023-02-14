@@ -1,19 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
+import { useNavigate } from "react-router-dom";
+
+import useFetchUser from "../hooks/getUser";
+
 function NewQR() {
 
-    const [user, setUser] = useState({});
+    let navigate = useNavigate(); 
+    const routeChange = (path) => navigate(path);
 
-    useEffect(() => {
-        axios.get(`http://localhost:3001/api/login/getUser`, {
-          headers: {
-            authorization: localStorage.getItem('token')
-          }
-        }).then((response) => {
-          setUser(response.data);
-        });
-      }, []);
+    const token = localStorage.getItem('token');
+    const user = useFetchUser(token);
 
     const [qrName, setQRName] = useState('');
     const [defaultLink, setDefaultLink] = useState('');
@@ -28,6 +26,7 @@ function NewQR() {
                 }
             });
         setQRName('');
+        routeChange('/home');
     }
 
     return(

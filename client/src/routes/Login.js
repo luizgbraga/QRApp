@@ -4,6 +4,11 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 
+import TextInput from "../components/TextInput";
+import Button from "../components/Button";
+
+import styles from "../assets/styles/LoginStyles";
+
 function Login() {
 
     let navigate = useNavigate(); 
@@ -25,13 +30,25 @@ function Login() {
     }
 
     return(
-        <div>
-            <label>Email</label>
-            <input id='email' name='email' onChange={(e) => setEmail(e.target.value)} />
-            <br />
-            <label>Password</label>
-            <input id='password' name='password' onChange={(e) => setPassword(e.target.value)} />
-            <button onClick={logUser}>Login</button>
+        <div style={styles.loginStyles}>
+            <TextInput 
+                w='300px' 
+                h='30px' 
+                labelText='Email' 
+                value={email} 
+                setValue={setEmail} />
+            <TextInput 
+                w='300px' 
+                h='30px' 
+                labelText='Senha' 
+                value={password} 
+                setValue={setPassword} />
+            <Button 
+                w='120px' 
+                h='40px' 
+                color='#90EE90'
+                buttonText='Entrar'
+                onClick={logUser} />
         </div>
     )
 }
