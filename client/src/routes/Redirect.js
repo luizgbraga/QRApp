@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from "react-router-dom";
-import axios from 'axios';
 
-import decideLink from '../decideLink';
 import getOperatingSystem from '../decideOs';
 
 import useFetchLocation from '../hooks/getLocation';
@@ -16,7 +14,7 @@ function Redirect() {
     const scanLocation = useFetchLocation();
     const osName = getOperatingSystem();
     useRedirectUser(qrId, osName, scanLocation);
-
+    
     return(
         <div>
             <p>{scanLocation}</p>

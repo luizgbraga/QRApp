@@ -3,6 +3,9 @@ import axios from 'axios';
 
 import { useNavigate } from "react-router-dom";
 
+import TextInput from "../components/TextInput";
+import Button from "../components/Button";
+
 import useFetchUser from "../hooks/getUser";
 
 function NewQR() {
@@ -31,11 +34,30 @@ function NewQR() {
 
     return(
         <div>
-            <label>qrName</label>
-            <input id='qrName' name='qrName' onChange={(e) => setQRName(e.target.value)} /><br></br>
-            <label>Default Link</label>
-            <input id='defaultLink' name='defaultLink' onChange={(e) => setDefaultLink(e.target.value)} />
-            <button onClick={createQR}>Create QR</button>
+            <TextInput 
+                w='300px' 
+                h='30px' 
+                labelText='Nome do QR' 
+                value={qrName} 
+                setValue={setQRName} />
+            <TextInput 
+                w='300px' 
+                h='30px' 
+                labelText='Link padrão' 
+                value={defaultLink} 
+                setValue={setDefaultLink} />
+            <Button 
+                w='120px' 
+                h='40px' 
+                color='#90EE90'
+                buttonText='Criar'
+                onClick={createQR} />
+            <Button 
+                w='160px' 
+                h='40px' 
+                color='#A4DBE8'
+                buttonText='Profile'
+                onClick={() => routeChange('/profile')} />
         </div>
     )
 }

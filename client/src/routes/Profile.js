@@ -9,6 +9,7 @@ import styles from "../assets/styles/ProfileStyles";
 
 import Button from "../components/Button";
 
+
 function Profile() {
   
     let navigate = useNavigate(); 

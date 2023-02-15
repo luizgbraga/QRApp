@@ -33,11 +33,13 @@ function QR() {
         })
       }
 
+    console.log(scans)
+
     const redirect = `http://localhost:3000/redirect?qrId=${selectedQR}`;
 
     return(
         <div>
-            <p>{qr.qrName}</p>
+            <p>Nome do QR: {qr.qrName}</p>
             <p>Scans: {scans.length}</p>
             <QRCode value={redirect} size={120} />
             <p>Adicione um link</p>

@@ -6,6 +6,11 @@ import { useNavigate } from "react-router-dom";
 
 import useFetchUserQR from "../hooks/getUserQR";
 
+import CardQR from "../components/CardQR";
+import Button from "../components/Button";
+
+import styles from "../assets/styles/HomeStyles";
+
 function Home() {
 
     let navigate = useNavigate(); 
@@ -21,14 +26,21 @@ function Home() {
 
     return(
         <div>
+          <p style={styles.title}>Seus QRs</p>
             {
               qrList.map(el => (
-                <div key={el._id}>
-                  <p>{el.qrName}</p>
-                  <button onClick={() => selectQR(el._id)}>Go to QR</button>
-                </div>
+                <CardQR 
+                  key={el.id}
+                  qrName={el.qrName} 
+                  onClick={() => selectQR(el._id)} />
               ))
             }
+            <Button 
+                w='160px' 
+                h='40px' 
+                color='#A4DBE8'
+                buttonText='Profile'
+                onClick={() => routeChange('/profile')} />
         </div>
     )
 }

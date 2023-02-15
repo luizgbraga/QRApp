@@ -107,8 +107,9 @@ class HomeController {
     updateScans(req, res) {
         const qrId = req.query.qrId;
         const osName = req.body.params.osName;
+        const scanLocation = req.body.params.scanLocation;
         const scanDate = Date.now();
-        let info = { osName, scanDate };
+        let info = { osName, scanDate, scanLocation };
         QR.updateOne({ "_id": qrId }, { $push: { scans: info } }, (err, result) => {
             if(err) { res.send(err) } 
             else { res.send(result) }

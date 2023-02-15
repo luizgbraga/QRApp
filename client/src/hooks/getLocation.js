@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
-function useFetchLocation(token) {
+function useFetchLocation() {
     const [location, setLocation] = useState({});
     useEffect(() => {
         axios.get("https://ipapi.co/json/")
