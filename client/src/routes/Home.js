@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import axios from 'axios';
 
 import { connect } from 'react-redux';
@@ -23,6 +23,8 @@ function Home() {
         localStorage.setItem('selectedQR', qrId);
         routeChange('/qr');
     }
+
+    if(!token) routeChange('/login');
 
     return(
         <div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import { connect } from 'react-redux';
 import { useNavigate } from "react-router-dom";
@@ -16,6 +16,7 @@ function Profile() {
     const routeChange = (path) => navigate(path);
 
     const token = localStorage.getItem('token');
+    if(!token) routeChange('/login');
     const user = useFetchUser(token);
 
     const logOut = () => {

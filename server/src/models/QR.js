@@ -25,6 +25,7 @@ const QRSchema = new mongoose.Schema({
         linkName: { type: String },
         osName: { type: String },
         timeRestriction: { type: String },
+        locRestriction: { type: String },
         link: { type: String }
     }],
 

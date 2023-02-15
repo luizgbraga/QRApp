@@ -27,6 +27,7 @@ class App {
         this.app.use('/api/login/createUser', loginRoutes);
         this.app.use('/api/login/logUser', loginRoutes);
         this.app.use('/api/login/getUser', loginRoutes);
+        this.app.use('/api/login/updatePlan', loginRoutes);
         this.app.use('/api/login/deleteUser', loginRoutes);
 
         //  ** All QR Code related methods **

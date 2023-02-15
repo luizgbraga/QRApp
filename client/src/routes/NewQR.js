@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from 'axios';
 
 import { useNavigate } from "react-router-dom";
@@ -14,6 +14,7 @@ function NewQR() {
     const routeChange = (path) => navigate(path);
 
     const token = localStorage.getItem('token');
+    if(!token) routeChange('/login');
     const user = useFetchUser(token);
 
     const [qrName, setQRName] = useState('');

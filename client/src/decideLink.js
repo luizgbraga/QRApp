@@ -7,7 +7,6 @@ const getHour = () => {
 
 const decideLink = (links, defaultLink) => {
     const os = getOperatingSystem();
-    console.log(links, os)
     const hour = getHour();
     for(let link of links) {
         if(link.osName === os) {

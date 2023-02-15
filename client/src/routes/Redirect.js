@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useSearchParams } from "react-router-dom";
 
 import getOperatingSystem from '../decideOs';
@@ -13,7 +13,7 @@ function Redirect() {
 
     const scanLocation = useFetchLocation();
     const osName = getOperatingSystem();
-    useRedirectUser(qrId, osName, scanLocation);
+    useRedirectUser(qrId, osName);
     
     return(
         <div>

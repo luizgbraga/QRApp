@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from 'axios';
 import QRCode from "react-qr-code";
 
@@ -6,14 +6,27 @@ import { connect } from 'react-redux';
 
 import useFetchQR from "../hooks/getQR";
 
+import { useNavigate } from "react-router-dom";
+
+import styles from "../assets/styles/QRStyles";
+
+import TextInput from "../components/TextInput";
+import Button from "../components/Button";
+import URL from "../components/URL";
+
 function QR() {
+
+    let navigate = useNavigate(); 
+    const routeChange = (path) => navigate(path);
 
     const [linkName, setLinkName] = useState('');
     const [osName, setOsName] = useState('');
     const [timeRestriction, setTimeRestriction] = useState('');
+    const [locRestriction, setLocRestriction] = useState('');
     const [link, setLink] = useState('');
 
     const token = localStorage.getItem('token');
+    if(!token) routeChange('/login');
     const selectedQR = localStorage.getItem('selectedQR');
 
     const { qr, links, scans } = useFetchQR(token, selectedQR);
@@ -28,36 +41,74 @@ function QR() {
                 linkName: linkName,
                 osName: osName,
                 timeRestriction: timeRestriction,
+                locRestriction: locRestriction,
                 link: link
             }
         })
       }
 
-    console.log(scans)
-
-    const redirect = `http://localhost:3000/redirect?qrId=${selectedQR}`;
+    const redirect = `http://192.168.68.123:3000/redirect?qrId=${selectedQR}`;
 
     return(
-        <div>
-            <p>Nome do QR: {qr.qrName}</p>
-            <p>Scans: {scans.length}</p>
-            <QRCode value={redirect} size={120} />
-            <p>Adicione um link</p>
-            <label>Nome</label>
-            <input id='linkName' name='linkName' onChange={(e) => setLinkName(e.target.value)} /><br></br>
-            <label>OS</label>
-            <input id='osName' name='osName' onChange={(e) => setOsName(e.target.value)} /><br></br>
-            <label>Restrição de tempo</label>
-            <input id='timeRestriction' name='timeRestriction' onChange={(e) => setTimeRestriction(e.target.value)} /><br></br>
-            <label>Link</label>
-            <input id='Link' name='Link' onChange={(e) => setLink(e.target.value)} />
-            <button onClick={createLink}>Create link</button>
-            <p>Links:</p>
+        <div style={styles.QRStyles}>
+            <p style={styles.qrName}>Nome: {qr.qrName}</p>
+            <QRCode value={redirect} size={160} style={styles.qrCode} />
+            <div style={styles.row}>
+                <div>
+                    <TextInput 
+                        w='300px' 
+                        h='20px' 
+                        labelText='Nome do link' 
+                        value={linkName} 
+                        setValue={setLinkName} />
+                    <TextInput 
+                        w='300px' 
+                        h='20px' 
+                        labelText='Sistema operacional' 
+                        value={osName} 
+                        setValue={setOsName} />
+                    <TextInput 
+                        w='300px' 
+                        h='20px' 
+                        labelText='Restrição de tempo' 
+                        value={timeRestriction} 
+                        setValue={setTimeRestriction} />
+                    <TextInput 
+                        w='300px' 
+                        h='20px' 
+                        labelText='Restrição de localização' 
+                        value={locRestriction} 
+                        setValue={setLocRestriction} />
+                    <TextInput 
+                        w='300px' 
+                        h='20px' 
+                        labelText='URL' 
+                        value={link} 
+                        setValue={setLink} />
+                    <Button 
+                        w='120px' 
+                        h='40px' 
+                        color='#90EE90'
+                        buttonText='Criar URL'
+                        onClick={createLink} />
+                </div>
+                <div>
+                    {
+                        links.map(el => (
+                            <URL
+                                key={el._id} 
+                                linkName={el.linkName}
+                                timeRestriction={el.timeRestriction}
+                                osName={el.osName}
+                                url={el.link} />
+                        ))
+                    }
+                </div>
+            </div>
+            <p style={styles.qrName}>Scans</p>
             {
-                links.map(el => (
-                    <div key={el._id}>
-                        <p>{el.linkName} - {el.osName} - {el.link}</p>
-                    </div>
+                scans.map(el => (
+                    <p>{el.osName} - {el.scanLocation} - {el.scanDate}</p>
                 ))
             }
         </div>

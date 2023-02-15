@@ -11,6 +11,7 @@ class LoginController {
     }
     */
 
+    // Given all information, creates new user
     createUser(req, res) {
         const user = req.body;
         User.create(user, (err, result) => {
@@ -19,6 +20,7 @@ class LoginController {
         });
     }
 
+    // Authenticate user by email and password
     logUser(req, res) {
         const { email, password } = req.body;
         console.log(req.body)
@@ -41,6 +43,7 @@ class LoginController {
         });
     }
 
+    // Given an id, returns the user associated to it
     getUser(req, res) {
         const userId = req.userId;
         User.findOne({ "_id": userId }, (err, result) => {
@@ -49,6 +52,19 @@ class LoginController {
         })
     }
 
+    // Updates user plan to a different one
+    updatePlan(req, res) {
+        const userId = req.userId;
+        const newPlan = req.query.newPlan;
+        User.updateOne({ "_id": userId }, { $set: {
+            "plan": newPlan
+        } }, (err, result) => {
+            if(err) { res.send(err) } 
+            else { res.send(result) }
+        })
+    }
+
+    // Given the id, deletes the user associated to it
     deleteUser(req, res) {
         const userId = req.userId;
         User.deleteOne({ "_id": userId }, (err, result) => {

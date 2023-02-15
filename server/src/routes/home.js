@@ -23,7 +23,6 @@ router.put('/api/qr/updateLink', homeController.updateLink);
 
 //  ** All Scans related routes **
 
-router.get('/api/qr/showScans', homeController.showScans);
 router.put('/api/qr/updateScans', homeController.updateScans);
 
 

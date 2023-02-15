@@ -21,6 +21,11 @@ const UserSchema = new mongoose.Schema({
         unique: false
     },
 
+    plan: {
+        type: String,
+        default: 'Free'
+    },
+
     createdAt: {
         type: Date,
         default: Date.now

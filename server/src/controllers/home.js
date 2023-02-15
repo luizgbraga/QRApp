@@ -66,7 +66,7 @@ class HomeController {
     //  ** All Link related methods **
 
     createLink(req, res) {
-        const { linkName, osName, timeRestriction, link } = req.body.params;
+        const { linkName, osName, timeRestriction, locRestriction, link } = req.body.params;
         const qrId = req.body.params.qrId;
         let info = { linkName, osName, timeRestriction, link };
         QR.updateOne({ "_id": qrId }, { $push: { links: info } }, (err, result) => {
@@ -93,15 +93,6 @@ class HomeController {
 
 
     //  ** All Scans related methods **
-        
-    // Given the QR id, shows every scan it has
-    showScans(req, res) {
-        const qrId = req.query.qrId;
-        QR.find({ "_id": qrId }, (err, result) => {
-            if(err) { res.send(err) } 
-            else { res.send(result) }
-        }).select('scans');
-    }
 
     // Responsible to push scan information everytime the QR Code is scanned
     updateScans(req, res) {
