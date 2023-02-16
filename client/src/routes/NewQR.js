@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import TextInput from "../components/TextInput";
 import Button from "../components/Button";
 
-import useFetchUser from "../hooks/getUser";
+import useFetchUser from "../hooks/useFetchUser";
 
 function NewQR() {
 

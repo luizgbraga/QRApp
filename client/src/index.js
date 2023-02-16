@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
+import Landing from './routes/Landing';
 import Redirect from './routes/Redirect';
 import Signin from './routes/Signin';
 import Login from './routes/Login';
@@ -17,7 +18,15 @@ import {
   RouterProvider
 } from 'react-router-dom'
 
+import './assets/styles/global.css';
+
 const router = createBrowserRouter([
+
+  {
+    path: '/',
+    element: <Landing />
+  },
+
   {
     path: '/redirect',
     element: <Redirect />

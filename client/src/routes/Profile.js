@@ -3,7 +3,7 @@ import React from "react";
 import { connect } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 
-import useFetchUser from "../hooks/getUser";
+import useFetchUser from "../hooks/useFetchUser";
 
 import styles from "../assets/styles/ProfileStyles";
 

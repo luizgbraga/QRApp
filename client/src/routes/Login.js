@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import TextInput from "../components/TextInput";
 import Button from "../components/Button";
 
+import NavBar from "../layouts/NavBar";
+
 import styles from "../assets/styles/LoginStyles";
 
 function Login() {
@@ -30,6 +32,7 @@ function Login() {
     }
 
     return(
+        <div>
         <div style={styles.loginStyles}>
             <TextInput 
                 w='300px' 
@@ -49,6 +52,7 @@ function Login() {
                 color='#90EE90'
                 buttonText='Entrar'
                 onClick={logUser} />
+        </div>
         </div>
     )
 }

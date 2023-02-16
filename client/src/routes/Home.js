@@ -1,10 +1,9 @@
 import React from "react";
-import axios from 'axios';
 
 import { connect } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 
-import useFetchUserQR from "../hooks/getUserQR";
+import useFetchUserQR from "../hooks/useFetchUserQR";
 
 import CardQR from "../components/CardQR";
 import Button from "../components/Button";

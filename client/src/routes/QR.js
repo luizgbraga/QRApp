@@ -4,7 +4,7 @@ import QRCode from "react-qr-code";
 
 import { connect } from 'react-redux';
 
-import useFetchQR from "../hooks/getQR";
+import useFetchQR from "../hooks/useFetchQR";
 
 import { useNavigate } from "react-router-dom";
 
