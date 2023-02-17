@@ -5,14 +5,14 @@ const styles = {
     },
 
     title: {
-        fontSize: '100px',
+        fontSize: '90px',
         fontWeight: 'bold',
         marginBottom: '60px',
         letterSpacing: '0.8px'
     },
 
     subtitle: {
-        fontSize: '26px',
+        fontSize: '24px',
         letterSpacing: '0.8px'
     },
 

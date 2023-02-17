@@ -8,6 +8,7 @@ import TextInput from "../components/TextInput";
 import Button from "../components/Button";
 
 import NavBar from "../layouts/NavBar";
+import LoginForm from "../components/LoginForm";
 
 import styles from "../assets/styles/LoginStyles";
 
@@ -31,28 +32,36 @@ function Login() {
             });
     }
 
+    const center = {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
+    }
+
     return(
-        <div>
-        <div style={styles.loginStyles}>
-            <TextInput 
-                w='300px' 
-                h='30px' 
-                labelText='Email' 
-                value={email} 
-                setValue={setEmail} />
-            <TextInput 
-                w='300px' 
-                h='30px' 
-                labelText='Senha' 
-                value={password} 
-                setValue={setPassword} />
-            <Button 
-                w='120px' 
-                h='40px' 
-                color='#90EE90'
-                buttonText='Entrar'
-                onClick={logUser} />
-        </div>
+        <div style={center}>
+            <NavBar />
+            <LoginForm />
+            <div style={styles.loginStyles}>
+                <TextInput 
+                    w='300px' 
+                    h='30px' 
+                    labelText='Email' 
+                    value={email} 
+                    setValue={setEmail} />
+                <TextInput 
+                    w='300px' 
+                    h='30px' 
+                    labelText='Senha' 
+                    value={password} 
+                    setValue={setPassword} />
+                <Button 
+                    w='120px' 
+                    h='40px' 
+                    color='#90EE90'
+                    buttonText='Entrar'
+                    onClick={logUser} />
+            </div>
         </div>
     )
 }

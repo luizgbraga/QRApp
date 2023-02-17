@@ -1,7 +1,7 @@
 const styles = {
 
     stickerContainer: {
-        marginRight: '200px'
+        
     },
 
     sticker: {

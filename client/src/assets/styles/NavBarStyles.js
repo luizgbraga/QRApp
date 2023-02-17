@@ -1,6 +1,7 @@
 const styles = {
     logoStyles: {
-        width: '320px'
+        width: '320px',
+        cursor: 'pointer'
     },
 
     navContainerStyles: {

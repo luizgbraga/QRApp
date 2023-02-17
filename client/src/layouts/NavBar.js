@@ -15,7 +15,7 @@ function NavBar() {
     return(
         <div style={styles.navContainerStyles}>
             <div style={styles.linksContainerStyles}>
-                <img src={logo} style={styles.logoStyles}></img>
+                <img src={logo} style={styles.logoStyles} onClick={() => navigate('/')}></img>
                 <p style={styles.navLinkStyles}>Sobre nós</p>
                 <p style={styles.navLinkStyles}>Planos</p>
                 <p style={styles.navLinkStyles}>Suporte</p>
