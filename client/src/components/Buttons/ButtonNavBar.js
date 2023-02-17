@@ -1,8 +1,8 @@
 import React from 'react';
 
-import styles from '../assets/styles/ButtonStartNowStyles';
+import styles from '../../assets/styles/Buttons/ButtonNavBarStyles';
 
-function ButtonStartNow({ label, onClick }) {
+function ButtonNavBar({ label, onClick }) {
 
     return(
         <div
@@ -11,7 +11,7 @@ function ButtonStartNow({ label, onClick }) {
             <p style={styles.labelStyle}>{label}</p>
         </div>
     )
-    
+
 }
 
-export default ButtonStartNow;
+export default ButtonNavBar;

@@ -3,18 +3,21 @@ const styles = {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        width: '260px',
-        height: '60px',
+        width: '272px',
+        height: '64px',
         borderRadius: '50px',
         cursor: 'pointer',
         border: '0',
         backgroundColor: '#0000cc',
         color: 'white',
-        marginLeft: '100px'
+        marginLeft: '100px',
+        boxShadow: 'rgba(0, 0, 0, 0.25) 0px 25px 50px -12px'
     },
 
     labelStyle: {
-        fontSize: '26px'
+        fontSize: '26px',
+        fontWeight: 'bold',
+        letterSpacing: '0.95px'
     }
 }
 

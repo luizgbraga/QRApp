@@ -3,28 +3,30 @@ import React from "react";
 import NavBar from "../layouts/NavBar";
 import Slogan from "../components/Slogan";
 import Sticker from '../components/Sticker';
-import ButtonStartNow from "../components/ButtonStartNow";
+import ButtonStartNow from "../components/Buttons/ButtonStartNow";
 
 import { useNavigate } from "react-router-dom";
+import LoggedNavBar from "../layouts/LoggedNavBar";
 
 function Landing() {
 
     let navigate = useNavigate(); 
+    const token = localStorage.getItem('token');
 
     const midStyles = {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        margin: '72px 100px 20px 100px',
+        margin: '92px 100px 60px 100px',
         justifyContent: 'space-between'
     }
 
     return(
         <div>
-            <NavBar />
+            { token ? <LoggedNavBar /> : <NavBar /> }
             <div style={midStyles}>
                 <Slogan />
-                <Sticker />
+                {/* <Sticker /> */}
             </div>
             <ButtonStartNow label='Comece agora' onClick={() => navigate('/signin')} />
         </div>

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import styles from '../assets/styles/ButtonNavBarStyles';
+import styles from '../../assets/styles/Buttons/ButtonStartNowStyles';
 
-function ButtonNavBar({ label, onClick }) {
+function ButtonStartNow({ label, onClick }) {
 
     return(
         <div
@@ -14,4 +14,4 @@ function ButtonNavBar({ label, onClick }) {
     
 }
 
-export default ButtonNavBar;
+export default ButtonStartNow;

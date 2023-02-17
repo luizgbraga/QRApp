@@ -1,14 +1,10 @@
 import React, { useState } from "react";
 import axios from 'axios';
 
-import TextInput from "../components/TextInput";
-import Button from "../components/Button";
-
 import { useNavigate } from "react-router-dom";
 
 import NavBar from "../layouts/NavBar";
-
-import styles from "../assets/styles/SigninStyles";
+import SigninForm from '../components/Forms/SigninForm';
 
 function Signin() {
 
@@ -29,35 +25,16 @@ function Signin() {
         routeChange('/login');
     }
 
+    const center = {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
+    }
+
     return(
-        <div>
+        <div style={center}>
             <NavBar />
-            <div style={styles.signinStyles}>
-                <TextInput 
-                    w='300px' 
-                    h='30px' 
-                    labelText='Username' 
-                    value={userName} 
-                    setValue={setUserName} />
-                <TextInput 
-                    w='300px' 
-                    h='30px' 
-                    labelText='Email' 
-                    value={email} 
-                    setValue={setEmail} />
-                <TextInput 
-                    w='300px' 
-                    h='30px' 
-                    labelText='Senha' 
-                    value={password} 
-                    setValue={setPassword} />
-                <Button 
-                    w='200px' 
-                    h='40px' 
-                    color='#90EE90'
-                    buttonText='Criar conta'
-                    onClick={createUser} />
-            </div>
+            <SigninForm setUserName={setUserName} setEmail={setEmail} setPassword={setPassword} onClick={createUser} />
         </div>
     )
 }

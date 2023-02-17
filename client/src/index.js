@@ -10,6 +10,10 @@ import NewQR from './routes/NewQR';
 import QR from './routes/QR';
 import Home from './routes/Home';
 
+import Plans from './routes/Plans';
+import AboutUs from './routes/AboutUs';
+import Support from './routes/Support';
+
 import { Provider } from 'react-redux';
 import store from './store';
 
@@ -61,6 +65,21 @@ const router = createBrowserRouter([
     path: '/home',
     element: <Home />
   },
+
+  {
+    path: '/plans',
+    element: <Plans />
+  },
+
+  {
+    path: '/aboutus',
+    element: <AboutUs />
+  },
+
+  {
+    path: '/support',
+    element: <Support />
+  }
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

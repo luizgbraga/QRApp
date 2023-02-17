@@ -6,9 +6,7 @@ import { useNavigate } from "react-router-dom";
 import useFetchUserQR from "../hooks/useFetchUserQR";
 
 import CardQR from "../components/CardQR";
-import Button from "../components/Button";
-
-import styles from "../assets/styles/HomeStyles";
+import LoggedNavBar from "../layouts/LoggedNavBar";
 
 function Home() {
 
@@ -27,21 +25,16 @@ function Home() {
 
     return(
         <div>
-          <p style={styles.title}>Seus QRs</p>
+          <LoggedNavBar />
             {
               qrList.map(el => (
                 <CardQR 
-                  key={el.id}
+                  key={el._id}
+                  url={`http://192.168.68.123:3000/redirect?qrId=${el._id}`}
                   qrName={el.qrName} 
                   onClick={() => selectQR(el._id)} />
               ))
             }
-            <Button 
-                w='160px' 
-                h='40px' 
-                color='#A4DBE8'
-                buttonText='Profile'
-                onClick={() => routeChange('/profile')} />
         </div>
     )
 }

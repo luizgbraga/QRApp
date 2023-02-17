@@ -3,9 +3,8 @@ const styles = {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        width: '134px',
-        height: '40px',
-        fontSize: '14px',
+        width: '138px',
+        height: '44px',
         borderRadius: '22px',
         cursor: 'pointer',
         border: '0',
@@ -14,7 +13,8 @@ const styles = {
     },
 
     labelStyle: {
-        fontSize: '18px'
+        fontSize: '18.5px',
+        fontWeight: 'bold'
     }
 }
 

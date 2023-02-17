@@ -17,7 +17,8 @@ const styles = {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-around',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginLeft: '26px'
     },
 
     enterContainerStyles: {
@@ -26,10 +27,11 @@ const styles = {
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center',
+        marginRight: '26px'
     },
 
     navLinkStyles: {
-        fontSize: '20px',
+        fontSize: '20.5px',
         cursor: 'pointer'
     }
 }

@@ -4,13 +4,8 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 
-import TextInput from "../components/TextInput";
-import Button from "../components/Button";
-
 import NavBar from "../layouts/NavBar";
-import LoginForm from "../components/LoginForm";
-
-import styles from "../assets/styles/LoginStyles";
+import LoginForm from "../components/Forms/LoginForm";
 
 function Login() {
 
@@ -28,7 +23,7 @@ function Login() {
                 localStorage.setItem('token', response.data);
                 setPassword('');
                 setEmail('');
-                routeChange('/profile');
+                routeChange('/home');
             });
     }
 
@@ -41,27 +36,7 @@ function Login() {
     return(
         <div style={center}>
             <NavBar />
-            <LoginForm />
-            <div style={styles.loginStyles}>
-                <TextInput 
-                    w='300px' 
-                    h='30px' 
-                    labelText='Email' 
-                    value={email} 
-                    setValue={setEmail} />
-                <TextInput 
-                    w='300px' 
-                    h='30px' 
-                    labelText='Senha' 
-                    value={password} 
-                    setValue={setPassword} />
-                <Button 
-                    w='120px' 
-                    h='40px' 
-                    color='#90EE90'
-                    buttonText='Entrar'
-                    onClick={logUser} />
-            </div>
+            <LoginForm setEmail={setEmail} setPassword={setPassword} onClick={logUser} />
         </div>
     )
 }

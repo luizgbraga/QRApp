@@ -7,6 +7,7 @@ import useFetchUser from "../hooks/useFetchUser";
 
 import styles from "../assets/styles/ProfileStyles";
 
+import LoggedNavBar from "../layouts/LoggedNavBar";
 import Button from "../components/Button";
 
 
@@ -26,19 +27,8 @@ function Profile() {
 
     return(
         <div style={styles.profileStyles}>
+            <LoggedNavBar />
             <p style={styles.userName}>Nome do usuário: {user.userName}</p>
-            <Button 
-                w='160px' 
-                h='40px' 
-                color='#A4DBE8'
-                buttonText='Home'
-                onClick={() => routeChange('/home')} />
-            <Button 
-                w='160px' 
-                h='40px' 
-                color='#A4DBE8'
-                buttonText='Novo QR'
-                onClick={() => routeChange('/new')} />
             <Button 
                 w='100px' 
                 h='40px' 
