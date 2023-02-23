@@ -7,6 +7,38 @@ import TimeRestriction from "./TimeRestriction";
 import ButtonLogin from '../Buttons/ButtonLogin';
 
 function AddLinkForm({ setLinkName, setOsName, setLink, setLocRestriction, setTimeRestriction, createLink }) {
+
+    const brazilStates = [
+        "Todos",
+        "Acre",
+        "Alagoas",
+        "Amapá",
+        "Amazonas",
+        "Bahia",
+        "Ceará",
+        "Distrito Federal",
+        "Espirito Santo",
+        "Goiás",
+        "Maranhão",
+        "Mato Grosso do Sul",
+        "Mato Grosso",
+        "Minas Gerais",
+        "Pará",
+        "Paraíba",
+        "Paraná",
+        "Pernambuco",
+        "Piauí",
+        "Rio de Janeiro",
+        "Rio Grande do Norte",
+        "Rio Grande do Sul",
+        "Rondônia",
+        "Roraima",
+        "Santa Catarina",
+        "São Paulo",
+        "Sergipe",
+        "Tocantins",
+    ];
+
     return(
         <div style={styles.formContainer}>
             <p style={styles.titleStyles}>Adicionar novo link</p>
@@ -19,7 +51,7 @@ function AddLinkForm({ setLinkName, setOsName, setLink, setLocRestriction, setTi
                 <TimeRestriction setValue={setTimeRestriction} />
             </div>
             <div style={styles.restrictionFormStyles}>
-                <LoginTextInput label='Restrição de localização' placeholder='Estado de São Paulo' setValue={setLocRestriction} />
+                <SelectInput label='Restrição de localizção' options={brazilStates} setValue={setLocRestriction} bigger />
                 <ButtonLogin label='Adicionar link' space={true} onClick={createLink} />
             </div>
         </div>

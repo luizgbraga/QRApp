@@ -8,6 +8,7 @@ function TimeRestriction({ setValue }) {
     const [weekDay, setWeekDay] = useState('Todos');
     const [from, setFrom] = useState('00h');
     const [to, setTo] = useState('00h');
+    setValue(`${month}, ${weekDay}, ${from} - ${to}`);
 
     const months = ['Todos', 'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
     const weekDays = ['Todos', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado', 'Domingo'];
@@ -24,7 +25,7 @@ function TimeRestriction({ setValue }) {
                 }}>
                 {
                     months.map((el) => {
-                        return(<option>{el}</option>)   
+                        return(<option key={el}>{el}</option>)   
                     })
                 }
                 </select>
@@ -34,7 +35,7 @@ function TimeRestriction({ setValue }) {
                 }}>
                 {
                     weekDays.map((el) => {
-                        return(<option>{el}</option>)   
+                        return(<option key={el}>{el}</option>)   
                     })
                 }
                 </select>
@@ -44,7 +45,7 @@ function TimeRestriction({ setValue }) {
                 }}>
                 {
                     hours.map((el) => {
-                        return(<option>De {el}</option>)   
+                        return(<option key={el}>De {el}</option>)   
                     })
                 }
                 </select>
@@ -54,7 +55,7 @@ function TimeRestriction({ setValue }) {
                 }}>
                 {
                     hours.map((el) => {
-                        return(<option>Até {el}</option>)   
+                        return(<option key={el}>Até {el}</option>)   
                     })
                 }
                 </select>

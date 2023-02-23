@@ -12,6 +12,8 @@ function LoginTextInput({ label, placeholder, additional, setValue }) {
             <input style={styles.inputSyles}
                 placeholder={placeholder} 
                 onChange={(e) => setValue(e.target.value)}/>
+                <div style={{        width: '420px',
+        height: '22px', marginTop: '2.6px'}}></div>
         </div>
     )
 }

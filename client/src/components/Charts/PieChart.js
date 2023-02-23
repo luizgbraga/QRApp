@@ -10,7 +10,6 @@ class ApexPieChart extends React.Component {
         series: props.data,
         options: {
           chart: {
-            width: 380,
             type: 'pie',
           },
           labels: ['Android', 'iOS', 'Outro'],
@@ -35,10 +34,9 @@ class ApexPieChart extends React.Component {
 
     render() {
       return (
-        
-
+      
   <div id="chart">
-<ReactApexChart options={this.state.options} series={this.state.series} type="pie" width={380} />
+<ReactApexChart options={this.state.options} series={this.state.series} type="pie" width={400} />
 </div>
 
 );

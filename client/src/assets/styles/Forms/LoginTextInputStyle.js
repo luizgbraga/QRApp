@@ -27,13 +27,14 @@ const styles = {
 
     inputSyles: {
         width: '420px',
-        height: '54px',
+        height: '56px',
         padding: '10px 20px 10px 20px',
         fontSize: '20px',
         borderRadius: '6px',
         borderStyle: 'solid',
         borderWidth: '1px',
         marginTop: '8px',
+        borderColor: '#B3B3B3'
     }
 }
 

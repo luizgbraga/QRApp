@@ -6,17 +6,15 @@ function URL({ linkName, osName, timeRestriction, locRestriction, url }) {
         boxShadow: 'rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px',
         borderRadius: '5px',
         marginLeft: '20px',
-        padding: '10px',
+        padding: '12px',
         marginBottom: '20px'
     }
 
     const nameStyle = {
-        fontFamily: 'Verdana',
         fontSize: '18px'
     }
     
     const textStyle = {
-        fontFamily: 'Verdana',
         fontSize: '14px'
     }
 

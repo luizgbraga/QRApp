@@ -49,7 +49,7 @@ function QR() {
         })
       }
 
-    const redirect = `http://localhost:3000/redirect?qrId=${selectedQR}`;
+    const redirect = `http://192.168.68.123:3000/redirect?qrId=${selectedQR}`;
 
     return(
         <div style={styles.QRStyles}>
@@ -57,8 +57,7 @@ function QR() {
             <HeaderInfoQR qrName={qr.qrName} url={redirect} links={links.length} scans={scans.length} defaultLink={qr.defaultLink} />
             <AddLinkForm setOsName={setOsName} setLinkName={setLinkName} setTimeRestriction={setTimeRestriction} setLocRestriction={setLocRestriction} 
                         setLink={setLink} createLink={createLink}/>
-            <div style={styles.row}>
-                <div>
+            <div style={{ width: '1700px' }}>
                     {
                         links.map(el => (
                             <URL
@@ -70,7 +69,6 @@ function QR() {
                                 url={el.link} />
                         ))
                     }
-                </div>
             </div>
             <ScansInfo scans={scans} />
         </div>

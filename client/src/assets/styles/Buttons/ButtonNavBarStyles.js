@@ -5,7 +5,7 @@ const styles = {
         alignItems: 'center',
         width: '138px',
         height: '44px',
-        borderRadius: '22px',
+        borderRadius: '24px',
         cursor: 'pointer',
         border: '0',
         backgroundColor: '#13C47A',

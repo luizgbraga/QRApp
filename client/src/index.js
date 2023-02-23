@@ -22,7 +22,7 @@ import {
   RouterProvider
 } from 'react-router-dom'
 
-import './assets/styles/global.css';
+import './assets/styles/Global/global.css';
 
 const router = createBrowserRouter([
 

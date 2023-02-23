@@ -13,14 +13,14 @@ const styles = {
     },
 
     headerFormStyles: {
-        width: 'calc(100vw - 580px)',
+        width: '920px',
         display: 'flex',
         justifyContent: 'space-between',
         marginBottom: '20px'
     },
     
     restrictionFormStyles: {
-        width: 'calc(100vw - 580px)',
+        width: '920px',
         display: 'flex',
         justifyContent: 'space-between',
         marginBottom: '20px'

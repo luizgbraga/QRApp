@@ -35,3 +35,6 @@ const styles = {
 }
 
 export default styles;
+
+// https://apps.apple.com/br/app/instagram/id389801252
+// https://play.google.com/store/apps/details?id=com.instagram.android

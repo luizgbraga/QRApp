@@ -14,11 +14,11 @@ function ScansInfo({ scans }) {
         return acumulador;
     }, [0, 0, 0]);
 
-    if(true) {
+    if(data) {
         return(
             <div style={{ display: 'flex', width: '1000px' }}>
-                <ApexDateChart data={[1, 2]} />
-                <ApexPieChart data={[1, 2, 3]} />
+                <ApexDateChart data={data} />
+                <ApexPieChart data={scanByOS} />
             </div>  
         )
     } else {

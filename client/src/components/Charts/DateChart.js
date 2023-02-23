@@ -1,17 +1,17 @@
 import React from "react";
 import ReactApexChart from 'react-apexcharts';
 
+
 class ApexDateChart extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-      
         series: [{ data: props.data }],
         options: {
           chart: {
             id: 'area-datetime',
             type: 'area',
-            height: 350
+            width: '500px'
           },
           annotations: {
             yaxis: [{
@@ -43,13 +43,9 @@ class ApexDateChart extends React.Component {
           dataLabels: {
             enabled: false
           },
-          markers: {
-            size: 0,
-            style: 'hollow',
-          },
+
           xaxis: {
             type: 'datetime',
-            min: props.data[0][0],
             tickAmount: 6,
           },
           tooltip: {
@@ -67,8 +63,6 @@ class ApexDateChart extends React.Component {
             }
           },
         },
-    
-        selection: 'one_year',
       
       };
     }
@@ -77,7 +71,7 @@ class ApexDateChart extends React.Component {
       return ( 
         <div id="chart">
             <div id="chart-timeline">
-                <ReactApexChart options={this.state.options} series={this.state.series} type="area" height={350} />
+                <ReactApexChart options={this.state.options} series={this.state.series} type="area" width={800} height={400} />
             </div>
         </div>
         );

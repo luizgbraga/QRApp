@@ -1,3 +1,5 @@
+import colors from "../Global/colors";
+
 const styles = {
     buttonStyle: {
         display: 'flex',
@@ -8,7 +10,7 @@ const styles = {
         borderRadius: '50px',
         cursor: 'pointer',
         border: '0',
-        backgroundColor: '#0000cc',
+        backgroundColor: colors.blue,
         color: 'white',
         marginLeft: '100px',
         boxShadow: 'rgba(0, 0, 0, 0.25) 0px 25px 50px -12px'

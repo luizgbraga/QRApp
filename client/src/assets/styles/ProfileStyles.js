@@ -9,7 +9,6 @@ const styles = {
 
     userName: {
         fontSize: '24px',
-        fontFamily: 'Verdana'
     }
 }
 
