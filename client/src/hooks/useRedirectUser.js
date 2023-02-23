@@ -14,7 +14,7 @@ function useRedirectUser(qrId) {
         .get("https://ipapi.co/json/")
         .then((resLocation) => {
           axios
-            .get(`http://192.168.68.123:3001/api/qr/showQR?qrId=${qrId}`)
+            .get(`http://192.168.0.108:3001/api/qr/showQR?qrId=${qrId}`)
             .then((response) => {
               const location = `${resLocation.data.country_name}, ${resLocation.data.region}, ${resLocation.data.city}`;
               const url = decideLink(response.data[0].links, response.data[0].defaultLink, osName, location);
@@ -30,7 +30,7 @@ function useRedirectUser(qrId) {
 
   const updateScans = (scanLocation) => { 
     axios
-      .put(`http://192.168.68.123:3001/api/qr/updateScans?qrId=${qrId}`, {
+      .put(`http://192.168.0.108:3001/api/qr/updateScans?qrId=${qrId}`, {
         params: { osName, scanLocation }
       });
     }

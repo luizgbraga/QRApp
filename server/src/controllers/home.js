@@ -68,7 +68,7 @@ class HomeController {
     createLink(req, res) {
         const { linkName, osName, timeRestriction, locRestriction, link } = req.body.params;
         const qrId = req.body.params.qrId;
-        let info = { linkName, osName, timeRestriction, link };
+        let info = { linkName, osName, timeRestriction, locRestriction, link };
         QR.updateOne({ "_id": qrId }, { $push: { links: info } }, (err, result) => {
             if(err) { res.send(err) } 
             else { res.send(result) }

@@ -10,9 +10,12 @@ import { useNavigate } from "react-router-dom";
 
 import styles from "../assets/styles/QRStyles";
 
-import TextInput from "../components/TextInput";
-import Button from "../components/Button";
+import LoggedNavBar from "../layouts/LoggedNavBar";
+import HeaderInfoQR from "../components/HeaderInfoQR";
+
 import URL from "../components/URL";
+import AddLinkForm from "../components/Forms/AddLinkForm";
+import ScansInfo from "../components/ScansInfo";
 
 function QR() {
 
@@ -47,51 +50,15 @@ function QR() {
         })
       }
 
-    const redirect = `http://192.168.68.123:3000/redirect?qrId=${selectedQR}`;
+    const redirect = `http://192.168.0.108:3000/redirect?qrId=${selectedQR}`;
 
     return(
         <div style={styles.QRStyles}>
-            <p style={styles.qrName}>Nome: {qr.qrName}</p>
-            <QRCode value={redirect} size={160} style={styles.qrCode} />
+            <LoggedNavBar />
+            <HeaderInfoQR qrName={qr.qrName} url={redirect} links={links.length} scans={scans.length} defaultLink={qr.defaultLink} />
+            <AddLinkForm setOsName={setOsName} setLinkName={setLinkName} setTimeRestriction={setTimeRestriction} setLocRestriction={setLocRestriction} 
+                        setLink={setLink} createLink={createLink}/>
             <div style={styles.row}>
-                <div>
-                    <TextInput 
-                        w='300px' 
-                        h='20px' 
-                        labelText='Nome do link' 
-                        value={linkName} 
-                        setValue={setLinkName} />
-                    <TextInput 
-                        w='300px' 
-                        h='20px' 
-                        labelText='Sistema operacional' 
-                        value={osName} 
-                        setValue={setOsName} />
-                    <TextInput 
-                        w='300px' 
-                        h='20px' 
-                        labelText='Restrição de tempo' 
-                        value={timeRestriction} 
-                        setValue={setTimeRestriction} />
-                    <TextInput 
-                        w='300px' 
-                        h='20px' 
-                        labelText='Restrição de localização' 
-                        value={locRestriction} 
-                        setValue={setLocRestriction} />
-                    <TextInput 
-                        w='300px' 
-                        h='20px' 
-                        labelText='URL' 
-                        value={link} 
-                        setValue={setLink} />
-                    <Button 
-                        w='120px' 
-                        h='40px' 
-                        color='#90EE90'
-                        buttonText='Criar URL'
-                        onClick={createLink} />
-                </div>
                 <div>
                     {
                         links.map(el => (
@@ -99,13 +66,14 @@ function QR() {
                                 key={el._id} 
                                 linkName={el.linkName}
                                 timeRestriction={el.timeRestriction}
+                                locRestriction={el.locRestriction}
                                 osName={el.osName}
                                 url={el.link} />
                         ))
                     }
                 </div>
             </div>
-            <p style={styles.qrName}>Scans</p>
+            <ScansInfo />
             {
                 scans.map(el => (
                     <p>{el.osName} - {el.scanLocation} - {el.scanDate}</p>

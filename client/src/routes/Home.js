@@ -32,6 +32,8 @@ function Home() {
                   key={el._id}
                   url={`http://192.168.68.123:3000/redirect?qrId=${el._id}`}
                   qrName={el.qrName} 
+                  scans={el.scans.length}
+                  links={el.links.length}
                   onClick={() => selectQR(el._id)} />
               ))
             }

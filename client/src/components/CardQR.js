@@ -2,11 +2,11 @@ import React from 'react';
 
 import QRCode from "react-qr-code";
 
-function CardQR({ qrName, onClick, url }) {
+function CardQR({ qrName, onClick, url, scans, links }) {
     const cardStyle = {
         display: 'flex',
         flexDirection: 'row',
-        width: '1000px',
+        width: '600px',
         height: '120px',
         borderRadius: '4px',
         marginBottom: '34px',
@@ -16,15 +16,16 @@ function CardQR({ qrName, onClick, url }) {
     }
 
     const leftStyle = {
-        width: '60%',
+        width: '80%',
         height: '120px',
-        padding: '20px'
+        padding: '16px'
     }
 
     const rightStyle = {
         display: 'flex',
         alignItems: 'center',
-        width: '40%',
+        justifyContent: 'center',
+        width: '20%',
         height: '120px',
     }
 
@@ -32,10 +33,22 @@ function CardQR({ qrName, onClick, url }) {
         fontSize: '24px'
     }
 
+    const qrInfoStyle = {
+        height: '60px',
+        display: 'flex',
+        justifyContent: 'center',
+        flexWrap: 'wrap',
+        flexDirection: 'column'
+    }
+
     return(
         <div style={cardStyle} onClick={onClick}>
             <div style={leftStyle}>
                 <p style={textStyle}>{qrName}</p>
+                <div style={qrInfoStyle}>
+                    <p>Scans: {scans}</p>
+                    <p>Links: {links}</p>
+                </div>
             </div>
             <div style={rightStyle}>
                 <QRCode value={url} size={90} />

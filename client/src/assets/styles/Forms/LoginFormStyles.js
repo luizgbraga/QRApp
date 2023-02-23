@@ -3,8 +3,9 @@ const styles = {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        justifyContent: 'center',
         width: '540px',
-        marginTop: '120px'
+        height: 'calc(100vh - 80px)'
     },
 
     titleStyles: {
@@ -15,8 +16,8 @@ const styles = {
 
     subtitleStyles: {
         fontSize: '22px',
-        marginTop: '10px',
-        marginBottom: '40px'
+        marginTop: '8px',
+        marginBottom: '20px'
     },
 
     signinStyles: {

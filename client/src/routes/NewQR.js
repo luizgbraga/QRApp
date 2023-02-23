@@ -3,10 +3,10 @@ import axios from 'axios';
 
 import { useNavigate } from "react-router-dom";
 
-import TextInput from "../components/TextInput";
-import Button from "../components/Button";
-
 import useFetchUser from "../hooks/useFetchUser";
+import LoggedNavBar from "../layouts/LoggedNavBar";
+
+import CreateNewForm from "../components/Forms/CreateNewForm";
 
 function NewQR() {
 
@@ -33,32 +33,18 @@ function NewQR() {
         routeChange('/home');
     }
 
+    const center = {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+    }
+
     return(
-        <div>
-            <TextInput 
-                w='300px' 
-                h='30px' 
-                labelText='Nome do QR' 
-                value={qrName} 
-                setValue={setQRName} />
-            <TextInput 
-                w='300px' 
-                h='30px' 
-                labelText='Link padrão' 
-                value={defaultLink} 
-                setValue={setDefaultLink} />
-            <Button 
-                w='120px' 
-                h='40px' 
-                color='#90EE90'
-                buttonText='Criar'
-                onClick={createQR} />
-            <Button 
-                w='160px' 
-                h='40px' 
-                color='#A4DBE8'
-                buttonText='Profile'
-                onClick={() => routeChange('/profile')} />
+        <div style={center}>
+            <LoggedNavBar />
+            <div style={{ height: 'calc(100vh - 80px)', display: 'flex', alignItems: 'center' }}>
+                <CreateNewForm setName={setQRName} setDefaultLink={setDefaultLink} onClick={createQR} />
+            </div>
         </div>
     )
 }

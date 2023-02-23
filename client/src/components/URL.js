@@ -1,9 +1,9 @@
 import React from "react";
 
-function URL({ linkName, osName, timeRestriction, url }) {
+function URL({ linkName, osName, timeRestriction, locRestriction, url }) {
     const cardStyle = {
         width: '1000px',
-        backgroundColor: '#FDFD96',
+        boxShadow: 'rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px',
         borderRadius: '5px',
         marginLeft: '20px',
         padding: '10px',
@@ -12,12 +12,12 @@ function URL({ linkName, osName, timeRestriction, url }) {
 
     const nameStyle = {
         fontFamily: 'Verdana',
-        fontSize: '20px'
+        fontSize: '18px'
     }
     
     const textStyle = {
         fontFamily: 'Verdana',
-        fontSize: '16px'
+        fontSize: '14px'
     }
 
     const row = {
@@ -29,7 +29,7 @@ function URL({ linkName, osName, timeRestriction, url }) {
         <div style={cardStyle}>
             <p style={nameStyle}>{linkName} - {url}</p>
             <div style={row}>
-                <p style={textStyle}>OS: {osName}, Restrição de tempo: {timeRestriction}</p>
+                <p style={textStyle}>OS: {osName}, Restrição de tempo: {timeRestriction}, Localização: {locRestriction}</p>
             </div>
         </div>
     )

@@ -7,7 +7,7 @@ const styles = {
     title: {
         fontSize: '90px',
         fontWeight: 'bold',
-        marginBottom: '60px',
+        marginBottom: '40px',
         letterSpacing: '0.8px'
     },
 

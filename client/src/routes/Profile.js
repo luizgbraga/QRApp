@@ -8,7 +8,6 @@ import useFetchUser from "../hooks/useFetchUser";
 import styles from "../assets/styles/ProfileStyles";
 
 import LoggedNavBar from "../layouts/LoggedNavBar";
-import Button from "../components/Button";
 
 
 function Profile() {
@@ -29,12 +28,7 @@ function Profile() {
         <div style={styles.profileStyles}>
             <LoggedNavBar />
             <p style={styles.userName}>Nome do usuário: {user.userName}</p>
-            <Button 
-                w='100px' 
-                h='40px' 
-                color='#FF8080'
-                buttonText='Sair'
-                onClick={logOut} />
+            <p onClick={logOut}>Sair</p>
         </div>
     )
 }

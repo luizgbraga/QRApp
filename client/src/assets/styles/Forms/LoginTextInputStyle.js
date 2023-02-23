@@ -27,7 +27,7 @@ const styles = {
 
     inputSyles: {
         width: '420px',
-        height: '56px',
+        height: '54px',
         padding: '10px 20px 10px 20px',
         fontSize: '20px',
         borderRadius: '6px',
