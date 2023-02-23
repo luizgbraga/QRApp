@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from 'axios';
-import QRCode from "react-qr-code";
 
 import { connect } from 'react-redux';
 
@@ -50,7 +49,7 @@ function QR() {
         })
       }
 
-    const redirect = `http://192.168.0.108:3000/redirect?qrId=${selectedQR}`;
+    const redirect = `http://localhost:3000/redirect?qrId=${selectedQR}`;
 
     return(
         <div style={styles.QRStyles}>
@@ -73,12 +72,7 @@ function QR() {
                     }
                 </div>
             </div>
-            <ScansInfo />
-            {
-                scans.map(el => (
-                    <p>{el.osName} - {el.scanLocation} - {el.scanDate}</p>
-                ))
-            }
+            <ScansInfo scans={scans} />
         </div>
     )
 }
