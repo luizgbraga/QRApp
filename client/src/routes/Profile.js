@@ -1,6 +1,5 @@
 import React from "react";
 
-import { connect } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 
 import useFetchUser from "../hooks/useFetchUser";
@@ -33,4 +32,4 @@ function Profile() {
     )
 }
 
-export default connect(state => ({ token: state.login.token }))(Profile);
+export default Profile;

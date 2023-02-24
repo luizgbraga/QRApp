@@ -1,10 +1,9 @@
 import React from 'react';
 
 import logo from '../assets/images/logo+name.png';
+import styles from '../assets/styles/NavBar/LoggedNavBarStyles';
 
 import ButtonNavBar from '../components/Buttons/ButtonNavBar';
-
-import styles from '../assets/styles/NavBar/LoggedNavBarStyles';
 
 import { useNavigate } from "react-router-dom";
 
@@ -20,7 +19,7 @@ function LoggedNavBar() {
                 <p style={styles.navLinkStyles} onClick={() => navigate('/plans')}>Planos</p>
                 <p style={styles.navLinkStyles} onClick={() => navigate('/support')}>Suporte</p>
             </div>
-            <div style={styles.enterContainerStyles}>
+            <div style={styles.buttonsContainerStyles}>
                 <ButtonNavBar label='Novo QR' onClick={() => navigate('/new')} />
                 <ButtonNavBar label='Meus QRs' onClick={() => navigate('/home')} />
                 <ButtonNavBar label='Perfil' onClick={() => navigate('/profile')} />

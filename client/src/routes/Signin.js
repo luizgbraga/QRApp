@@ -3,6 +3,8 @@ import axios from 'axios';
 
 import { useNavigate } from "react-router-dom";
 
+import globalStyles from "../assets/styles/Global/globalStyles";
+
 import NavBar from "../layouts/NavBar";
 import SigninForm from '../components/Forms/SigninForm';
 
@@ -25,14 +27,8 @@ function Signin() {
         routeChange('/login');
     }
 
-    const center = {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center'
-    }
-
     return(
-        <div style={center}>
+        <div style={globalStyles.columnCentered}>
             <NavBar />
             <SigninForm setUserName={setUserName} setEmail={setEmail} setPassword={setPassword} onClick={createUser} />
         </div>

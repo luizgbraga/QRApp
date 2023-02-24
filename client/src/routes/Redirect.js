@@ -1,7 +1,9 @@
 import React from 'react';
 import { useSearchParams } from "react-router-dom";
 
-import getOperatingSystem from '../decideOs';
+import getOperatingSystem from '../logic/decideOs';
+
+import globalStyles from '../assets/styles/Global/globalStyles';
 
 import useRedirectUser from '../hooks/useRedirectUser';
 
@@ -14,7 +16,7 @@ function Redirect() {
     useRedirectUser(qrId, osName);
     
     return(
-        <div>
+        <div style={globalStyles.center}>
             <p>Fui escaneado</p>
         </div>
     )

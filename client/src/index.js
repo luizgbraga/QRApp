@@ -14,9 +14,6 @@ import Plans from './routes/Plans';
 import AboutUs from './routes/AboutUs';
 import Support from './routes/Support';
 
-import { Provider } from 'react-redux';
-import store from './store';
-
 import {
   createBrowserRouter,
   RouterProvider
@@ -32,13 +29,8 @@ const router = createBrowserRouter([
   },
 
   {
-    path: '/redirect',
-    element: <Redirect />
-  },
-
-  {
-    path: '/signin',
-    element: <Signin />
+    path: '/home',
+    element: <Home />
   },
 
   {
@@ -47,8 +39,18 @@ const router = createBrowserRouter([
   },
 
   {
+    path: '/signin',
+    element: <Signin />
+  },
+
+  {
     path: '/profile',
     element: <Profile />
+  },
+
+  {
+    path: '/redirect',
+    element: <Redirect />
   },
 
   {
@@ -59,11 +61,6 @@ const router = createBrowserRouter([
   {
     path: '/qr',
     element: <QR />
-  },
-
-  {
-    path: '/home',
-    element: <Home />
   },
 
   {
@@ -84,7 +81,5 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Provider store={store}>
     <RouterProvider router={router} />
-  </Provider>
 );

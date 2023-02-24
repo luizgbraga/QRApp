@@ -13,7 +13,7 @@ const styles = {
     },
 
     headerFormStyles: {
-        width: '920px',
+        width: 'calc(100vw - 200px)',
         display: 'flex',
         justifyContent: 'space-between',
         marginBottom: '20px'

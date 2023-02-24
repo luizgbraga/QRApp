@@ -1,9 +1,10 @@
+import globalStyles from "../Global/globalStyles";
+import colors from "../Global/colors";
+
 const styles = {
     loginFormContainerStyles: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
+        ...globalStyles.center,
+        ...globalStyles.column,
         width: '540px',
         height: 'calc(100vh - 80px)'
     },
@@ -21,15 +22,14 @@ const styles = {
     },
 
     signinStyles: {
-        color: '#13C47A',
-        cursor: 'pointer',
+        ...globalStyles.pointer,
+        color: colors.green,
         fontWeight: 'bold'
     },
 
     inputsStyles: {
+        ...globalStyles.column,
         height: '240px',
-        display: 'flex',
-        flexDirection: 'column',
         justifyContent: 'space-around'
     }
 }

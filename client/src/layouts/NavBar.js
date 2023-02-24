@@ -20,7 +20,7 @@ function NavBar() {
                 <p style={styles.navLinkStyles} onClick={() => navigate('/plans')}>Planos</p>
                 <p style={styles.navLinkStyles} onClick={() => navigate('/support')}>Suporte</p>
             </div>
-            <div style={styles.enterContainerStyles}>
+            <div style={styles.buttonsContainerStyles}>
                 <ButtonNavBar label='Entrar' onClick={() => navigate('/login')} />
                 <ButtonNavBar label='Criar conta' onClick={() => navigate('/signin')} />
             </div>

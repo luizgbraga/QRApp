@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from 'axios';
+import config from "../config/host";
 
 function useFetchUserQR(token) {
+
     const [qrList, setQRList] = useState([]);
+
     useEffect(() => {
-        axios.get(`http://localhost:3001/api/qr/showUserQR`, {
+        axios.get(`http://${config.host}:3001/api/qr/showUserQR`, {
           headers: {
             authorization: token
           }
@@ -14,6 +17,7 @@ function useFetchUserQR(token) {
       }, []);
 
       return qrList;
+      
 }
 
 export default useFetchUserQR;

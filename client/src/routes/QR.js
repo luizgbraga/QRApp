@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import axios from 'axios';
 
-import { connect } from 'react-redux';
 
 import useFetchQR from "../hooks/useFetchQR";
+import config from "../config/host";
 
 import { useNavigate } from "react-router-dom";
 
@@ -34,7 +34,7 @@ function QR() {
     const { qr, links, scans } = useFetchQR(token, selectedQR);
 
       const createLink = () => {
-        axios.put(`http://localhost:3001/api/qr/createLink`, {
+        axios.put(`http://${config.host}:3001/api/qr/createLink`, {
             headers: {
                 authorization: token
             },
@@ -49,7 +49,7 @@ function QR() {
         })
       }
 
-    const redirect = `http://192.168.68.123:3000/redirect?qrId=${selectedQR}`;
+    const redirect = `http://${config.host}:3000/redirect?qrId=${selectedQR}`;
 
     return(
         <div style={styles.QRStyles}>
@@ -75,4 +75,4 @@ function QR() {
     )
 }
 
-export default connect(state => ({ token: state.login.token }))(QR);
+export default QR;

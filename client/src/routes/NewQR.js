@@ -3,6 +3,8 @@ import axios from 'axios';
 
 import { useNavigate } from "react-router-dom";
 
+import globalStyles from "../assets/styles/Global/globalStyles";
+
 import useFetchUser from "../hooks/useFetchUser";
 import LoggedNavBar from "../layouts/LoggedNavBar";
 
@@ -33,14 +35,8 @@ function NewQR() {
         routeChange('/home');
     }
 
-    const center = {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-    }
-
     return(
-        <div style={center}>
+        <div style={globalStyles.columnCentered}>
             <LoggedNavBar />
             <div style={{ height: 'calc(100vh - 80px)', display: 'flex', alignItems: 'center' }}>
                 <CreateNewForm setName={setQRName} setDefaultLink={setDefaultLink} onClick={createQR} />

@@ -15,8 +15,8 @@ function HeaderInfoQR({ qrName, url, scans, links, defaultLink }) {
             </div>
             <div style={styles.infoContainerStyles}>
                 <p style={styles.titleStyles}>{qrName}</p>
-                <Line />
-                <p>{defaultLink}</p>
+                <Line mt='16px' mb='16px' />
+                <p style={{ fontSize: '20px' }}>{defaultLink}</p>
                 <div style={styles.dataContainerStyles}>
                     <InfoHeader name='Scans' value={scans} />
                     <InfoHeader name='Links' value={links} />

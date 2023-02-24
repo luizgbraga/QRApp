@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
+import config from "../config/host";
 
 function useFetchQR(token, selectedQR) {
   
@@ -10,7 +11,7 @@ function useFetchQR(token, selectedQR) {
     useEffect(() => {
 
         axios
-          .get(`http://localhost:3001/api/qr/showQR`, {
+          .get(`http://${config.host}:3001/api/qr/showQR`, {
             headers: { authorization: token },
             params: { qrId: selectedQR }
         })

@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import axios from 'axios';
 
-import { connect } from 'react-redux';
+import config from "../config/host";
+
+import globalStyles from "../assets/styles/Global/globalStyles";
+
 import { useNavigate } from "react-router-dom";
 
 import NavBar from "../layouts/NavBar";
@@ -16,7 +19,7 @@ function Login() {
     const [password, setPassword] = useState('');
 
     const logUser = () => {
-        axios.post(`http://localhost:3001/api/login/logUser`, { 
+        axios.post(`http://${config.host}:3001/api/login/logUser`, { 
           email, password
         })
             .then((response) => {
@@ -27,18 +30,12 @@ function Login() {
             });
     }
 
-    const center = {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center'
-    }
-
     return(
-        <div style={center}>
+        <div style={globalStyles.columnCentered}>
             <NavBar />
             <LoginForm setEmail={setEmail} setPassword={setPassword} onClick={logUser} />
         </div>
     )
 }
 
-export default connect(state => ({ token: state.login.token }))(Login);
+export default Login;

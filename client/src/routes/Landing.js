@@ -2,7 +2,6 @@ import React from "react";
 
 import NavBar from "../layouts/NavBar";
 import Slogan from "../components/Slogan";
-import Sticker from '../components/Sticker';
 import ButtonStartNow from "../components/Buttons/ButtonStartNow";
 
 import { useNavigate } from "react-router-dom";
@@ -26,7 +25,6 @@ function Landing() {
             { token ? <LoggedNavBar /> : <NavBar /> }
             <div style={midStyles}>
                 <Slogan />
-                {/* <Sticker /> */}
             </div>
             <ButtonStartNow label='Comece agora' onClick={() => navigate('/signin')} />
         </div>

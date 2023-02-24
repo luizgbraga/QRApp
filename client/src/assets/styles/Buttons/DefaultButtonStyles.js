@@ -5,17 +5,15 @@ const styles = {
     buttonStyle: {
         ...globalStyles.center,
         ...globalStyles.pointer,
+        ...globalStyles.defaultSize,
         backgroundColor: colors.green,
         color: colors.white,
-        width: '144px',
-        height: '44px',
-        borderRadius: '24px'
+        height: '50px',
+        borderRadius: '8px'
     },
 
     labelStyle: {
-        fontSize: '18.5px',
-        fontWeight: 'bold',
-        letterSpacing: '1px'
+        fontSize: '20px'
     }
 }
 

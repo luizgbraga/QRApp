@@ -1,10 +1,14 @@
 import React from "react";
 
-function Line() {
+function Line({ w, mt, mb }) {
     return(
-        <div style={{ display: 'flex', alignItems: 'center', margin: '16px 0px 16px 0px' }}>
-            <div style={{ width: '1000px', height: '0.5px', backgroundColor: '#757575' }}></div>
-        </div>
+        <div style={{ 
+            width: w, 
+            height: '0.5px', 
+            backgroundColor: '#757575',
+            marginTop: mt,
+            marginBottom: mb
+        }} />
     )
 }
 

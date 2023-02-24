@@ -1,10 +1,10 @@
 import React from "react";
 
 import styles from "../../assets/styles/Forms/AddLinkFormStyles";
-import LoginTextInput from './LoginTextInputs';
-import SelectInput from "./SelectInput";
-import TimeRestriction from "./TimeRestriction";
-import ButtonLogin from '../Buttons/ButtonLogin';
+
+import ButtonLogin from '../Buttons/DefaultButton';
+import TextInput from "../Inputs/TextInput";
+import SelectInput from "../Inputs/SelectInput";
 
 function AddLinkForm({ setLinkName, setOsName, setLink, setLocRestriction, setTimeRestriction, createLink }) {
 
@@ -43,15 +43,18 @@ function AddLinkForm({ setLinkName, setOsName, setLink, setLocRestriction, setTi
         <div style={styles.formContainer}>
             <p style={styles.titleStyles}>Adicionar novo link</p>
             <div style={styles.headerFormStyles}>
-                <LoginTextInput label='Nome do link' placeholder='Android e IOs domingo em SP' setValue={setLinkName} />
-                <LoginTextInput label='URL' placeholder='https://menu/domingo/happy-hour' setValue={setLink} />
+                <TextInput label='Nome do link' placeholder='Android e IOs domingo em SP' setValue={setLinkName} w='calc(100vw - 1090px)' />
+                <TextInput label='URL' placeholder='https://menu/domingo/happy-hour' setValue={setLink} w='calc(100vw - 1090px)' />
             </div>
-            <div style={styles.restrictionFormStyles}>
-                <SelectInput label='Sistema operacional' options={['Todos', 'iOS', 'Android', 'Windows Phone']} setValue={setOsName} />
-                <TimeRestriction setValue={setTimeRestriction} />
+            <div style={styles.headerFormStyles}>
+                <SelectInput label='Sistema operacional' options={['Todos', 'iOS', 'Android', 'Windows Phone']} setValue={setOsName} w='calc(100vw - 1400px)' isMulti/>
+                <SelectInput label='Meses' options={['Todos', 'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']} setValue={setOsName} w='calc(100vw - 1380px)' isMulti />
+                <SelectInput label='Dias da semana' options={['Todos', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado', 'Domingo']} setValue={setOsName} w='calc(100vw - 1380px)' isMulti/>
             </div>
-            <div style={styles.restrictionFormStyles}>
-                <SelectInput label='Restrição de localizção' options={brazilStates} setValue={setLocRestriction} bigger />
+            <div style={styles.headerFormStyles}>
+                <SelectInput label='Hora inicial' options={['00h', '01h', '02h', '03h', '04h', '05h', '06h', '07h', '08h', '09h', '10h', '11h', '12h', '13h', '14h', '15h', '16h', '17h', '18h', '19h', '20h', '21h', '22h', '23h']} setValue={setOsName} w='calc(100vw - 1650px)' />
+                <SelectInput label='Hora final' options={['00h', '01h', '02h', '03h', '04h', '05h', '06h', '07h', '08h', '09h', '10h', '11h', '12h', '13h', '14h', '15h', '16h', '17h', '18h', '19h', '20h', '21h', '22h', '23h']} setValue={setOsName} w='calc(100vw - 1650px)' />
+                <SelectInput label='Restrição de localização' options={brazilStates} setValue={setLocRestriction} w='calc(100vw - 1340px)' isMulti />
                 <ButtonLogin label='Adicionar link' space={true} onClick={createLink} />
             </div>
         </div>

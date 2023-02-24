@@ -1,38 +1,32 @@
+import globalStyles from "../Global/globalStyles";
+
 const styles = {
     logoStyles: {
-        width: '320px',
-        cursor: 'pointer'
+        ...globalStyles.pointer,
+        width: '320px'
     },
 
     navContainerStyles: {
+        ...globalStyles.horizontalSpaceBetween,
         width: '100%',
-        height: '80px',
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
+        height: '80px'
     },
 
     linksContainerStyles: {
+        ...globalStyles.horizontalSpaceAround,
         width: 'min(100% - 360px, 800px)',
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        alignItems: 'center',
         marginLeft: '26px'
     },
 
-    enterContainerStyles: {
+    buttonsContainerStyles: {
+        ...globalStyles.horizontalSpaceAround,
         width: '360px',
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        alignItems: 'center',
         marginRight: '26px'
     },
 
     navLinkStyles: {
-        fontSize: '20.5px',
-        cursor: 'pointer'
+        ...globalStyles.pointer,
+        fontSize: '20.5px'
     }
 }
 

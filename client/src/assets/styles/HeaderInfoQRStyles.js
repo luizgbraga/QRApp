@@ -3,7 +3,7 @@ const styles = {
         display: 'flex',
         flexDirection: 'row',
         width: 'calc(100vw - 200px)',
-        height: '180px',
+        height: '188px',
         margin: '40px 100px 40px 100px'
     },
 
@@ -14,11 +14,11 @@ const styles = {
     },
 
     infoContainerStyles: {
-        width: '80%'
+        width: '84%'
     },
 
     titleStyles: {
-        fontSize: '28px',
+        fontSize: '36px',
         fontWeight: 'bold'
     },
 

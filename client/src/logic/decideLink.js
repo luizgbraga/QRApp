@@ -12,8 +12,15 @@ const getTime = () => {
 }
 
 const decideLink = (links, defaultLink, osName, location) => {
+    const time = getTime();
     for(let link of links) {
-        if(link.osName === osName) {
+        let osCheck = link.osName.includes(osName);
+        let timeCheck = 
+        link.timeRestriction.includes(time.month) && 
+        link.timeRestriction.includes(time.weekDay) && 
+        link.timeRestriction.includes(time.hour);
+        let locCheck = link.locRestriction.includes(location);
+        if(osCheck && timeCheck && locCheck) {
             return link.link;
         }
     }

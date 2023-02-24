@@ -1,12 +1,14 @@
 import globalStyles from "../Global/globalStyles";
 import colors from "../Global/colors";
 
-const inputsStyles = {
+const textInputStyles = {
     defaultTextInput: {
-        width: '420px',
-        height: '56px',
+        ...globalStyles.defaultSize,
+        ...globalStyles.littleRoundedBorder,
         padding: '10px 20px 10px 20px',
-        ...globalStyles.littleRoundedBorder
+        marginTop: '8px',
+        fontSize: '20px',
+        borderColor: colors.grey
     },
 
     defaultLabelContainer: {
@@ -40,4 +42,4 @@ const inputsStyles = {
     }
 }
 
-export default inputsStyles;
+export default textInputStyles;
