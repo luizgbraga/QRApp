@@ -1,10 +1,11 @@
+import globalStyles from "./Global/globalStyles";
+
 const styles = {
     headerInfoContainerStyles: {
-        display: 'flex',
-        flexDirection: 'row',
-        width: 'calc(100vw - 200px)',
-        height: '188px',
-        margin: '40px 100px 40px 100px'
+        ...globalStyles.row,
+        width: 'calc(100vw - 310px)',
+        height: '190px',
+        padding: '0px 100px 0px 100px'
     },
 
     qrContainerStyles: {
@@ -25,7 +26,7 @@ const styles = {
     dataContainerStyles: {
         display: 'flex',
         flexDirection: 'row',
-        width: '50%',
+        width: '40%',
         justifyContent: 'space-between',
         marginTop: '20px'
     }

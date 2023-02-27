@@ -11,7 +11,7 @@ function HeaderInfoQR({ qrName, url, scans, links, defaultLink }) {
     return(
         <div style={styles.headerInfoContainerStyles}>
             <div style={styles.qrContainerStyles}>
-                <QRCode value={url} size={160} />
+                <QRCode value={url} size={180} />
             </div>
             <div style={styles.infoContainerStyles}>
                 <p style={styles.titleStyles}>{qrName}</p>

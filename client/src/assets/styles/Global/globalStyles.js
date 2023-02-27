@@ -35,6 +35,11 @@ const globalStyles = {
         alignItems: 'center',
     },
 
+    verticalAlign: {
+        display: 'flex',
+        alignItems: 'center'
+    },
+
     littleRoundedBorder: {
         borderRadius: '6px',
         borderStyle: 'solid',

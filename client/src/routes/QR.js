@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios';
-
+import useFetchUserQR from "../hooks/useFetchUserQR";
 
 import useFetchQR from "../hooks/useFetchQR";
 import config from "../config/host";
@@ -9,12 +9,15 @@ import { useNavigate } from "react-router-dom";
 
 import styles from "../assets/styles/QRStyles";
 
-import LoggedNavBar from "../layouts/LoggedNavBar";
 import HeaderInfoQR from "../components/HeaderInfoQR";
+import Links from "../components/Links";
 
-import URL from "../components/URL";
+import URL from "../components/LinkBox";
 import AddLinkForm from "../components/Forms/AddLinkForm";
 import ScansInfo from "../components/ScansInfo";
+
+import SideBar from "../layouts/SideBar";
+import TopBar from "../layouts/TopBar";
 
 function QR() {
 
@@ -32,6 +35,7 @@ function QR() {
     const selectedQR = localStorage.getItem('selectedQR');
 
     const { qr, links, scans } = useFetchQR(token, selectedQR);
+    const qrList = useFetchUserQR(token);
 
       const createLink = () => {
         axios.put(`http://${config.host}:3001/api/qr/createLink`, {
@@ -50,11 +54,16 @@ function QR() {
       }
 
     const redirect = `http://${config.host}:3000/redirect?qrId=${selectedQR}`;
-
+    
     return(
-        <div style={styles.QRStyles}>
-            <LoggedNavBar />
-            <HeaderInfoQR qrName={qr.qrName} url={redirect} links={links.length} scans={scans.length} defaultLink={qr.defaultLink} />
+        <div style={{ display: 'flex' }}>
+            <SideBar qrList={qrList} />
+            <div>
+                <TopBar />
+                <HeaderInfoQR qrName={qr.qrName} url={redirect} links={links.length} scans={scans.length} defaultLink={qr.defaultLink} />
+                <Links links={links} />
+            </div>
+            { /*
             <AddLinkForm setOsName={setOsName} setLinkName={setLinkName} setTimeRestriction={setTimeRestriction} setLocRestriction={setLocRestriction} 
                         setLink={setLink} createLink={createLink}/>
             <div style={{ width: '1700px' }}>
@@ -71,6 +80,8 @@ function QR() {
                     }
             </div>
             <ScansInfo scans={scans} />
+            */
+            }
         </div>
     )
 }

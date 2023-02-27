@@ -4,7 +4,7 @@ import logo from '../assets/images/logo+name.png';
 
 import ButtonNavBar from '../components/Buttons/ButtonNavBar';
 
-import styles from '../assets/styles/NavBar/NavBarStyles';
+import styles from '../assets/styles/Layout/NavBarStyles';
 
 import { useNavigate } from "react-router-dom";
 

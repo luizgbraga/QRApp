@@ -1,7 +1,7 @@
 import React from 'react';
 
 import logo from '../assets/images/logo+name.png';
-import styles from '../assets/styles/NavBar/LoggedNavBarStyles';
+import styles from '../assets/styles/Layout/LoggedNavBarStyles';
 
 import ButtonNavBar from '../components/Buttons/ButtonNavBar';
 

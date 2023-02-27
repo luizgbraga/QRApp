@@ -1,13 +1,21 @@
 import React from "react";
 
-import NavBar from "../layouts/NavBar";
-import LoggedNavBar from "../layouts/LoggedNavBar";
+import SideBar from "../layouts/SideBar";
+import TopBar from "../layouts/TopBar";
+
+import useFetchUserQR from "../hooks/useFetchUserQR";
 
 function AboutUs() {
+
     const token = localStorage.getItem('token');
+    const qrList = useFetchUserQR(token);
+    
     return(
-        <div>
-            { token ? <LoggedNavBar /> : <NavBar /> }
+        <div style={{ display: 'flex' }}>
+            <SideBar qrList={qrList} />
+            <div>
+                <TopBar />
+            </div>
         </div>
     )
 }
