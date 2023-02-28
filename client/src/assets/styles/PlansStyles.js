@@ -1,4 +1,5 @@
 import globalStyles from "./Global/globalStyles";
+import colors from '../styles/Global/colors';
 
 const styles = {
     container: {
@@ -7,20 +8,77 @@ const styles = {
     },
 
     box: {
+        ...globalStyles.column,
         ...globalStyles.littleRoundedBorder,
-        width: '360px',
-        height: '540px'
+        borderColor: colors.grey,
+        alignItems:' center',
+        padding: '30px',
+        borderRadius: '18px',
+        width: 'calc((100vw - 310px)/4)',
+        height: '580px'
     },
 
     boxesContainer: {
         ...globalStyles.horizontalSpaceAround,
-        width: '1400px',
+        justifyContent: 'space-evenly',
+        width: 'calc(100vw - 310px)',
         margin: '60px 0px 100px 0px'
     },
 
     title: {
         fontSize: '40px',
         fontWeight: '500'
+    },
+
+    planTitle: {
+        fontSize: '30px',
+        fontWeight: '500'
+    },
+
+    featuresContainer: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        flexDirection: 'column',
+        marginTop: '40px',
+        height: '54%',
+        width: '88%',
+    },
+
+    feature: {
+        ...globalStyles.littleRoundedBorder,
+        ...globalStyles.verticalAlign,
+        borderRadius: '30px',
+        padding: '0px 20px 0px 30px',
+        height: 'calc(24% - 20px)',
+        border: 0,
+        backgroundColor: colors.transparentgreen,
+        color: colors.black
+    },
+
+    featureUnabled: {
+        ...globalStyles.littleRoundedBorder,
+        ...globalStyles.verticalAlign,
+        borderRadius: '30px',
+        padding: '0px 20px 0px 30px',
+        height: 'calc(24% - 20px)',
+        border: 0,
+        backgroundColor: colors.unabled,
+        color: colors.unabledtxt
+    },
+
+    cifra: {
+        fontSize: '16px',
+        height: '100%',
+    },
+
+    price: {
+        fontSize: '40px',
+        height: '50px',
+        margin: '20px 0px 30px 0px'
+    },
+
+    permonth: {
+        fontSize: '14px',
     }
 }
 

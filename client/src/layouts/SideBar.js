@@ -13,7 +13,7 @@ import settings from '../assets/icons/settings.png';
 import plus from '../assets/icons/plus.png';
 import minus from '../assets/icons/minus.png';
 
-function SideBar({ qrList }) {
+function SideBar({ qrList, setOverlay }) {
 
     const [showList, setShowList] = useState(true);
     let navigate = useNavigate(); 
@@ -34,7 +34,7 @@ function SideBar({ qrList }) {
         <div style={styles.sideBarContainer}>
             <img src={logo} style={styles.logo} onClick={() => navigate('/home')} />
             <p style={styles.sessionTitle}>QR Codes</p>
-            <div style={styles.itemContainer} onClick={() => navigate('/new')}>
+            <div style={styles.itemContainer} onClick={() => setOverlay(true)}>
                 <div style={styles.itemContent}>
                     <img src={add} style={styles.sideBarIcons} />
                     <p style={styles.itemTitle}>Novo QR</p>

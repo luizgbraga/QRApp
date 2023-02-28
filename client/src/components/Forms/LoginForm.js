@@ -3,7 +3,7 @@ import React from "react";
 import styles from "../../assets/styles/Forms/LoginFormStyles";
 
 import TextInput from "../Inputs/TextInput";
-import ButtonLogin from "../Buttons/DefaultButton";
+import DefaultButton from "../Buttons/DefaultButton";
 import LineOr from "../LineOr";
 import ContinueWithGoogle from "../Buttons/ContinueWithGoogle";
 
@@ -21,7 +21,7 @@ function LoginForm({ setEmail, setPassword, onClick }) {
                 <TextInput label='Endereço de email' placeholder='seuemail@exemplo.com' setValue={setEmail} />
                 <TextInput label='Senha' placeholder='Insira 8 caracteres ou mais' additional='Esqueci minha senha' setValue={setPassword} />
             </div>
-            <ButtonLogin onClick={onClick} label='Entrar' />
+            <DefaultButton onClick={onClick} label='Entrar' />
             <LineOr />
             <ContinueWithGoogle />
         </div>

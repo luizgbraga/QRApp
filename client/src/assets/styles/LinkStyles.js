@@ -5,6 +5,8 @@ const styles = {
     linksContainer: {
         ...globalStyles.littleRoundedBorder,
         borderColor: colors.grey,
+        backgroundColor: colors.lightgrey,
+        borderRadius: '12px',
         width: '560px',
         height: '500px',
         margin: '60px 0px 0px 100px'
@@ -21,6 +23,7 @@ const styles = {
     },
 
     addLinkIcon: {
+        ...globalStyles.pointer,
         width: '30px'
     },
 

@@ -22,6 +22,7 @@ class LoginController {
 
     // Authenticate user by email and password
     logUser(req, res) {
+        console.log('fui chamado')
         const { email, password } = req.body;
         User.findOne({ email }, (err, result) => {
             if(err || !result) { return res.send(err) }

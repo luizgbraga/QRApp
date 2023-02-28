@@ -6,7 +6,10 @@ const colors = {
     warning: '#FF5F5F',
     grey: '#B3B3B3',
     darkgrey: '#505A64',
-    transparentgreen: 'rgba(19, 196, 122, 0.2)'
+    lightgrey: '#FDFBFC',
+    transparentgreen: 'rgba(19, 196, 122, 0.2)',
+    unabled: '#F9F9F9',
+    unabledtxt: '#B0B0B0'
 }
 
 export default colors;

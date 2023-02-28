@@ -7,7 +7,7 @@ import InfoHeader from "./InfoHeader";
 
 import Line from "./Line";
 
-function HeaderInfoQR({ qrName, url, scans, links, defaultLink }) {
+function HeaderInfoQR({ qrName, url, scans, links, defaultLink, success }) {
     return(
         <div style={styles.headerInfoContainerStyles}>
             <div style={styles.qrContainerStyles}>
@@ -20,7 +20,7 @@ function HeaderInfoQR({ qrName, url, scans, links, defaultLink }) {
                 <div style={styles.dataContainerStyles}>
                     <InfoHeader name='Scans' value={scans} />
                     <InfoHeader name='Links' value={links} />
-                    <InfoHeader name='Sucesso' value='20%' />
+                    <InfoHeader name='Sucesso' value={success} />
                 </div>
             </div>
         </div>

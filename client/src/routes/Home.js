@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
@@ -6,6 +6,9 @@ import useFetchUserQR from "../hooks/useFetchUserQR";
 
 import SideBar from "../layouts/SideBar";
 import TopBar from "../layouts/TopBar";
+
+import CreateNewForm from '../components/Forms/CreateNewForm';
+
 
 function Home() {
 
@@ -15,12 +18,15 @@ function Home() {
     const token = localStorage.getItem('token');
     const qrList = useFetchUserQR(token);
 
+    const [overlay, setOverlay] = useState(false);
+
     if(!token) routeChange('/login');
 
     return(
         <div style={{ display: 'flex' }}>
-          <SideBar qrList={qrList} />
-          <TopBar />
+          <CreateNewForm overlay={overlay} setOverlay={setOverlay} />
+          <SideBar qrList={qrList} setOverlay={setOverlay} />
+          <TopBar setOverlay={setOverlay} />
         </div>
     )
 }

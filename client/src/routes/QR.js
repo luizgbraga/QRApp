@@ -19,10 +19,16 @@ import ScansInfo from "../components/ScansInfo";
 import SideBar from "../layouts/SideBar";
 import TopBar from "../layouts/TopBar";
 
+import CreateNewForm from '../components/Forms/CreateNewForm'
+
+
 function QR() {
 
     let navigate = useNavigate(); 
     const routeChange = (path) => navigate(path);
+
+    const [overlay, setOverlay] = useState(false);
+    const [linkOverlay, setLinkOverlay] = useState(false);
 
     const [linkName, setLinkName] = useState('');
     const [osName, setOsName] = useState('');
@@ -54,14 +60,18 @@ function QR() {
       }
 
     const redirect = `http://${config.host}:3000/redirect?qrId=${selectedQR}`;
+
+    const success = scans.lenght == 0 ? '-' : `${((scans.filter(el => el.osName == 'unknown').length)/scans.length) * 100}%`
     
     return(
         <div style={{ display: 'flex' }}>
-            <SideBar qrList={qrList} />
+            <AddLinkForm overlay={linkOverlay} setOverlay={setLinkOverlay} />
+            <CreateNewForm overlay={overlay} setOverlay={setOverlay} />
+            <SideBar qrList={qrList} setOverlay={setOverlay} />
             <div>
-                <TopBar />
-                <HeaderInfoQR qrName={qr.qrName} url={redirect} links={links.length} scans={scans.length} defaultLink={qr.defaultLink} />
-                <Links links={links} />
+                <TopBar setOverlay={setOverlay} />
+                <HeaderInfoQR qrName={qr.qrName} url={redirect} links={links.length} scans={scans.length} defaultLink={qr.defaultLink} success={success} />
+                <Links links={links} defaultLink={qr.defaultLink} setOverlay={setLinkOverlay} />
             </div>
             { /*
             <AddLinkForm setOsName={setOsName} setLinkName={setLinkName} setTimeRestriction={setTimeRestriction} setLocRestriction={setLocRestriction} 

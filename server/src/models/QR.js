@@ -32,7 +32,8 @@ const QRSchema = new mongoose.Schema({
     scans: [{
         osName: { type: String },
         scanDate: { type: Date },
-        scanLocation: { type: String }
+        scanLocation: { type: String },
+        redirectedTo: { type: String }
     }]
 });
 
