@@ -9,7 +9,8 @@ const styles = {
         borderRadius: '12px',
         width: '560px',
         height: '500px',
-        margin: '60px 0px 0px 100px'
+        margin: '60px 0px 0px 100px',
+        overflow: 'scroll'
     },
 
     header: {

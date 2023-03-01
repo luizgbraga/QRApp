@@ -5,17 +5,21 @@ import styles from "../../assets/styles/Forms/AddLinkFormStyles";
 import DefaultButton from '../Buttons/DefaultButton';
 import TextInput from "../Inputs/TextInput";
 
-function AddLinkForm({ setLinkName, setOsName, setLink, setLocRestriction, setTimeRestriction, createLink }) {
+function AddLinkFormStep1({ setLinkName, setLink, nextNode, setOverlay }) {
 
     return(
-        <div style={styles.formContainer}>
+        <div style={styles.headerFormStyles}>
             <p style={styles.titleStyles}>Adicionar novo link</p>
-            <div style={styles.headerFormStyles}>
-                <TextInput label='Nome do link' placeholder='Android e IOs domingo em SP' setValue={setLinkName} w='calc(100vw - 1090px)' />
-                <TextInput label='URL' placeholder='https://menu/domingo/happy-hour' setValue={setLink} w='calc(100vw - 1090px)' />
+            <div style={styles.inputsContainer}>
+                <TextInput label='Nome do link' placeholder='Android e IOs domingo em SP' setValue={setLinkName} />
+                <TextInput label='URL' placeholder='https://menu/domingo/happy-hour' setValue={setLink} />
+            </div>
+            <div style={styles.buttonsContainer}>
+                <DefaultButton w='192px' label='Cancelar' secundary onClick={setOverlay}/>
+                <DefaultButton w='192px' label='Próximo' onClick={nextNode} />
             </div>
         </div>
     )
 }
 
-export default AddLinkForm;
+export default AddLinkFormStep1;

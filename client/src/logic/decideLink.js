@@ -4,7 +4,7 @@ const getTime = () => {
     let date = new Date();
     return {
         month: months[date.getMonth()],
-        weekDay: weekDays[date.getDay()],
+        weekDay: weekDays[date.getDay() - 1],
         day: date.getDate(),
         hour: date.getHours(),
         minute: date.getMinutes()
@@ -14,12 +14,13 @@ const getTime = () => {
 const decideLink = (links, defaultLink, osName, location) => {
     const time = getTime();
     for(let link of links) {
+        let hours = link.hourRestriction.split('-').map(el => Number(el.replace('h', '')));
         let osCheck = link.osName.includes(osName);
         let timeCheck = 
         link.timeRestriction.includes(time.month) && 
         link.timeRestriction.includes(time.weekDay) && 
-        link.timeRestriction.includes(time.hour);
-        let locCheck = link.locRestriction.includes(location);
+        time.hour > hours[0] && time.hour < hours[1];
+        let locCheck = link.locRestriction.includes(location.split(",")[1]);
         if(osCheck && timeCheck && locCheck) {
             return link.link;
         }

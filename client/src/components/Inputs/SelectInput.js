@@ -3,7 +3,7 @@ import Select from 'react-select';
 
 import selectInputStyles from "../../assets/styles/Inputs/SelectInputStyles";
 
-function SelectInput({ label, options, setValue, w, border, isMulti, warningMessage }) {
+function SelectInput({ label, options, setValue, w, border, isMulti, warningMessage, placeholder }) {
     const opt = options.map((el) => ({ value: el.toLowerCase(), label: el}));
     let style = selectInputStyles.defaultSelectInput;
     if(border == 'left') { style = selectInputStyles.leftSelectInput } else
@@ -14,9 +14,9 @@ function SelectInput({ label, options, setValue, w, border, isMulti, warningMess
             <div style={ w ? { ...selectInputStyles.defaultLabelContainer, width: w } : { ...selectInputStyles.defaultLabelContainer } }>
                 <p style={selectInputStyles.defaultLabel}>{label}</p>
             </div>
-            <Select options={opt} isMulti={isMulti}
+            <Select options={opt} isMulti={isMulti} placeholder={placeholder}
                 styles={{ control: (baseStyles, state) => ({ ...baseStyles, ...style, width: w }) }}
-                onChange={(e) => setValue(e.map(el => el.label))}
+                onChange={(e) => isMulti ? setValue(e.map(el => el.label)) : setValue(e.label)}
             />
             <div style={ w ? { ...selectInputStyles.warningMessageContainer, width: w } : { ...selectInputStyles.warningMessageContainer } }>
                 <p style={selectInputStyles.warningMessage}>{warningMessage}</p>

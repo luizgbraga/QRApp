@@ -3,8 +3,10 @@ import colors from "../Global/colors";
 
 const selectInputsStyles = {
     defaultSelectInput: {
-        ...globalStyles.defaultSize,
         ...globalStyles.littleRoundedBorder,
+        maxWidth: '420px',
+        minHeight: '56px',
+        maxHeight: '180px',
         padding: '6px 0px 6px 20px',
         marginTop: '8px',
         fontSize: '20px',
