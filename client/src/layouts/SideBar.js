@@ -12,6 +12,7 @@ import support from '../assets/icons/support.png';
 import settings from '../assets/icons/settings.png';
 import plus from '../assets/icons/plus.png';
 import minus from '../assets/icons/minus.png';
+import logout from '../assets/icons/logout.png';
 
 function SideBar({ qrList, setOverlay }) {
 
@@ -23,6 +24,11 @@ function SideBar({ qrList, setOverlay }) {
         navigate('/qr');
         window.location.reload();
     }
+
+    const logOut = () => {
+        localStorage.removeItem('token');
+        navigate('/login');
+      }
 
     let qr = null;
 
@@ -70,17 +76,24 @@ function SideBar({ qrList, setOverlay }) {
                 </div>
                 <div></div>
             </div>
-            <div style={styles.itemContainer}  onClick={() => navigate('/support')}>
+            <div style={styles.itemContainer} onClick={() => navigate('/support')}>
                 <div style={styles.itemContent}>
                     <img src={support} style={styles.sideBarIcons} />
                     <p style={styles.itemTitle}>Suporte</p>
                 </div>
                 <div></div>
             </div>
-                <div style={styles.itemContainer}>
+            <div style={styles.itemContainer}>
                 <div style={styles.itemContent}>
                     <img src={settings} style={styles.sideBarIcons} />
                     <p style={styles.itemTitle}>Configurações</p>
+                </div>
+                <div></div>
+            </div>
+            <div style={styles.itemContainer} onClick={logOut}>
+                <div style={styles.itemContent}>
+                    <img src={logout} style={styles.sideBarIcons} />
+                    <p style={styles.itemTitle}>Sair</p>
                 </div>
                 <div></div>
             </div>

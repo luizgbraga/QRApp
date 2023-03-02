@@ -15,7 +15,6 @@ const styles = {
 
     disabledButtonStyle: {
         ...globalStyles.center,
-        ...globalStyles.pointer,
         ...globalStyles.defaultSize,
         backgroundColor: colors.unabled,
         color: colors.unabledtxt,
@@ -48,6 +47,18 @@ const styles = {
         borderRadius: '8px',
         fontSize: '18px',
         textDecoration: 'underline'
+    },
+
+    warningButtonStyles: {
+        ...globalStyles.center,
+        ...globalStyles.pointer,
+        ...globalStyles.defaultSize,
+        backgroundColor: colors.warning,
+        color: colors.black,
+        height: '50px',
+        borderRadius: '8px',
+        fontSize: '22px',
+        fontWeight: '500'
     }
 }
 

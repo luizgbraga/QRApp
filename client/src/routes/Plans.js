@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import axios from "axios";
+
+import config from "../config/host";
 
 import SideBar from "../layouts/SideBar";
 import TopBar from "../layouts/TopBar";
@@ -6,6 +9,7 @@ import TopBar from "../layouts/TopBar";
 import PlanBox from "../components/PlanBox";
 
 import useFetchUserQR from "../hooks/useFetchUserQR";
+import useFetchUser from "../hooks/useFetchUser";
 
 import styles from "../assets/styles/PlansStyles";
 
@@ -15,7 +19,21 @@ function Plans() {
 
     const token = localStorage.getItem('token');
     const qrList = useFetchUserQR(token);
+    const user = useFetchUser(token);
     const [overlay, setOverlay] = useState(false);
+    const [overlayCheckout, setOverlayCheckout] = useState(false);
+    const [plan, setPlan] = useState(user.plan);
+
+    console.log(plan)
+
+    const updatePlan = () => {
+        axios.post(`http://${config.host}:3001/api/login/updatePlan`, { 
+          
+        })
+            .then((response) => {
+                localStorage.setItem('token', response.data);
+            });
+    }
 
     const plans = [
         {
@@ -64,9 +82,9 @@ function Plans() {
                 <div style={styles.container}>
                     <p style={styles.title}>Planos</p>
                     <div style={styles.boxesContainer}>
-                        <PlanBox planTitle='Plano Premium' planInfo={plans[0]} />
-                        <PlanBox planTitle='Plano Empresa' planInfo={plans[1]} />
-                        <PlanBox planTitle='Plano Individual' planInfo={plans[2]} />
+                        <PlanBox planTitle='Plano Premium' planInfo={plans[0]} userPlan={user.plan} setPlan={setPlan} />
+                        <PlanBox planTitle='Plano Empresa' planInfo={plans[1]} userPlan={user.plan} setPlan={setPlan} />
+                        <PlanBox planTitle='Plano Individual' planInfo={plans[2]} userPlan={user.plan} setPlan={setPlan} />
                     </div>
                 </div>
             </div>

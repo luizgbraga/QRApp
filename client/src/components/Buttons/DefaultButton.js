@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from '../../assets/styles/Buttons/DefaultButtonStyles';
 
-function DefaultButton({ onClick, label, w, secundary, disabled, terciary }) {
+function DefaultButton({ onClick, label, w, secundary, disabled, terciary, warning }) {
     let style;
     if(secundary) {
         style = w ? { ...styles.secundaryButtonStyle, width: w } : { ...styles.secundaryButtonStyle };
@@ -10,6 +10,8 @@ function DefaultButton({ onClick, label, w, secundary, disabled, terciary }) {
         style = w ? { ...styles.disabledButtonStyle, width: w } : { ...styles.disabledButtonStyle }; 
     } else if(terciary) {
         style = w ? { ...styles.terciaryButtonStyle, width: w } : { ...styles.terciaryButtonStyle };      
+    } else if(warning) {
+        style = w ? { ...styles.warningButtonStyles, width: w } : { ...styles.warningButtonStyles };
     } else {
         style = w ? { ...styles.buttonStyle, width: w } : { ...styles.buttonStyle };
     }

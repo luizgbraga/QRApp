@@ -9,7 +9,7 @@ import ContinueWithGoogle from "../Buttons/ContinueWithGoogle";
 
 import { useNavigate } from "react-router-dom";
 
-function LoginForm({ setUserName, setEmail, setPassword, onClick }) {
+function LoginForm({ setEmail, setPassword, setConfirmPassword, onClick, emailWarning, passwordWarning, confirmPasswordWarning }) {
 
     let navigate = useNavigate(); 
 
@@ -18,9 +18,9 @@ function LoginForm({ setUserName, setEmail, setPassword, onClick }) {
             <p style={styles.titleStyles}>Crie sua conta</p>
             <p style={styles.subtitleStyles}>Já tem uma conta? <span style={styles.loginStyles} onClick={() => navigate('/login')}>Entre aqui</span></p>
             <div style={styles.inputsStyles}>
-                <TextInput label='Nome do usuário' placeholder='Seu nome' setValue={setEmail} />
-                <TextInput label='Endereço de email' placeholder='seuemail@exemplo.com' setValue={setEmail} />
-                <TextInput label='Senha' placeholder='Insira 8 caracteres ou mais' setValue={setPassword} />
+                <TextInput label='Endereço de email' placeholder='seuemail@exemplo.com' setValue={setEmail} warningMessage={emailWarning} />
+                <TextInput label='Senha' placeholder='Insira 8 caracteres ou mais' setValue={setPassword} warningMessage={passwordWarning} />
+                <TextInput label='Confirme sua senha' placeholder='Confirme a senha' setValue={setConfirmPassword} warningMessage={confirmPasswordWarning} />
             </div>
             <ButtonLogin onClick={onClick} label='Criar conta' />
             <LineOr />

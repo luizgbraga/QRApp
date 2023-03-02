@@ -18,6 +18,18 @@ const styles = {
         height: '580px'
     },
 
+    selectedBox: {
+        ...globalStyles.column,
+        ...globalStyles.littleRoundedBorder,
+        borderColor: colors.green,
+        borderWidth: '4px',
+        alignItems:' center',
+        padding: '30px',
+        borderRadius: '18px',
+        width: 'calc((100vw - 310px)/4)',
+        height: '580px'
+    },
+
     boxesContainer: {
         ...globalStyles.horizontalSpaceAround,
         justifyContent: 'space-evenly',

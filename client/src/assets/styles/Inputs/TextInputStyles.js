@@ -5,6 +5,7 @@ const textInputStyles = {
     defaultTextInput: {
         ...globalStyles.defaultSize,
         ...globalStyles.littleRoundedBorder,
+        ...globalStyles.verticalAlign,
         padding: '10px 20px 10px 20px',
         marginTop: '8px',
         fontSize: '20px',
