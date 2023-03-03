@@ -3,20 +3,20 @@ import colors from "./Global/colors";
 
 const styles = {
     container: {
-        padding: '16px 0px 0px 72px',
+        padding: '0px 0px 0px 72px',
         height: 'calc(100vh - 260px)'
     },
 
     title: {
         fontSize: '40px',
         fontWeight: '600',
-        margin: '0px 0px 40px 0px'
+        margin: '0px 0px 24px 0px'
     },
 
    header: {
         ...globalStyles.verticalAlign,
         ...globalStyles.horizontalSpaceBetween,
-        width: 'calc(100vw - 1000px)',
+        width: '800px',
         height: '54px'
    },
 

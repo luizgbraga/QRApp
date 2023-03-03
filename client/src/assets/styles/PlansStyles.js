@@ -15,7 +15,7 @@ const styles = {
         padding: '30px',
         borderRadius: '18px',
         width: 'calc((100vw - 310px)/4)',
-        height: '580px'
+        height: '90%'
     },
 
     selectedBox: {
@@ -27,14 +27,15 @@ const styles = {
         padding: '30px',
         borderRadius: '18px',
         width: 'calc((100vw - 310px)/4)',
-        height: '580px'
+        height: '90%'
     },
 
     boxesContainer: {
         ...globalStyles.horizontalSpaceAround,
         justifyContent: 'space-evenly',
+        height: 'min(calc(100vh - 190px), 680px)',
         width: 'calc(100vw - 310px)',
-        margin: '60px 0px 100px 0px'
+        margin: '32px 0px 0px 0px'
     },
 
     title: {

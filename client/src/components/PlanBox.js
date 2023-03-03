@@ -24,9 +24,9 @@ function PlanBox({ planInfo, userPlan, setPlan }) {
             </div>
             {
                 selected ?
-                <DefaultButton label='Seu plano' disabled w={300} />
+                <DefaultButton label='Seu plano' disabled w='94%' />
                 :
-                <DefaultButton label='Escolher' w={300} onClick={() => setPlan(plan.planTitle)} />
+                <DefaultButton label='Escolher' w='94%' onClick={() => setPlan(plan.planTitle)} />
             }
         </div>
     )
