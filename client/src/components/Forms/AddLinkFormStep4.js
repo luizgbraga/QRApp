@@ -5,7 +5,7 @@ import styles from "../../assets/styles/Forms/AddLinkFormStyles";
 import DefaultButton from '../Buttons/DefaultButton';
 import SelectInput from "../Inputs/SelectInput";
 
-function AddLinkFormStep4({ setHourRestriction, nextNode, previousNode }) {
+function AddLinkFormStep4({ setHourRestriction, nextNode, previousNode, createLink, userPlan }) {
 
     const [from, setFrom] = useState('');
     const [to, setTo] = useState('');
@@ -29,13 +29,22 @@ function AddLinkFormStep4({ setHourRestriction, nextNode, previousNode }) {
             </div>
             <div style={styles.buttonsContainer}>
                 <DefaultButton w='80px' label='Anterior' terciary onClick={previousNode} />
-                <div style={styles.rightButtonsContainer}>
-                    <DefaultButton w='124px' label='Pular' onClick={() => {
-                        nextNode();
-                        setHourRestriction('');
-                    }} secundary />
-                    <DefaultButton w='124px' label='Próximo' onClick={nextNode} />
-                </div>
+
+                {
+                    userPlan === "Plano Empresa" 
+                    ?
+                    <div style={styles.rightButtonsContainer}>
+                        <DefaultButton w='0px' />
+                        <DefaultButton w='160px' label='Criar link' onClick={createLink} />
+                    </div>
+                    :
+                    <div style={styles.rightButtonsContainer}>
+                        <DefaultButton w='124px' label='Pular' onClick={() => {
+                            nextNode();
+                        }} secundary />
+                        <DefaultButton w='124px' label='Próximo' onClick={nextNode} />
+                    </div>
+                }
             </div>
         </div>
     )

@@ -24,8 +24,8 @@ function AddLinkFormStep3({ setTimeRestriction, nextNode, previousNode }) {
         <div style={styles.headerFormStyles}>
             <p style={styles.titleStyles}>Restrição de Tempo</p>
             <div style={styles.inputsContainer}>
-                <SelectInput label='Meses' options={['Todos', 'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']} setValue={setTimeMonths} isMulti placeholder='Selecione os meses' />
-                <SelectInput label='Dias da semana' options={['Todos', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado', 'Domingo']} setValue={setTimeWeekDays} isMulti placeholder='Selecione os dias da semana' />
+                <SelectInput label='Meses' options={['Todos', 'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']} setValue={setTimeMonths} isMulti placeholder='Selecione os meses' info infoTitle="Restrição de Meses" infoDescription='Apenas durante os meses selecionados o usuário será direcionado para esse link' infoW='320px' />
+                <SelectInput label='Dias da semana' options={['Todos', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado', 'Domingo']} setValue={setTimeWeekDays} isMulti placeholder='Selecione os dias da semana' info infoTitle="Restrição de Dias da Semana" infoDescription='Apenas durante os dias da semana selecionados o usuário será direcionado para esse link' infoW='380px' />
             </div>
             <div style={styles.buttonsContainer}>
                 <DefaultButton w='80px' label='Anterior' terciary onClick={previousNode} />

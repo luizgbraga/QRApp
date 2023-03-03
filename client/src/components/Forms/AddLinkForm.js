@@ -12,7 +12,7 @@ import AddLinkFormStep3 from "./AddLinkFormStep3";
 import AddLinkFormStep4 from "./AddLinkFormStep4";
 import AddLinkFormStep5 from "./AddLinkFormStep5";
 
-function AddLinkForm({ setLinkName, setLink, setOsName, setTimeRestriction, setHourRestriction, setLocRestriction, createLink, overlay, setOverlay }) {
+function AddLinkForm({ setLinkName, setLink, setOsName, setTimeRestriction, setHourRestriction, setLocRestriction, createLink, overlay, setOverlay, userPlan }) {
 
     let visible = overlay ? {} : { display: 'none' };
     const [nodes, setNodes] = useState([1, 0, 0, 0, 0]);
@@ -66,13 +66,13 @@ function AddLinkForm({ setLinkName, setLink, setOsName, setTimeRestriction, setH
         <div style={{ ...styles.background, ...visible }}>
             <div style={styles.formContainer}>
                 <img src={close} style={styles.close} onClick={closeOverlay} />
-                <ProgressBar nodes={nodes} />
+                <ProgressBar nodes={nodes} userPlan={userPlan} />
                 {
-                    current === 1 ? <AddLinkFormStep1 nextNode={nextNode} setOverlay={closeOverlay} setLinkName={setLinkName} setLink={setLink} /> :
-                    current === 2 ? <AddLinkFormStep2 nextNode={nextNode} previousNode={previousNode} setOsName={setOsName} /> : 
-                    current === 3 ? <AddLinkFormStep3 nextNode={nextNode} previousNode={previousNode} setTimeRestriction={setTimeRestriction} /> :
-                    current === 4 ? <AddLinkFormStep4 nextNode={nextNode} previousNode={previousNode} setHourRestriction={setHourRestriction} /> :
-                    current === 5 ? <AddLinkFormStep5 createLink={createLink} previousNode={previousNode} setLocRestriction={setLocRestriction} /> : false
+                    current === 1 ? <AddLinkFormStep1 nextNode={nextNode} setOverlay={closeOverlay} setLinkName={setLinkName} setLink={setLink} createLink={createLink} userPlan={userPlan} /> :
+                    current === 2 ? <AddLinkFormStep2 nextNode={nextNode} previousNode={previousNode} setOsName={setOsName} createLink={createLink} userPlan={userPlan} /> : 
+                    current === 3 ? <AddLinkFormStep3 nextNode={nextNode} previousNode={previousNode} setTimeRestriction={setTimeRestriction} createLink={createLink} userPlan={userPlan} /> :
+                    current === 4 ? <AddLinkFormStep4 nextNode={nextNode} previousNode={previousNode} setHourRestriction={setHourRestriction} createLink={createLink} userPlan={userPlan} /> :
+                    current === 5 ? <AddLinkFormStep5 createLink={createLink} previousNode={previousNode} setLocRestriction={setLocRestriction} userPlan={userPlan} /> : false
                 }
             </div>
         </div>

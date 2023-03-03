@@ -15,7 +15,7 @@ const styles = {
         display: 'flex',
         backgroundColor: '#FFFFFF',
         width: '620px',
-        height: '480px',
+        height: '510px',
         borderRadius: '16px',
         zIndex: '10',
         padding: '32px'
@@ -49,7 +49,7 @@ const styles = {
         ...globalStyles.pointer,
         width: '20px',
         position: 'absolute',
-        top: 'calc(100vh/2 - 220px)',
+        top: 'calc(100vh/2 - 238px)',
         left: 'calc(100vw/2 + 272px)'
     },
 

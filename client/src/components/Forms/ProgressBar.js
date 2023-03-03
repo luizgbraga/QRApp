@@ -2,7 +2,16 @@ import React, { useState } from "react";
 
 import Node from "./Node";
 
-function ProgressBar({ nodes }) {
+function ProgressBar({ nodes, userPlan }) {
+    let locked = [0, 1, 1, 1, 1];
+    if(userPlan === "Plano Básico") {
+        locked = [0, 0, 1, 1, 1];
+    } else if(userPlan == "Plano Empresa") {
+        locked = [0, 0, 0, 0, 1];
+    } else if(userPlan == "Plano Premium") {
+        locked = [0, 0, 0, 0, 0];
+    }
+
     return(
         <div style={{ display: 'flex' }}>
             {
@@ -10,7 +19,7 @@ function ProgressBar({ nodes }) {
                     let starting = idx == 0;
                     let ending = idx == nodes.length - 1;
                     return(
-                        <Node starting={starting} ending={ending} colored={el} n={nodes.length} idx={idx + 1} key={idx} />
+                        <Node starting={starting} ending={ending} colored={el} n={nodes.length} idx={idx + 1} key={idx} locked={locked[idx]} />
                     )
                 })
             }

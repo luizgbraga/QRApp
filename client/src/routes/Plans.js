@@ -24,7 +24,7 @@ function Plans() {
     const [overlayCheckout, setOverlayCheckout] = useState(false);
     const [plan, setPlan] = useState(user.plan);
 
-    console.log(plan)
+    console.log(user.plan)
 
     const updatePlan = () => {
         axios.post(`http://${config.host}:3001/api/login/updatePlan`, { 

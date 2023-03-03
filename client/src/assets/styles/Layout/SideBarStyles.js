@@ -50,10 +50,11 @@ const styles = {
         ...globalStyles.verticalAlign,
         ...globalStyles.littleRoundedBorder,
         border: 0,
-        padding: '10px',
+        padding: '18px',
         margin: '0px 0px 12px 18px',
-        height: '40px',
-        backgroundColor: colors.transparentgreen
+        height: '48px',
+        backgroundColor: colors.transparentgreen,
+        fontWeight: '500'
     },
 
     itemTitle: {
@@ -63,6 +64,13 @@ const styles = {
     sideBarIcons: {
         width: '20px',
         marginRight: '10px'
+    },
+
+    sideBarEnding: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        flexDirection: 'column',
+        height: 'calc(100vh - 500px)'
     }
 }
 

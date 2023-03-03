@@ -61,7 +61,7 @@ const styles = {
         ...globalStyles.littleRoundedBorder,
         ...globalStyles.verticalAlign,
         borderRadius: '30px',
-        padding: '0px 20px 0px 30px',
+        padding: '0px 20px 0px 18px',
         height: 'calc(24% - 20px)',
         border: 0,
         backgroundColor: colors.transparentgreen,
@@ -72,7 +72,7 @@ const styles = {
         ...globalStyles.littleRoundedBorder,
         ...globalStyles.verticalAlign,
         borderRadius: '30px',
-        padding: '0px 20px 0px 30px',
+        padding: '0px 20px 0px 18px',
         height: 'calc(24% - 20px)',
         border: 0,
         backgroundColor: colors.unabled,
@@ -92,6 +92,11 @@ const styles = {
 
     permonth: {
         fontSize: '14px',
+    },
+
+    icon: {
+        width: '24px',
+        marginRight: '8px'
     }
 }
 

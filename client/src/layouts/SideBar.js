@@ -69,33 +69,39 @@ function SideBar({ qrList, setOverlay }) {
                 : false
             }
             <p style={styles.sessionTitle}>Configurar</p>
-            <div style={styles.itemContainer} onClick={() => navigate('/plans')}>
-                <div style={styles.itemContent}>
-                    <img src={wallet} style={styles.sideBarIcons} />
-                    <p style={styles.itemTitle}>Planos</p>
+            <div style={styles.sideBarEnding}>
+                <div>
+                    <div style={styles.itemContainer} onClick={() => navigate('/plans')}>
+                        <div style={styles.itemContent}>
+                            <img src={wallet} style={styles.sideBarIcons} />
+                            <p style={styles.itemTitle}>Planos</p>
+                        </div>
+                        <div></div>
+                    </div>
+                    <div style={styles.itemContainer} onClick={() => navigate('/support')}>
+                        <div style={styles.itemContent}>
+                            <img src={support} style={styles.sideBarIcons} />
+                            <p style={styles.itemTitle}>Suporte</p>
+                        </div>
+                        <div></div>
+                    </div>
+                    <div style={styles.itemContainer}>
+                        <div style={styles.itemContent}>
+                            <img src={settings} style={styles.sideBarIcons} />
+                            <p style={styles.itemTitle}>Configurações</p>
+                        </div>
+                        <div></div>
+                    </div>
                 </div>
-                <div></div>
-            </div>
-            <div style={styles.itemContainer} onClick={() => navigate('/support')}>
-                <div style={styles.itemContent}>
-                    <img src={support} style={styles.sideBarIcons} />
-                    <p style={styles.itemTitle}>Suporte</p>
+                <div>
+                    <div style={styles.itemContainer} onClick={logOut}>
+                        <div style={styles.itemContent}>
+                            <img src={logout} style={styles.sideBarIcons} />
+                            <p style={styles.itemTitle}>Sair</p>
+                        </div>
+                        <div></div>
+                    </div>
                 </div>
-                <div></div>
-            </div>
-            <div style={styles.itemContainer}>
-                <div style={styles.itemContent}>
-                    <img src={settings} style={styles.sideBarIcons} />
-                    <p style={styles.itemTitle}>Configurações</p>
-                </div>
-                <div></div>
-            </div>
-            <div style={styles.itemContainer} onClick={logOut}>
-                <div style={styles.itemContent}>
-                    <img src={logout} style={styles.sideBarIcons} />
-                    <p style={styles.itemTitle}>Sair</p>
-                </div>
-                <div></div>
             </div>
         </div>
     )

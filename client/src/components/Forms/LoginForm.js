@@ -19,7 +19,7 @@ function LoginForm({ setEmail, setPassword, onClick }) {
             <p style={styles.subtitleStyles}>Ainda não tem uma conta? <span style={styles.signinStyles} onClick={() => navigate('/signin')}>Inscreva-se aqui</span></p>
             <div style={styles.inputsStyles}>
                 <TextInput label='Endereço de email' placeholder='seuemail@exemplo.com' setValue={setEmail} />
-                <TextInput label='Senha' placeholder='Insira 8 caracteres ou mais' additional='Esqueci minha senha' setValue={setPassword} />
+                <TextInput label='Senha' placeholder='Insira 8 caracteres ou mais' additional='Esqueci minha senha' setValue={setPassword} hide />
             </div>
             <DefaultButton onClick={onClick} label='Entrar' />
             <LineOr />

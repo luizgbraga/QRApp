@@ -19,8 +19,8 @@ function LoginForm({ setEmail, setPassword, setConfirmPassword, onClick, emailWa
             <p style={styles.subtitleStyles}>Já tem uma conta? <span style={styles.loginStyles} onClick={() => navigate('/login')}>Entre aqui</span></p>
             <div style={styles.inputsStyles}>
                 <TextInput label='Endereço de email' placeholder='seuemail@exemplo.com' setValue={setEmail} warningMessage={emailWarning} />
-                <TextInput label='Senha' placeholder='Insira 8 caracteres ou mais' setValue={setPassword} warningMessage={passwordWarning} />
-                <TextInput label='Confirme sua senha' placeholder='Confirme a senha' setValue={setConfirmPassword} warningMessage={confirmPasswordWarning} />
+                <TextInput label='Senha' placeholder='Insira 8 caracteres ou mais' setValue={setPassword} warningMessage={passwordWarning} hide />
+                <TextInput label='Confirme sua senha' placeholder='Confirme a senha' setValue={setConfirmPassword} warningMessage={confirmPasswordWarning} hide />
             </div>
             <ButtonLogin onClick={onClick} label='Criar conta' />
             <LineOr />

@@ -43,7 +43,7 @@ function AddLinkFormStep5({ setLocRestriction, createLink, previousNode }) {
         <div style={styles.headerFormStyles}>
             <p style={styles.titleStyles}>Restrição de Localidade</p>
             <div style={styles.inputsContainer}>
-                <SelectInput label='Restrição de localidade' options={brazilStates} setValue={setLocRestriction} isMulti placeholder='Selecione as localidades' />
+                <SelectInput label='Restrição de localidade' options={brazilStates} setValue={setLocRestriction} isMulti placeholder='Selecione as localidades' info infoTitle='Restringir os locais' infoDescription='Somente nos Estados selecionados o usuário será direcionado para esse link' />
             </div>
             <div style={styles.buttonsContainer}>
                 <DefaultButton w='80px' label='Anterior' terciary onClick={previousNode} />

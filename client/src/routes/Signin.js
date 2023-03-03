@@ -44,15 +44,13 @@ function Signin() {
         } else {
             setConfirmPasswordWarning('');
         }
-        console.log(!confirmPasswordWarning)
-        // TODO: FIX
     }
 
     let navigate = useNavigate(); 
     const routeChange = (path) => navigate(path);
 
     const createUser = () => {
-        if(!emailWarning && !passwordWarning && !confirmPassword && email && password) {
+        if(!emailWarning && !passwordWarning && !confirmPasswordWarning && email && password) {
             axios.post(`http://${config.host}:3001/api/login/createUser`, { 
                 password, email
               });
