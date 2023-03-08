@@ -36,6 +36,11 @@ function Profile() {
 
     const [info, selectInfo] = useState(1);
 
+    const [cardNumber, setCardNumber] = useState('');
+    const [cardName, setCardName] = useState('');
+    const [cardExpiration, setCardExpiration] = useState('');
+    const [cardCVV, setCardCVV] = useState('');
+
     const qrLen = qrList.length;
     const maxLinks = qrList.reduce((acc, el) => {
         if(el.links.length > acc) return el.links.length;
@@ -60,7 +65,10 @@ function Profile() {
                         {
                             info == 1 ? <PersonalInfo userName={user.userName} userEmail={user.email} userPassoword={user.password} userPlan={user.plan} setUserName={setUserName} setUserEmail={setUserEmail} /> :
                             info == 2 ? <AccountUsage qrCodes={qrLen} maxLinks={maxLinks} /> :
-                            info == 3 ? <BillingInformation /> : false
+                            info == 3 ? <BillingInformation cardName={cardName} setCardName={setCardName} 
+                                                            cardNumber={cardNumber} setCardNumber={setCardNumber} 
+                                                            cardExpiration={cardExpiration} setCardExpiration={setCardExpiration} 
+                                                            cardCVV={cardCVV} setCardCVV={setCardCVV} /> : false
                         }
                     </div>
                 </div>

@@ -9,6 +9,7 @@ import Profile from './routes/Profile';
 import NewQR from './routes/NewQR';
 import QR from './routes/QR';
 import Home from './routes/Home';
+import Checkout from './routes/Checkout';
 
 import Plans from './routes/Plans';
 import AboutUs from './routes/AboutUs';
@@ -76,6 +77,11 @@ const router = createBrowserRouter([
   {
     path: '/support',
     element: <Support />
+  },
+
+  {
+    path: '/checkout',
+    element: <Checkout />
   }
 ])
 

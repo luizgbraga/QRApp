@@ -3,9 +3,8 @@ import React from "react";
 import styles from '../../assets/styles/Forms/NodeStyle';
 import lock from '../../assets/icons/lock.png';
 
-function Node({ starting, ending, colored, idx, n, locked }) {
+function Node({ starting, ending, colored, idx, n, locked, names }) {
     const w = `${(220 - 18 * n)/(n - 1)}px`;
-    const names = ['Link', 'SO', 'Tempo', 'Horário', 'Local'];
     return(
         <div>
             {

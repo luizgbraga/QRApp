@@ -6,19 +6,19 @@ const styles = {
         ...globalStyles.center,
         ...globalStyles.column,
         width: '540px',
-        height: 'calc(100vh - 80px)'
+        height: 'calc(100vh - 100px)'
     },
 
     titleStyles: {
-        fontSize: '42px',
+        fontSize: '40px',
         fontWeight: 'bold',
         letterSpacing: '0.9px'
     },
 
     subtitleStyles: {
-        fontSize: '22px',
-        marginTop: '8px',
-        marginBottom: '20px'
+        fontSize: '20px',
+        marginTop: '4px',
+        marginBottom: '16px'
     },
 
     signinStyles: {
@@ -29,7 +29,7 @@ const styles = {
 
     inputsStyles: {
         ...globalStyles.column,
-        height: '240px',
+        height: '230px',
         justifyContent: 'space-around'
     }
 }

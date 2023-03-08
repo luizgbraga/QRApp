@@ -43,7 +43,7 @@ function Plans() {
                 { featureTitle: 'Gere até 5 QR Codes', enabled: true },
                 { featureTitle: 'Adicione até 2 URLs por QR', enabled: true },
                 { featureTitle: 'Restrição por SO', enabled: true },
-                { featureTitle: 'Traqueamento das leituras', enabled: false },
+                { featureTitle: 'Traqueamento de leituras', enabled: false },
                 { featureTitle: 'Restrição por tempo e local', enabled: false }
             ]
         },
@@ -55,7 +55,7 @@ function Plans() {
                 { featureTitle: 'Gere até 12 QR Codes', enabled: true },
                 { featureTitle: 'Adicione até 4 URLs por QR', enabled: true },
                 { featureTitle: 'Restrição por SO', enabled: true },
-                { featureTitle: 'Traqueamento das leituras', enabled: true },
+                { featureTitle: 'Traqueamento de leituras', enabled: true },
                 { featureTitle: 'Restrição por tempo e local', enabled: false }
             ]
         },
@@ -67,7 +67,7 @@ function Plans() {
                 { featureTitle: 'QR Codes ilimitados', enabled: true },
                 { featureTitle: 'URLs ilimitadas', enabled: true },
                 { featureTitle: 'Restrição por SO', enabled: true },
-                { featureTitle: 'Traqueamento das leituras', enabled: true },
+                { featureTitle: 'Traqueamento de leituras', enabled: true },
                 { featureTitle: 'Restrição por tempo e local', enabled: true }
             ]
         }

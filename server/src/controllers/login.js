@@ -24,11 +24,10 @@ class LoginController {
     logUser(req, res) {
         const { email, password } = req.body;
         User.findOne({ email }, (err, result) => {
-            if(err || !result) { return res.send(err) }
+            if(err || !result) { return res.send('não existe!') }
             else { 
                 result.comparePassword(password, result.password, (err, isMatch) => {
                     if(err) { 
-                        console.log('erro')
                         return res.send(err) }
                     if(isMatch) {
                         const { id } = result;

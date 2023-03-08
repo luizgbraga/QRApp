@@ -9,7 +9,7 @@ import ContinueWithGoogle from "../Buttons/ContinueWithGoogle";
 
 import { useNavigate } from "react-router-dom";
 
-function LoginForm({ setEmail, setPassword, onClick }) {
+function LoginForm({ setEmail, emailWarning, setPassword, passwordWarning, onClick }) {
 
     let navigate = useNavigate(); 
 
@@ -18,8 +18,8 @@ function LoginForm({ setEmail, setPassword, onClick }) {
             <p style={styles.titleStyles}>Bem-vindo de volta</p>
             <p style={styles.subtitleStyles}>Ainda não tem uma conta? <span style={styles.signinStyles} onClick={() => navigate('/signin')}>Inscreva-se aqui</span></p>
             <div style={styles.inputsStyles}>
-                <TextInput label='Endereço de email' placeholder='seuemail@exemplo.com' setValue={setEmail} />
-                <TextInput label='Senha' placeholder='Insira 8 caracteres ou mais' additional='Esqueci minha senha' setValue={setPassword} hide />
+                <TextInput label='Endereço de email' placeholder='seuemail@exemplo.com' setValue={setEmail} warningMessage={emailWarning} />
+                <TextInput label='Senha' placeholder='Insira 8 caracteres ou mais' additional='Esqueci minha senha' setValue={setPassword} hide warningMessage={passwordWarning} />
             </div>
             <DefaultButton onClick={onClick} label='Entrar' />
             <LineOr />

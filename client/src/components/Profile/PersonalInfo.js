@@ -13,7 +13,6 @@ function PersonalInfo({ userName, userEmail, userPassoword, setUserName, setUser
             <div style={styles.personalInfoContainer}>
                 <TextInput label='Nome do usuário' defaultValue={userName} setValue={setUserName} />
                 <TextInput label='E-mail cadastrado' defaultValue={userEmail} setValue={setUserEmail} />
-                <TextInput label='Senha do usuário' defaultValue='********' />
                 <div style={styles.allButons}>
                     <DefaultButton label='Cancelar' terciary w='100px' onClick={() => setEditable(false)} />
                     <div style={styles.actionButtons}>
@@ -28,7 +27,6 @@ function PersonalInfo({ userName, userEmail, userPassoword, setUserName, setUser
             <div style={styles.personalInfoContainer}>
                 <TextInput label='Nome do usuário' defaultValue={userName} disabled />
                 <TextInput label='E-mail cadastrado' defaultValue={userEmail} disabled />
-                <TextInput label='Senha do usuário' defaultValue='********' disabled />
                 <div style={styles.allButons}>
                     <DefaultButton label='' terciary w='0px' />
                     <div style={styles.actionButtons}>

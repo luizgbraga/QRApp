@@ -12,9 +12,9 @@ const styles = {
         ...globalStyles.littleRoundedBorder,
         borderColor: colors.grey,
         alignItems:' center',
-        padding: '30px',
+        padding: '28px',
         borderRadius: '18px',
-        width: 'calc((100vw - 310px)/4)',
+        width: 'calc((100vw - 180px)/4)',
         height: '90%'
     },
 
@@ -22,11 +22,11 @@ const styles = {
         ...globalStyles.column,
         ...globalStyles.littleRoundedBorder,
         borderColor: colors.green,
-        borderWidth: '4px',
+        borderWidth: '3px',
         alignItems:' center',
         padding: '30px',
         borderRadius: '18px',
-        width: 'calc((100vw - 310px)/4)',
+        width: 'calc((100vw - 180px)/4)',
         height: '90%'
     },
 
@@ -35,7 +35,7 @@ const styles = {
         justifyContent: 'space-evenly',
         height: 'min(calc(100vh - 190px), 680px)',
         width: 'calc(100vw - 310px)',
-        margin: '32px 0px 0px 0px'
+        margin: '24px 0px 0px 0px'
     },
 
     title: {
@@ -53,8 +53,8 @@ const styles = {
         justifyContent: 'space-between',
         flexDirection: 'column',
         marginTop: '40px',
-        height: '54%',
-        width: '88%',
+        height: '60%',
+        width: '92%',
     },
 
     feature: {
@@ -62,10 +62,11 @@ const styles = {
         ...globalStyles.verticalAlign,
         borderRadius: '30px',
         padding: '0px 20px 0px 18px',
-        height: 'calc(24% - 20px)',
+        height: 'max(calc(24% - 20px), 38px)',
         border: 0,
         backgroundColor: colors.transparentgreen,
-        color: colors.black
+        color: colors.black,
+        fontSize: '0.9vw'
     },
 
     featureUnabled: {
@@ -73,10 +74,11 @@ const styles = {
         ...globalStyles.verticalAlign,
         borderRadius: '30px',
         padding: '0px 20px 0px 18px',
-        height: 'calc(24% - 20px)',
+        height: 'max(calc(24% - 20px), 38px)',
         border: 0,
         backgroundColor: colors.unabled,
-        color: colors.unabledtxt
+        color: colors.unabledtxt,
+        fontSize: '0.9vw'
     },
 
     cifra: {

@@ -3,29 +3,29 @@ import colors from "./Global/colors";
 
 const styles = {
     linksContainer: {
-        ...globalStyles.littleRoundedBorder,
         borderColor: colors.grey,
         backgroundColor: colors.lightgrey,
-        borderRadius: '12px',
-        width: '560px',
-        height: '500px',
-        margin: '60px 0px 0px 100px',
-        overflow: 'scroll'
+        width: '40%',
+        height: '54%',
+        margin: '30px 0px 0px 100px',
+        // overflow: 'scroll'
     },
 
     header: {
-        ...globalStyles.horizontalSpaceBetween,
+        ...globalStyles.row,
         height: '16%',
-        padding: '0px 28px 0px 28px'
+        padding: '0px 28px 0px 0px'
     },
 
     title: {
-        fontSize: '28px'
+        fontSize: '24px',
+        margin: '0px 24px 0px 0px'
     },
 
     addLinkIcon: {
         ...globalStyles.pointer,
-        width: '30px'
+        width: '28px',
+        height: '28px'
     },
 
     links: {

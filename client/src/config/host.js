@@ -1,5 +1,5 @@
 const config = {
-    host: '192.168.68.129'
+    host: 'localhost'
 }
 
 export default config;

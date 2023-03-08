@@ -55,9 +55,8 @@ const styles = {
     },
 
     billingInfoContainer: {
-        margin: '40px 0px 0px 0px',
-        ...globalStyles.horizontalSpaceBetween,
-        width: 'calc(100vw - 590px)'
+        ...globalStyles.column,
+        width: 'calc(100vw - 1000px)'
     },
 
     addressInfoContainer: {
@@ -95,6 +94,48 @@ const styles = {
 
     value: {
         fontSize: '20px' 
+    },
+
+    cardInfo: {
+        ...globalStyles.horizontalSpaceBetween
+    },
+
+    cardProfileContainer: {
+        margin: '40px 0px 0px 0px',
+        ...globalStyles.column,
+        justifyContent: 'start'
+    },
+
+    cardContainer: {
+        width: '240px',
+        margin: '0px 0px 20px 0px'
+    },
+
+    allButonsCard: {
+        ...globalStyles.horizontalSpaceBetween,
+        width: '296px',
+        margin: '20px 0px 0px 0px'
+    },
+
+    buttonsCard: {
+        ...globalStyles.horizontalSpaceBetween,
+        width: '100%',
+    },
+
+    allButonsCardEditable: {
+        ...globalStyles.horizontalSpaceBetween,
+        width: 'calc(100vw - 640px)',
+        margin: '20px 0px 0px 0px'
+    },
+
+    buttonsCardEditable: {
+        ...globalStyles.horizontalSpaceBetween,
+        width: '260px',
+    },
+
+    editableCardContainer: {
+        ...globalStyles.horizontalSpaceBetween,
+        width: 'calc(100vw - 640px)'
     }
 }
 

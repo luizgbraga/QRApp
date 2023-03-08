@@ -55,7 +55,7 @@ const textInputStyles = {
         ...globalStyles.pointer,
         width: '28px',
         position: 'absolute',
-        bottom: '14px',
+        bottom: '12px',
         right: '20px'
     },
 

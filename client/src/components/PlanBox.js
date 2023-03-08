@@ -11,9 +11,19 @@ import os from '../assets/icons/os.png';
 import tracking from '../assets/icons/tracking.png';
 import clock from '../assets/icons/clock.png';
 
+import { useNavigate } from "react-router-dom";
+
 function PlanBox({ planInfo, userPlan, setPlan }) {
     let plan = planInfo ? planInfo : { features: [] };
     let selected = userPlan == plan.planTitle;
+
+    let navigate = useNavigate();
+
+    const goToCheckout = () => {
+        localStorage.setItem('selectedPlan', plan.planTitle);
+        navigate('/checkout');
+    }
+
     return(
         <div style={selected ? styles.selectedBox : styles.box}>
             <p style={styles.planTitle}>{plan.planTitle}</p>
@@ -52,7 +62,7 @@ function PlanBox({ planInfo, userPlan, setPlan }) {
                 selected ?
                 <DefaultButton label='Seu plano' disabled w='94%' />
                 :
-                <DefaultButton label='Escolher' w='94%' onClick={() => setPlan(plan.planTitle)} />
+                <DefaultButton label='Escolher' w='94%' onClick={goToCheckout} />
             }
         </div>
     )

@@ -66,7 +66,7 @@ function AddLinkForm({ setLinkName, setLink, setOsName, setTimeRestriction, setH
         <div style={{ ...styles.background, ...visible }}>
             <div style={styles.formContainer}>
                 <img src={close} style={styles.close} onClick={closeOverlay} />
-                <ProgressBar nodes={nodes} userPlan={userPlan} />
+                <ProgressBar nodes={nodes} userPlan={userPlan} names={['Link', 'SO', 'Tempo', 'Horário', 'Local']} />
                 {
                     current === 1 ? <AddLinkFormStep1 nextNode={nextNode} setOverlay={closeOverlay} setLinkName={setLinkName} setLink={setLink} createLink={createLink} userPlan={userPlan} /> :
                     current === 2 ? <AddLinkFormStep2 nextNode={nextNode} previousNode={previousNode} setOsName={setOsName} createLink={createLink} userPlan={userPlan} /> : 

@@ -16,24 +16,36 @@ function Login() {
     const routeChange = (path) => navigate(path);
 
     const [email, setEmail] = useState('');
+    const [emailWarning, setEmailWarning] = useState('');
     const [password, setPassword] = useState('');
+    const [passwordWarning, setPasswordWarning] = useState('');
 
     const logUser = () => {
         axios.post(`http://${config.host}:3001/api/login/logUser`, { 
           email, password
         })
             .then((response) => {
-                localStorage.setItem('token', response.data);
-                setPassword('');
-                setEmail('');
-                routeChange('/home');
+                if(response.data == 'não existe!') {
+                    setPasswordWarning('');
+                    setEmailWarning('Esse email não está cadastrado');
+                } else if(response.data == 'credenciais inválidas!') {
+                    setEmailWarning('');
+                    setPasswordWarning('Senha incorreta');
+                } else {
+                    localStorage.setItem('token', response.data);
+                    setPassword('');
+                    setEmail('');
+                    setEmailWarning('');
+                    setPasswordWarning('');
+                    routeChange('/home');
+                }
             });
     }
 
     return(
         <div style={globalStyles.columnCentered}>
             <NavBar />
-            <LoginForm setEmail={setEmail} setPassword={setPassword} onClick={logUser} />
+            <LoginForm setEmail={setEmail} emailWarning={emailWarning} setPassword={setPassword} passwordWarning={passwordWarning} onClick={logUser} />
         </div>
     )
 }

@@ -53,7 +53,7 @@ const globalStyles = {
 
     defaultSize: {
         width: '420px',
-        height: '56px'
+        height: '52px'
     }
 }
 
