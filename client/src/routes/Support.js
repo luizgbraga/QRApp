@@ -5,6 +5,8 @@ import TopBar from "../layouts/TopBar";
 
 import useFetchUserQR from "../hooks/useFetchUserQR";
 
+import styles from "../assets/styles/SupportStyles";
+
 function Support() {
 
     const token = localStorage.getItem('token');
@@ -15,6 +17,9 @@ function Support() {
             <SideBar qrList={qrList} />
             <div>
                 <TopBar />
+                <div style={styles.supportContainer}>
+                    <p style={styles.title}>Suporte</p>
+                </div>
             </div>
         </div>
     )

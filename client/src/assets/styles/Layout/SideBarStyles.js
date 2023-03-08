@@ -70,7 +70,7 @@ const styles = {
         display: 'flex',
         justifyContent: 'space-between',
         flexDirection: 'column',
-        height: 'calc(100vh - 500px)'
+        height: 'calc(100vh - 464px)'
     }
 }
 

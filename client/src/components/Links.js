@@ -1,31 +1,28 @@
 import React from "react";
 
 import styles from '../assets/styles/LinkStyles';
+import DefaultButton from "./Buttons/DefaultButton";
 
 import LinkBox from "./LinkBox";
 
-import add from '../assets/icons/add.png'
-
-function Links({ links, defaultLink, setOverlay }) {
-
+function Links({ links, defaultLink, setOverlay, setEditOverlay }) {
     return(
-        <div style={styles.linksContainer}>
-            <div style={styles.header}>
-                <p style={styles.title}>Links cadastrados</p>
-                <img src={add} style={styles.addLinkIcon} onClick={() => setOverlay(true)} />
+        <div style={styles.container}>
+            <div style={styles.linksContainer}>
+                <div style={styles.links}>
+                    <p style={styles.linkDescription}>Principal</p>
+                        <LinkBox linkName='Link Principal' url={defaultLink} main setEditOverlay={setEditOverlay} />
+                        <p style={styles.linkDescription}>Outros</p>
+                        {
+                            links.map(el => (
+                                <LinkBox linkName={el.linkName} url={el.link} key={el._id} setEditOverlay={setEditOverlay} />      
+                            ))
+                            
+                        }
+                </div>
             </div>
-            <div style={styles.links}>
-                { /*
-                <p style={styles.linkDescription}>Principal</p>
-                    <LinkBox linkName='Link Principal' url={defaultLink} main />
-                <p style={styles.linkDescription}>Outros</p>
-                    {
-                        links.map(el => (
-                            <LinkBox linkName={el.linkName} url={el.link} key={el._id} />      
-                        ))
-                        
-                    }
-                */ }
+            <div style={styles.button}>
+                <DefaultButton label='Adicionar novo link' w='24%' secundary onClick={() => setOverlay(true)} />
             </div>
         </div>
     )

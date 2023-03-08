@@ -2,18 +2,24 @@ import globalStyles from "./Global/globalStyles";
 import colors from "./Global/colors";
 
 const styles = {
-    linksContainer: {
-        borderColor: colors.grey,
-        backgroundColor: colors.lightgrey,
-        width: '40%',
-        height: '54%',
+    container: {
         margin: '30px 0px 0px 100px',
-        // overflow: 'scroll'
+    },
+
+    linksContainer: {
+        height: 'calc(100vh - 540px)',
+        width: '90%',
+        overflowY: 'scroll',
+        margin: '0px 0px 32px 0px'
+    },
+
+    button: {
+        margin: '0px 0px 0px 28px'
     },
 
     header: {
         ...globalStyles.row,
-        height: '16%',
+        height: '6%',
         padding: '0px 28px 0px 0px'
     },
 

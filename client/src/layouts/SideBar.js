@@ -85,13 +85,6 @@ function SideBar({ qrList, setOverlay }) {
                         </div>
                         <div></div>
                     </div>
-                    <div style={styles.itemContainer}>
-                        <div style={styles.itemContent}>
-                            <img src={settings} style={styles.sideBarIcons} />
-                            <p style={styles.itemTitle}>Configurações</p>
-                        </div>
-                        <div></div>
-                    </div>
                 </div>
                 <div>
                     <div style={styles.itemContainer} onClick={logOut}>

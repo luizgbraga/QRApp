@@ -8,7 +8,7 @@ const styles = {
         height: '62px',
         borderColor: colors.grey,
         backgroundColor: '#FFFFFF',
-        width: '500px',
+        width: '60%',
         marginBottom: '20px'
     },
 
@@ -38,14 +38,14 @@ const styles = {
     infoContainer: {
         ...globalStyles.column,
         justifyContent: 'center',
-        width: '72%',
-        height: '72%',
+        width: '64%',
+        height: '74%',
         padding: '0px 0px 0px 12px'
     },
 
     redirectsContainer: {
         ...globalStyles.columnCentered,
-        width: '18%',
+        width: '12%',
         height: '72%',
     },
 
@@ -57,6 +57,20 @@ const styles = {
     redirectsText: {
         fontSize: '12px',
         fontWeight: '500'
+    },
+
+    actions: {
+        ...globalStyles.horizontalSpaceBetween,
+        margin: '0px 3% 0px 2%',
+        width: '15%',
+        height: '50%',
+        borderLeft: 'solid 1px',
+        borderLeftColor: colors.grey
+    },
+
+    icons: {
+        width: '24px',
+        ...globalStyles.pointer
     }
 }
 

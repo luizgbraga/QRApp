@@ -12,7 +12,10 @@ import HeaderInfoQR from "../components/HeaderInfoQR";
 import Links from "../components/Links";
 
 import AddLinkForm from "../components/Forms/AddLinkForm";
+import EditLinkForm from "../components/Forms/EditLinkForm";
+
 import ScansInfo from "../components/ScansInfo";
+import Selector from "../components/Selector";
 
 import SideBar from "../layouts/SideBar";
 import TopBar from "../layouts/TopBar";
@@ -27,6 +30,9 @@ function QR() {
 
     const [overlay, setOverlay] = useState(false);
     const [linkOverlay, setLinkOverlay] = useState(false);
+    const [editOverlay, setEditOverlay] = useState(false);
+
+    console.log(editOverlay);
 
     const [linkName, setLinkName] = useState('');
     const [linkNameWarning, setLinkNameWarning] = useState('');
@@ -42,6 +48,8 @@ function QR() {
 
     const [link, setLink] = useState('');
     const [linkWarning, setLinkWarning] = useState('');
+
+    const [selects, setSelects] = useState(0);
 
     const token = localStorage.getItem('token');
     if(!token) routeChange('/login');
@@ -77,13 +85,18 @@ function QR() {
         <div style={{ display: 'flex' }}>
             <AddLinkForm overlay={linkOverlay} setOverlay={setLinkOverlay} setLinkName={setLinkName} setLink={setLink} setOsName={setOsName} setTimeRestriction={setTimeRestriction} setHourRestriction={setHourRestriction} setLocRestriction={setLocRestriction} createLink={createLink} userPlan={user.plan} />
             <CreateNewForm overlay={overlay} setOverlay={setOverlay} />
+            <EditLinkForm overlay={editOverlay} setOverlay={setEditOverlay} />
             <SideBar qrList={qrList} setOverlay={setOverlay} />
             <div>
                 <TopBar setOverlay={setOverlay} />
                 <HeaderInfoQR qrName={qr.qrName} url={redirect} links={links.length} scans={scans.length} defaultLink={qr.defaultLink} success={success} />
-                <Links links={links} defaultLink={qr.defaultLink} setOverlay={setLinkOverlay} />
+                <Selector options={["Links cadastrados", "Leituras do QR Code"]} selected={selects} setSelector={setSelects} />
+                {
+                    selects == 0 ?
+                    <Links links={links} defaultLink={qr.defaultLink} setOverlay={setLinkOverlay} setEditOverlay={setEditOverlay} />
+                    : false
+                }
             </div>
-            <ScansInfo scans={scans} />
         </div>
     )
 }

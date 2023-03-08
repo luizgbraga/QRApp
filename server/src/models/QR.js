@@ -27,7 +27,11 @@ const QRSchema = new mongoose.Schema({
         timeRestriction: { type: String },
         hourRestriction: { type: String },
         locRestriction: { type: String },
-        link: { type: String }
+        link: { type: String },
+        short: { 
+            type: String,
+            unique: true
+        }
     }],
 
     scans: [{
