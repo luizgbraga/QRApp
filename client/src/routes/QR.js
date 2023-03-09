@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import axios from 'axios';
-import useFetchUserQR from "../hooks/useFetchUserQR";
+import useFetchUserQR from "../hooks/useFetchUserQRs";
 
 import useFetchQR from "../hooks/useFetchQR";
 import useFetchUser from "../hooks/useFetchUser";
+import useFetchLinks from "../hooks/useFetchLinks";
+import useFetchQRScans from "../hooks/useFetchQRScans";
+import createNewLink from "../hooks/createNewLink";
 import config from "../config/host";
 
 import { useNavigate } from "react-router-dom";
@@ -32,8 +35,6 @@ function QR() {
     const [linkOverlay, setLinkOverlay] = useState(false);
     const [editOverlay, setEditOverlay] = useState(false);
 
-    console.log(editOverlay);
-
     const [linkName, setLinkName] = useState('');
     const [linkNameWarning, setLinkNameWarning] = useState('');
 
@@ -55,31 +56,32 @@ function QR() {
     if(!token) routeChange('/login');
     const selectedQR = localStorage.getItem('selectedQR');
 
-    const { qr, links, scans } = useFetchQR(token, selectedQR);
+    const qr = useFetchQR(token, selectedQR);
     const qrList = useFetchUserQR(token);
     const user = useFetchUser(token);
+    const links = useFetchLinks(selectedQR);
+    const scans = useFetchQRScans(token, selectedQR);
+
+    console.log(links)
 
       const createLink = () => {
         setLinkOverlay(false);
-        axios.put(`http://${config.host}:3001/api/qr/createLink`, {
-            headers: {
-                authorization: token
-            },
-            params: {
-                qrId: selectedQR,
-                linkName: linkName,
-                osName: osName.toString(),
-                timeRestriction: timeRestriction,
-                hourRestriction: hourRestriction,
-                locRestriction: locRestriction.toString(),
-                link: link
-            }
-        })
+        const newLink = { 
+            qrId: selectedQR, 
+            linkName,
+            osName: osName.toString(),
+            timeRestriction, hourRestriction, 
+            locRestriction: locRestriction.toString(),
+            url: link, 
+            default: false,
+            short: 'test'
+        }
+        createNewLink(token, newLink);
       }
 
     const redirect = `http://${config.host}:3000/redirect?qrId=${selectedQR}`;
 
-    const success = scans.lenght == 0 ? '-' : `${Math.round(((scans.filter(el => el.osName != 'unknown').length)/scans.length) * 10000)/100}%`
+    const success = 0
 
     return(
         <div style={{ display: 'flex' }}>

@@ -6,7 +6,6 @@ import Redirect from './routes/Redirect';
 import Signin from './routes/Signin';
 import Login from './routes/Login';
 import Profile from './routes/Profile';
-import NewQR from './routes/NewQR';
 import QR from './routes/QR';
 import Home from './routes/Home';
 import Checkout from './routes/Checkout';
@@ -52,11 +51,6 @@ const router = createBrowserRouter([
   {
     path: '/redirect',
     element: <Redirect />
-  },
-
-  {
-    path: '/new',
-    element: <NewQR />
   },
 
   {

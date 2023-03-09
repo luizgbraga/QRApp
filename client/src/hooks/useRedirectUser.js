@@ -15,13 +15,16 @@ function useRedirectUser(qrId) {
         .get("https://ipapi.co/json/")
         .then((resLocation) => {
           axios
-            .get(`http://${config.host}:3001/api/qr/showQR?qrId=${qrId}`)
-            .then((response) => {
-              const location = `${resLocation.data.country_name},${resLocation.data.region},${resLocation.data.city}`;
-              const url = decideLink(response.data[0].links, response.data[0].defaultLink, osName, location);
-              updateScans(location);
-              window.location.href = url;
+            .get(`http://${config.host}:3001/api/link/showQRLinks`, {
+              params: { qrId: qrId }
           })
+            .then((response) => {
+              console.log(response.data);
+              const scanLocation = `${resLocation.data.country_name},${resLocation.data.region},${resLocation.data.city}`;
+              const [url, success] = decideLink(response.data[0].links, response.data[0].defaultLink, osName, scanLocation);
+              updateScans(scanLocation, qrId, url, success);
+              window.location.href = url;
+          });
       })
       .catch((error) => {
           console.log(error);
@@ -29,10 +32,10 @@ function useRedirectUser(qrId) {
 
   }, []);
 
-  const updateScans = (scanLocation) => { 
+  const updateScans = (scanLocation, qrId, url, success) => { 
     axios
-      .put(`http://${config.host}:3001/api/qr/updateScans?qrId=${qrId}`, {
-        params: { osName, scanLocation }
+      .put(`http://${config.host}:3001/api/scan/createScan`, {
+        params: { osName, scanLocation, qrId, redirectedTo: url, success }
       });
     }
 

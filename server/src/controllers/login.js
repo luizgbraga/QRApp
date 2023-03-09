@@ -2,15 +2,6 @@ const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 
 class LoginController {
-    /* Showing all users should not be possible for any user
-
-    showAll(req, res) {
-        User.find({}, (err, result) => {
-            res.send(result);
-        })
-    }
-    */
-
     // Given all information, creates new user
     createUser(req, res) {
         const user = req.body;

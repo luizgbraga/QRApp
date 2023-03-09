@@ -1,9 +1,15 @@
 const express = require('express');
-const homeRoutes = require('./src/routes/home');
-const loginRoutes = require('./src/routes/login');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+
+// Routes
+const QRRoutes = require('./src/routes/qr');
+const loginRoutes = require('./src/routes/login');
+const linkRoutes = require('./src/routes/link');
+const scanRoutes = require('./src/routes/scan');
+const subscriptionRoutes = require('./src/routes/subscription');
+const transactionRoutes = require('./src/routes/transaction');
 
 class App {
     constructor() {
@@ -20,33 +26,35 @@ class App {
     }
 
     routes() {
-        this.app.use('/', homeRoutes);
+        this.app.use('/', QRRoutes);
         this.app.use('/', loginRoutes);
+        this.app.use('/', linkRoutes);
+        this.app.use('/', scanRoutes);
+        this.app.use('/', subscriptionRoutes);
+        this.app.use('/', transactionRoutes);
 
-        //  ** All User related methods **
         this.app.use('/api/login/createUser', loginRoutes);
         this.app.use('/api/login/logUser', loginRoutes);
         this.app.use('/api/login/getUser', loginRoutes);
         this.app.use('/api/login/updatePlan', loginRoutes);
         this.app.use('/api/login/deleteUser', loginRoutes);
 
-        //  ** All QR Code related methods **
-        this.app.use('/api/qr/createQR', homeRoutes);
-        this.app.use('/api/qr/showQR', homeRoutes);
-        this.app.use('/api/qr/showUserQR', homeRoutes);
-        this.app.use('/api/qr/updateQR', homeRoutes);
-        this.app.use('/api/qr/deleteQR', homeRoutes);
+        this.app.use('/api/qr/createQR', QRRoutes);
+        this.app.use('/api/qr/showQR', QRRoutes);
+        this.app.use('/api/qr/showUserQR', QRRoutes);
+        this.app.use('/api/qr/updateQR', QRRoutes);
+        this.app.use('/api/qr/deleteQR', QRRoutes);
 
-        //  ** All Links related methods **
-        this.app.use('/api/qr/createLink', homeRoutes);
-        this.app.use('/api/qr/updateLink', homeRoutes);
+        this.app.use('/api/link/createLink', linkRoutes);
+        this.app.use('/api/link/showQRLinks', linkRoutes);
+        this.app.use('/api/link/updateLink', linkRoutes);
+        this.app.use('/api/link/deleteLink', linkRoutes);
 
-        //  ** All Scans related methods **
-        this.app.use('/api/qr/showScans', homeRoutes);
-        this.app.use('/api/qr/updateScans', homeRoutes);
+        this.app.use('/api/scan/createScan', scanRoutes);
+        this.app.use('/api/scan/showLinkScans', scanRoutes);
+        this.app.use('/api/scan/showQRScans', scanRoutes);
 
-        // this.app.use('/api/qr/showAll', homeRoutes);
-        // this.app.use('/api/login/showAll', loginRoutes);
+        this.app.use('/api/scan/createTransaction', transactionRoutes);
     }
 }
 

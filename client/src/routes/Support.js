@@ -3,7 +3,7 @@ import React from "react";
 import SideBar from "../layouts/SideBar";
 import TopBar from "../layouts/TopBar";
 
-import useFetchUserQR from "../hooks/useFetchUserQR";
+import useFetchUserQR from "../hooks/useFetchUserQRs";
 
 import styles from "../assets/styles/SupportStyles";
 

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import useFetchUser from "../hooks/useFetchUser";
-import useFetchUserQR from "../hooks/useFetchUserQR";
+import useFetchUserQR from "../hooks/useFetchUserQRs";
 
 import styles from "../assets/styles/ProfileStyles";
 

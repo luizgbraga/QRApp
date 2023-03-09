@@ -11,7 +11,7 @@ const QRSchema = new mongoose.Schema({
         default: Date.now
     },
 
-    belongsTo: {
+    userId: {
         required: true,
         type: String
     },
@@ -19,27 +19,7 @@ const QRSchema = new mongoose.Schema({
     defaultLink: {
         required: true,
         type: String
-    },
-
-    links: [{
-        linkName: { type: String },
-        osName: { type: String },
-        timeRestriction: { type: String },
-        hourRestriction: { type: String },
-        locRestriction: { type: String },
-        link: { type: String },
-        short: { 
-            type: String,
-            unique: true
-        }
-    }],
-
-    scans: [{
-        osName: { type: String },
-        scanDate: { type: Date },
-        scanLocation: { type: String },
-        redirectedTo: { type: String }
-    }]
+    }
 });
 
 module.exports = mongoose.model('QR', QRSchema);

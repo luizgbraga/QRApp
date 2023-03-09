@@ -37,7 +37,7 @@ function SelectInput({ label, options, setValue, w, border, isMulti, warningMess
                     styles={{ control: (baseStyles, state) => ({ ...baseStyles, ...style, width: w }) }}
                     onChange={(e) => isMulti ? setValue(e.map(el => el.label)) : setValue(e.label)}
                     />
-                    <OverlayTrigger trigger="hover" placement="right" overlay={popover}>
+                    <OverlayTrigger trigger="click" placement="right" overlay={popover}>
                         <img src={questionMark} style={selectInputStyles.info} />
                     </OverlayTrigger>
                 </div>

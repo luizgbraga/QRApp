@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 
 import styles from '../../assets/styles/Forms/CreateNewFormStyles';
 import ButtonLogin from '../Buttons/DefaultButton';
 
 import useFetchUser from '../../hooks/useFetchUser';
+import createNewQR from "../../hooks/createNewQR";
+import createNewLink from '../../hooks/createNewLink';
 
 import TextInput from '../Inputs/TextInput';
 
@@ -18,22 +19,17 @@ function CreateNewForm({ overlay, setOverlay }) {
     const [defaultLink, setDefaultLink] = useState('');
 
     const token = localStorage.getItem('token');
+    let navigate = useNavigate(); 
     if(!token) navigate('/login');
     const user = useFetchUser(token);
 
-    let navigate = useNavigate(); 
-
     const createQR = () => {
-        axios.post(`http://localhost:3001/api/qr/createQR`, { 
-          "qrName": qrName,
-          "belongsTo": user._id,
-          "defaultLink": defaultLink
-        }, { headers: {
-              authorization: localStorage.getItem('token')
-                }
-            });
-        setQRName('');
-        navigate('/home');
+        const qr = {
+            qrName, defaultLink,
+            userId: user._id
+        }
+        createNewQR(token, qr);
+        setOverlay(false);
     }
 
     let visible = overlay ? {} : { display: 'none' };

@@ -2,22 +2,22 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 import config from "../config/host";
 
-function useFetchQR(token, selectedQR) {
+function useFetchQRScans(token, selectedQR) {
   
-    const [qr, setQR] = useState({});
+    const [scans, setScans] = useState([]);
 
     useEffect(() => {
       axios
-        .get(`http://${config.host}:3001/api/qr/showQR`, {
+        .get(`http://${config.host}:3001/api/scan/showQRScans`, {
           headers: { authorization: token },
           params: { qrId: selectedQR }
       })
         .then((response) => {
-          setQR(response.data[0]);
+          setScans(response.data);
       });
     }, []);
     
-    return qr;
+    return scans;
 }
 
-export default useFetchQR;
+export default useFetchQRScans;

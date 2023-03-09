@@ -6,6 +6,7 @@ import getOperatingSystem from '../logic/decideOs';
 import globalStyles from '../assets/styles/Global/globalStyles';
 
 import useRedirectUser from '../hooks/useRedirectUser';
+import useFetchQR from '../hooks/useFetchQR';
 
 function Redirect() {
 

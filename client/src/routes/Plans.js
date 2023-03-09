@@ -8,7 +8,7 @@ import TopBar from "../layouts/TopBar";
 
 import PlanBox from "../components/PlanBox";
 
-import useFetchUserQR from "../hooks/useFetchUserQR";
+import useFetchUserQR from "../hooks/useFetchUserQRs";
 import useFetchUser from "../hooks/useFetchUser";
 
 import styles from "../assets/styles/PlansStyles";

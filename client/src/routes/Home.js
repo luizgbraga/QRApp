@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
-import useFetchUserQR from "../hooks/useFetchUserQR";
+import useFetchUserQR from "../hooks/useFetchUserQRs";
 
 import SideBar from "../layouts/SideBar";
 import TopBar from "../layouts/TopBar";

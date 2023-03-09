@@ -22,10 +22,10 @@ const decideLink = (links, defaultLink, osName, location) => {
         time.hour > hours[0] && time.hour < hours[1];
         let locCheck = link.locRestriction.includes(location.split(",")[1]);
         if(osCheck && timeCheck && locCheck) {
-            return link.link;
+            return [link.link, true];
         }
     }
-    return defaultLink;
+    return [defaultLink, false];
 }
 
 export default decideLink;

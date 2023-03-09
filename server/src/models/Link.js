@@ -7,7 +7,7 @@ const LinkSchema = new mongoose.Schema({
     },
 
     short: {
-        unique: true,
+        //unique: true,
         type: String
     },
 
@@ -16,25 +16,30 @@ const LinkSchema = new mongoose.Schema({
         type: String
     },
 
-    relatedQR: {
+    qrId: {
         required: true,
         type: String
     },
 
+    default: {
+        required: true,
+        type: Boolean
+    },
+
     osName: {
-        type: String
+        type: String,
     },
 
     timeRestriction: {
-        type: String
+        type: String,
     },
     
     hourRestriction: {
-        type: String
+        type: String,
     },
     
     locRestriction: {
-        type: String
+        type: String,
     }
 });
 

@@ -2,21 +2,21 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 import config from "../config/host";
 
-function useFetchUser(token) {
+function useFetchUserQRs(token) {
 
-    const [user, setUser] = useState({});
+    const [qrList, setQRList] = useState([]);
 
     useEffect(() => {
       axios
-        .get(`http://${config.host}:3001/api/login/getUser`, {
+        .get(`http://${config.host}:3001/api/qr/showUserQRs`, {
           headers: { authorization: token }
       })
         .then((response) => {
-          setUser(response.data);
+          setQRList(response.data);
       });
     }, []);
-    
-    return user;
+
+    return qrList;
 }
 
-export default useFetchUser;
+export default useFetchUserQRs;

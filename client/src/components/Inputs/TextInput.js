@@ -54,11 +54,11 @@ function TextInput({ label, placeholder, additional, setValue, warningMessage, w
                 info ?
                 <div style={{ position: 'relative' }}>
                     <input style={ w ? { ...textInputStyles.defaultTextInput, width: w } :  { ...textInputStyles.defaultTextInput } }
-                    type={hidden ? 'password' : 'text'}
+                    type='text'
                     value={defaultValue} 
                     placeholder={placeholder} 
                     onChange={(e) => setValue(e.target.value)} />
-                    <OverlayTrigger trigger="hover" placement="right" overlay={popover}>
+                    <OverlayTrigger trigger="click" placement="right" overlay={popover}>
                         <img src={questionMark} style={textInputStyles.info} />
                     </OverlayTrigger>
                 </div>

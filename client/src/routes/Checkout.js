@@ -8,7 +8,7 @@ import ProgressBar from "../components/Forms/ProgressBar";
 import Line from "../components/Line";
 import CartReview from "../components/CartReview";
 
-import useFetchUserQR from "../hooks/useFetchUserQR";
+import useFetchUserQR from "../hooks/useFetchUserQRs";
 
 import styles from "../assets/styles/CheckoutStyles";
 
