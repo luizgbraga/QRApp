@@ -33,7 +33,7 @@ const styles = {
         ...globalStyles.pointer,
         width: '20px',
         position: 'absolute',
-        top: 'calc(100vh/2 - 272px)',
+        top: 'calc(100vh/2 - 282px)',
         left: 'calc(100vw/2 + 450px)'
     },
 

@@ -42,10 +42,7 @@ function Profile() {
     const [cardCVV, setCardCVV] = useState('');
 
     const qrLen = qrList.length;
-    const maxLinks = qrList.reduce((acc, el) => {
-        if(el.links.length > acc) return el.links.length;
-        else return acc;
-    }, 0)
+    const maxLinks = 2
 
     return(
         <div style={{ display: 'flex' }}>

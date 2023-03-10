@@ -41,6 +41,21 @@ const styles = {
 
     subtitle: {
         fontSize: '18px'
+    },
+
+    headerTitle: {
+        ...globalStyles.horizontalSpaceBetween,
+        width: '100%'
+    },
+
+    iconsContainer: {
+        ...globalStyles.horizontalSpaceBetween,
+        width: '92px'
+    },
+
+    icon: {
+        ...globalStyles.pointer,
+        width: '28px'
     }
 }
 

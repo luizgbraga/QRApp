@@ -64,7 +64,7 @@ function TextInput({ label, placeholder, additional, setValue, warningMessage, w
                 </div>
 
                 :
-                <input style={ w ? { ...textInputStyles.defaultTextInput, width: w } :  { ...textInputStyles.defaultTextInput } }
+                <input style={ w ? { ...textInputStyles.defaultTextInput, width: w, paddingRight: '24px' } :  { ...textInputStyles.defaultTextInput, paddingRight: '24px' } }
                 value={defaultValue}
                 placeholder={placeholder} 
                 onChange={(e) => setValue(e.target.value)} />

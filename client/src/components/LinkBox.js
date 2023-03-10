@@ -6,7 +6,12 @@ import star from '../assets/icons/star.png'
 import edit from '../assets/icons/edit.png';
 import trash from '../assets/icons/trash.png';
 
-function LinkBox({ linkName, setEditOverlay, main, url, accesses }) {
+import deleteLink from "../hooks/deleteLink";
+
+function LinkBox({ linkName, setEditOverlay, main, url, accesses, linkId }) {
+    
+    const token = localStorage.getItem('token');
+
     return(
         <div style={styles.box}>
             <div style={styles.starContainer}>
@@ -25,7 +30,7 @@ function LinkBox({ linkName, setEditOverlay, main, url, accesses }) {
             <div style={styles.actions}>
                 <div style={{ width: '14px' }}></div>
                 <img src={edit} style={styles.icons} onClick={() => setEditOverlay(true)} />
-                <img src={trash} style={styles.icons} />
+                <img src={trash} style={styles.icons} onClick={() => deleteLink(token, linkId)} />
             </div>
         </div>
     )

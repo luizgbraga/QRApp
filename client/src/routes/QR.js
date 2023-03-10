@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from 'axios';
 import useFetchUserQR from "../hooks/useFetchUserQRs";
 
 import useFetchQR from "../hooks/useFetchQR";
@@ -16,6 +15,7 @@ import Links from "../components/Links";
 
 import AddLinkForm from "../components/Forms/AddLinkForm";
 import EditLinkForm from "../components/Forms/EditLinkForm";
+import EditQRForm from "../components/Forms/EditQRForm";
 
 import ScansInfo from "../components/ScansInfo";
 import Selector from "../components/Selector";
@@ -34,6 +34,7 @@ function QR() {
     const [overlay, setOverlay] = useState(false);
     const [linkOverlay, setLinkOverlay] = useState(false);
     const [editOverlay, setEditOverlay] = useState(false);
+    const [editQROverlay, setEditQROverlay] = useState(false);
 
     const [linkName, setLinkName] = useState('');
     const [linkNameWarning, setLinkNameWarning] = useState('');
@@ -62,7 +63,6 @@ function QR() {
     const links = useFetchLinks(selectedQR);
     const scans = useFetchQRScans(token, selectedQR);
 
-    console.log(links)
 
       const createLink = () => {
         setLinkOverlay(false);
@@ -73,13 +73,12 @@ function QR() {
             timeRestriction, hourRestriction, 
             locRestriction: locRestriction.toString(),
             url: link, 
-            default: false,
-            short: 'test'
+            default: false
         }
         createNewLink(token, newLink);
       }
 
-    const redirect = `http://${config.host}:3000/redirect?qrId=${selectedQR}`;
+    const redirect = `http://${config.host}:3000/redirect/${qr.short}`;
 
     const success = 0
 
@@ -87,11 +86,12 @@ function QR() {
         <div style={{ display: 'flex' }}>
             <AddLinkForm overlay={linkOverlay} setOverlay={setLinkOverlay} setLinkName={setLinkName} setLink={setLink} setOsName={setOsName} setTimeRestriction={setTimeRestriction} setHourRestriction={setHourRestriction} setLocRestriction={setLocRestriction} createLink={createLink} userPlan={user.plan} />
             <CreateNewForm overlay={overlay} setOverlay={setOverlay} />
+            <EditQRForm overlay={editQROverlay} setOverlay={setEditQROverlay} qr={qr} />
             <EditLinkForm overlay={editOverlay} setOverlay={setEditOverlay} />
             <SideBar qrList={qrList} setOverlay={setOverlay} />
             <div>
                 <TopBar setOverlay={setOverlay} />
-                <HeaderInfoQR qrName={qr.qrName} url={redirect} links={links.length} scans={scans.length} defaultLink={qr.defaultLink} success={success} />
+                <HeaderInfoQR qrName={qr.qrName} url={redirect} links={links.length} scans={scans.length} defaultLink={qr.defaultLink} success={success} setOverlay={setEditQROverlay} />
                 <Selector options={["Links cadastrados", "Leituras do QR Code"]} selected={selects} setSelector={setSelects} />
                 {
                     selects == 0 ?

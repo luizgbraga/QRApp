@@ -6,6 +6,11 @@ const QRSchema = new mongoose.Schema({
         type: String
     },
 
+    short: {
+        unique: true,
+        type: String
+    },
+
     createdAt: {
         type: Date,
         default: Date.now

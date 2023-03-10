@@ -55,7 +55,7 @@ class LoginController {
 
     // Given the id, deletes the user associated to it
     deleteUser(req, res) {
-        const userId = req.userId;
+        const { userId } = req.query;
         User.deleteOne({ "_id": userId }, (err, result) => {
             if(err) { res.send(err) } 
             else { res.send(result) }

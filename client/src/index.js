@@ -49,7 +49,7 @@ const router = createBrowserRouter([
   },
 
   {
-    path: '/redirect',
+    path: '/redirect/:id',
     element: <Redirect />
   },
 

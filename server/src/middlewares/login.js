@@ -12,5 +12,4 @@ module.exports = (req, res, next) => {
         console.log(e);
         res.send('token inválido!');
     }
-
 }

@@ -6,7 +6,7 @@ class ScanController {
     }
 
     createScan(req, res) {
-        const scan = req.body;
+        const scan = req.body.params;
         Scan.create(scan, (err, result) => {
             if(err) { res.send(err) }
             else { res.send(result) }
@@ -14,7 +14,7 @@ class ScanController {
     }
 
     showQRScans(req, res) {
-        const { qrId } = req;
+        const { qrId } = req.query;
         Scan.find({ "qrId": qrId }, (err, result) => {
             if(err) { res.send(err) } 
             else { res.send(result) }  

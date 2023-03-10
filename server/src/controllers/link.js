@@ -6,8 +6,7 @@ class LinkController {
     }
 
     createLink(req, res) {
-        const link = req.body;
-        console.log(link)
+        let link = req.body;
         Link.create(link, (err, result) => {
             if(err) { res.send(err) }
             else { res.send(result) }
@@ -18,13 +17,12 @@ class LinkController {
         const { qrId } = req.query;
         Link.find({ "qrId": qrId }, (err, result) => {
             if(err) { res.send(err) } 
-            else { 
-                res.send(result) }  
+            else { res.send(result) }  
         })
     }
 
     updateLink(req, res) {
-        const link = req.body.params;
+        const { link } = req.body.params;
         Link.updateOne({ '_id': link.linkId }, link, (err, result) => {
             if(err) { res.send(err) }
             else { res.send(result) }

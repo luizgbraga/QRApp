@@ -14,8 +14,8 @@ function Links({ links, defaultLink, setOverlay, setEditOverlay }) {
                         <LinkBox linkName='Link Principal' url={defaultLink} main setEditOverlay={setEditOverlay} />
                         <p style={styles.linkDescription}>Outros</p>
                         {
-                            links.map(el => (
-                                <LinkBox linkName={el.linkName} url={el.link} key={el._id} setEditOverlay={setEditOverlay} />      
+                            links.filter(el => !el.default).map(el => (
+                                <LinkBox linkName={el.linkName} url={el.url} key={el._id} linkId={el._id} setEditOverlay={setEditOverlay} />      
                             ))
                             
                         }

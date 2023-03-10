@@ -6,11 +6,6 @@ const LinkSchema = new mongoose.Schema({
         type: String
     },
 
-    short: {
-        //unique: true,
-        type: String
-    },
-
     url: {
         required: true,
         type: String

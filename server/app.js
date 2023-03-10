@@ -10,6 +10,7 @@ const linkRoutes = require('./src/routes/link');
 const scanRoutes = require('./src/routes/scan');
 const subscriptionRoutes = require('./src/routes/subscription');
 const transactionRoutes = require('./src/routes/transaction');
+const productRoutes = require('./src/routes/product');
 
 class App {
     constructor() {
@@ -32,6 +33,7 @@ class App {
         this.app.use('/', scanRoutes);
         this.app.use('/', subscriptionRoutes);
         this.app.use('/', transactionRoutes);
+        this.app.use('/', productRoutes);
 
         this.app.use('/api/login/createUser', loginRoutes);
         this.app.use('/api/login/logUser', loginRoutes);
@@ -41,6 +43,7 @@ class App {
 
         this.app.use('/api/qr/createQR', QRRoutes);
         this.app.use('/api/qr/showQR', QRRoutes);
+        this.app.use('/api/qr/getQRByShort', QRRoutes);
         this.app.use('/api/qr/showUserQR', QRRoutes);
         this.app.use('/api/qr/updateQR', QRRoutes);
         this.app.use('/api/qr/deleteQR', QRRoutes);

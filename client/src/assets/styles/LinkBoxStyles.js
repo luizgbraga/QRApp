@@ -8,7 +8,7 @@ const styles = {
         height: '62px',
         borderColor: colors.grey,
         backgroundColor: '#FFFFFF',
-        width: '60%',
+        width: '70%',
         marginBottom: '20px'
     },
 
@@ -38,14 +38,14 @@ const styles = {
     infoContainer: {
         ...globalStyles.column,
         justifyContent: 'center',
-        width: '64%',
+        width: '54%',
         height: '74%',
         padding: '0px 0px 0px 12px'
     },
 
     redirectsContainer: {
         ...globalStyles.columnCentered,
-        width: '12%',
+        width: '14%',
         height: '72%',
     },
 
@@ -62,7 +62,7 @@ const styles = {
     actions: {
         ...globalStyles.horizontalSpaceBetween,
         margin: '0px 3% 0px 2%',
-        width: '15%',
+        width: '120px',
         height: '50%',
         borderLeft: 'solid 1px',
         borderLeftColor: colors.grey
