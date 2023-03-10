@@ -13,7 +13,7 @@ import trash from '../assets/icons/trash.png';
 import deleteQR from "../hooks/deleteQR";
 import { useNavigate } from "react-router-dom";
 
-function HeaderInfoQR({ qrName, url, scans, links, defaultLink, success, setOverlay }) {
+function HeaderInfoQR({ qrName, url, scans, links, defaultLink, success, setOverlay, setDeleteOverlay }) {
 
     const token = localStorage.getItem('token');
     const selectedQR = localStorage.getItem('selectedQR');
@@ -31,9 +31,10 @@ function HeaderInfoQR({ qrName, url, scans, links, defaultLink, success, setOver
                         <div style={styles.iconsContainer}>
                             <img src={edit} style={styles.icon} onClick={() => setOverlay(true)} />
                             <img src={trash} style={styles.icon} onClick={() => {
-                                deleteQR(token, selectedQR);
-                                localStorage.setItem('selectedQR', '');
-                                navigate('/home');
+                                // deleteQR(token, selectedQR);
+                                setDeleteOverlay(true);
+                                //localStorage.setItem('selectedQR', '');
+                                //navigate('/home');
                             }} />
                         </div>
                     </div>

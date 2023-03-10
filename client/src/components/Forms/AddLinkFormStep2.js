@@ -5,13 +5,28 @@ import styles from "../../assets/styles/Forms/AddLinkFormStyles";
 import DefaultButton from '../Buttons/DefaultButton';
 import SelectInput from "../Inputs/SelectInput";
 
-function AddLinkFormStep2({ setOsName, nextNode, previousNode, userPlan, createLink }) {
+function AddLinkFormStep2({ setOsName, osName, osNameWarning, setOsNameWarning, nextNode, previousNode, userPlan, createLink }) {
+    console.log(osName)
+    const next = () => {
+        if(!osNameWarning && osName.length) {
+            nextNode();
+            setOsNameWarning('');
+        } else {
+            setOsNameWarning('Insira ao menos 1 SO, ou pule');
+        }
+    }
+
+    const skip = () => {
+        setOsName([]);
+        setOsNameWarning('');
+        nextNode();
+    }
 
     return(
         <div style={styles.headerFormStyles}>
             <p style={styles.titleStyles}>Restrição de SO</p>
             <div style={styles.inputsContainer}>
-                <SelectInput label='Sistema operacional' options={['Todos', 'iOS', 'Android']} setValue={setOsName} isMulti placeholder='Selecione os SOs' info infoTitle='Restringir o Sistema Operacional' infoDescription='Apenas os SOs selecionados serão direcionados para esse link'/>
+                <SelectInput label='Sistema operacional' options={['iOS', 'Android']} setValue={setOsName} value={osName.map((el) => ({ value: el.toLowerCase(), label: el}))} warningMessage={osNameWarning} isMulti placeholder='Selecione os SOs' info infoTitle='Restringir o Sistema Operacional' infoDescription='Apenas os SOs selecionados serão direcionados para esse link'/>
             </div>
             <div style={styles.buttonsContainer}>
                 <DefaultButton w='80px' label='Anterior' terciary onClick={previousNode} />
@@ -24,11 +39,8 @@ function AddLinkFormStep2({ setOsName, nextNode, previousNode, userPlan, createL
                     </div>
                     :
                     <div style={styles.rightButtonsContainer}>
-                        <DefaultButton w='124px' label='Pular' onClick={() => {
-                            nextNode();
-                            setOsName('');
-                        }} secundary />
-                        <DefaultButton w='124px' label='Próximo' onClick={nextNode} />
+                        <DefaultButton w='124px' label='Pular' onClick={skip} secundary />
+                        <DefaultButton w='124px' label='Próximo' onClick={next} />
                     </div>
                 }
             </div>

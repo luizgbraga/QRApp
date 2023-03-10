@@ -57,6 +57,8 @@ class App {
         this.app.use('/api/scan/showLinkScans', scanRoutes);
         this.app.use('/api/scan/showQRScans', scanRoutes);
 
+        this.app.use('/api/product/getPlans', productRoutes);
+
         this.app.use('/api/scan/createTransaction', transactionRoutes);
     }
 }

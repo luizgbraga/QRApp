@@ -23,7 +23,8 @@ import Selector from "../components/Selector";
 import SideBar from "../layouts/SideBar";
 import TopBar from "../layouts/TopBar";
 
-import CreateNewForm from '../components/Forms/CreateNewForm'
+import CreateNewForm from '../components/Forms/CreateNewForm';
+import Delete from "../components/Delete";
 
 
 function QR() {
@@ -35,21 +36,8 @@ function QR() {
     const [linkOverlay, setLinkOverlay] = useState(false);
     const [editOverlay, setEditOverlay] = useState(false);
     const [editQROverlay, setEditQROverlay] = useState(false);
-
-    const [linkName, setLinkName] = useState('');
-    const [linkNameWarning, setLinkNameWarning] = useState('');
-
-    const [osName, setOsName] = useState('');
-
-    const [timeRestriction, setTimeRestriction] = useState('');
-
-    const [hourRestriction, setHourRestriction] = useState('');
-    const [hourRestrictionWarning, setHourRestrictionWarning] = useState('');
-
-    const [locRestriction, setLocRestriction] = useState('');
-
-    const [link, setLink] = useState('');
-    const [linkWarning, setLinkWarning] = useState('');
+    const [deleteQROverlay, setDeleteQROverlay] = useState(false);
+    const [deleteLinkOverlay, setDeleteLinkOverlay] = useState(false);
 
     const [selects, setSelects] = useState(0);
 
@@ -63,35 +51,21 @@ function QR() {
     const links = useFetchLinks(selectedQR);
     const scans = useFetchQRScans(token, selectedQR);
 
-
-      const createLink = () => {
-        setLinkOverlay(false);
-        const newLink = { 
-            qrId: selectedQR, 
-            linkName,
-            osName: osName.toString(),
-            timeRestriction, hourRestriction, 
-            locRestriction: locRestriction.toString(),
-            url: link, 
-            default: false
-        }
-        createNewLink(token, newLink);
-      }
-
     const redirect = `http://${config.host}:3000/redirect/${qr.short}`;
 
     const success = 0
 
     return(
         <div style={{ display: 'flex' }}>
-            <AddLinkForm overlay={linkOverlay} setOverlay={setLinkOverlay} setLinkName={setLinkName} setLink={setLink} setOsName={setOsName} setTimeRestriction={setTimeRestriction} setHourRestriction={setHourRestriction} setLocRestriction={setLocRestriction} createLink={createLink} userPlan={user.plan} />
+            <AddLinkForm overlay={linkOverlay} setOverlay={setLinkOverlay} qrId={qr._id} userPlan={user.plan} />
             <CreateNewForm overlay={overlay} setOverlay={setOverlay} />
             <EditQRForm overlay={editQROverlay} setOverlay={setEditQROverlay} qr={qr} />
             <EditLinkForm overlay={editOverlay} setOverlay={setEditOverlay} />
+            <Delete overlay={deleteQROverlay} setOverlay={setDeleteQROverlay} />
             <SideBar qrList={qrList} setOverlay={setOverlay} />
             <div>
                 <TopBar setOverlay={setOverlay} />
-                <HeaderInfoQR qrName={qr.qrName} url={redirect} links={links.length} scans={scans.length} defaultLink={qr.defaultLink} success={success} setOverlay={setEditQROverlay} />
+                <HeaderInfoQR qrName={qr.qrName} url={redirect} links={links.length} scans={scans.length} defaultLink={qr.defaultLink} success={success} setOverlay={setEditQROverlay} setDeleteOverlay={setDeleteQROverlay} />
                 <Selector options={["Links cadastrados", "Leituras do QR Code"]} selected={selects} setSelector={setSelects} />
                 {
                     selects == 0 ?

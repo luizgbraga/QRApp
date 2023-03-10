@@ -14,25 +14,25 @@ import clock from '../assets/icons/clock.png';
 import { useNavigate } from "react-router-dom";
 
 function PlanBox({ planInfo, userPlan, setPlan }) {
-    let plan = planInfo ? planInfo : { features: [] };
-    let selected = userPlan == plan.planTitle;
+    let plan = planInfo ? planInfo : { productFeatures: [] };
+    let selected = userPlan == plan.productName;
 
     let navigate = useNavigate();
 
     const goToCheckout = () => {
-        localStorage.setItem('selectedPlan', plan.planTitle);
+        localStorage.setItem('selectedPlan', plan.productName);
         navigate('/checkout');
     }
 
     return(
         <div style={selected ? styles.selectedBox : styles.box}>
-            <p style={styles.planTitle}>{plan.planTitle}</p>
+            <p style={styles.planTitle}>{plan.productName}</p>
             <div style={styles.featuresContainer}>
                 {
-                    plan.features.map((el, idx) => (
-                        <div style={el.enabled ? styles.feature : styles.featureUnabled} key={el.featureTitle}>
+                    plan.productFeatures.map((el, idx) => (
+                        <div style={el.included ? styles.feature : styles.featureUnabled} key={el.feature}>
                             {
-                                el.enabled ?
+                                el.included ?
                                 idx == 0 ?
                                 <img src={qrcode}  style={styles.icon} />
                                 : 
@@ -50,13 +50,13 @@ function PlanBox({ planInfo, userPlan, setPlan }) {
                                 : false :
                                 <img src={close}  style={styles.icon} />     
                             }
-                            <p>{el.featureTitle}</p>
+                            <p>{el.feature}</p>
                         </div>
                     ))
                 }
             </div>
             <div style={styles.priceContainer}>
-                <p style={styles.price}><span style={styles.cifra}>R$ </span>{plan.price}<span style={styles.permonth}>/mês</span></p>
+                <p style={styles.price}><span style={styles.cifra}>R$ </span>{plan.productPrice}<span style={styles.permonth}>/mês</span></p>
             </div>
             {
                 selected ?

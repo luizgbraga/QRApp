@@ -14,6 +14,7 @@ const ProductSchema = new mongoose.Schema({
 
     productFeatures: [{
         feature: { type: String },
+        included: { type: Boolean }
     }]
 });
 

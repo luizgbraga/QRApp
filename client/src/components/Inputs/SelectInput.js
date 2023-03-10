@@ -8,7 +8,7 @@ import questionMark from '../../assets/icons/info.png';
 import Popover from 'react-bootstrap/Popover';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 
-function SelectInput({ label, options, setValue, w, border, isMulti, warningMessage, placeholder, info, infoTitle, infoDescription, infoW }) {
+function SelectInput({ label, options, setValue, value, w, border, isMulti, warningMessage, placeholder, info, infoTitle, infoDescription, infoW }) {
     const opt = options.map((el) => ({ value: el.toLowerCase(), label: el}));
     let style = selectInputStyles.defaultSelectInput;
     if(border == 'left') { style = selectInputStyles.leftSelectInput } else
@@ -33,7 +33,7 @@ function SelectInput({ label, options, setValue, w, border, isMulti, warningMess
             {
                 info ?
                 <div style={{ position: 'relative' }}>
-                    <Select options={opt} isMulti={isMulti} placeholder={placeholder}
+                    <Select options={opt} isMulti={isMulti} placeholder={placeholder} value={value}
                     styles={{ control: (baseStyles, state) => ({ ...baseStyles, ...style, width: w }) }}
                     onChange={(e) => isMulti ? setValue(e.map(el => el.label)) : setValue(e.label)}
                     />
@@ -42,7 +42,7 @@ function SelectInput({ label, options, setValue, w, border, isMulti, warningMess
                     </OverlayTrigger>
                 </div>
                 :
-                <Select options={opt} isMulti={isMulti} placeholder={placeholder}
+                <Select options={opt} isMulti={isMulti} placeholder={placeholder} value={value}
                 styles={{ control: (baseStyles, state) => ({ ...baseStyles, ...style, width: w }) }}
                 onChange={(e) => isMulti ? setValue(e.map(el => el.label)) : setValue(e.label)}
                 />

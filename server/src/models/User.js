@@ -22,7 +22,7 @@ const UserSchema = new mongoose.Schema({
 
     plan: {
         type: String,
-        default: 'Gratuito'
+        default: 'None'
     },
 
     createdAt: {

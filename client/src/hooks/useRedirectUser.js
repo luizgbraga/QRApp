@@ -29,7 +29,7 @@ function useRedirectUser(short) {
               const [url, success] = decideLink(response.data, osName, scanLocation);
               updateScans(scanLocation, resQR.data[0]._id, url, success);
               console.log(url)
-              window.location.replace(url);
+              window.location.href = url;
           });
       })
       .catch((error) => {

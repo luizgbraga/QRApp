@@ -14,9 +14,9 @@ import { useNavigate } from "react-router-dom";
 
 function EditQRForm({ overlay, setOverlay, qr }) {
 
-    const [qrName, setQRName] = useState('');
-    const [defaultLink, setDefaultLink] = useState('');
-    const [url, setUrl] = useState('');
+    const [qrName, setQRName] = useState(qr.qrName);
+    const [defaultLink, setDefaultLink] = useState(qr.defaultLink);
+    const [url, setUrl] = useState(qr.short);
 
     const token = localStorage.getItem('token');
     let navigate = useNavigate(); 
@@ -39,9 +39,9 @@ function EditQRForm({ overlay, setOverlay, qr }) {
                 <img src={close} style={styles.close} onClick={() => setOverlay(false)} />
                 <p style={styles.titleStyles}>Editar QR Code</p>
                 <div style={styles.inputsStyles}>
-                    <TextInput label='Nome do QR' placeholder='Baixe o aplicativo' setValue={setQRName} defaultValue={qr.qrName} />
-                    <TextInput label='Link' placeholder='https://app.com' setValue={setDefaultLink} defaultValue={qr.defaultLink} />
-                    <TextInput label='URL do QR' placeholder='https://app.com' setValue={setUrl} defaultValue={qr.short}/>
+                    <TextInput label='Nome do QR' placeholder='Baixe o aplicativo' setValue={setQRName} value={qrName} />
+                    <TextInput label='Link' placeholder='https://app.com' setValue={setDefaultLink} value={defaultLink} />
+                    <TextInput label='URL do QR' placeholder='https://app.com' setValue={setUrl} value={url}/>
                 </div>
                 <ButtonLogin label='Atualizar QR Code' onClick={updateQR} /> 
             </div>

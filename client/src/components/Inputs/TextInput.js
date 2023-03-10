@@ -10,9 +10,13 @@ import questionMark from '../../assets/icons/info.png';
 import Popover from 'react-bootstrap/Popover';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 
-function TextInput({ label, placeholder, additional, setValue, warningMessage, w, defaultValue, disabled, hide, info, infoTitle, infoDescription, infoW }) {
+function TextInput({ label, placeholder, additional, setValue, value, warningMessage, w, disabled, hide, info, infoTitle, infoDescription, infoW }) {
 
     const [hidden, setHidden] = useState(true);
+
+    const handleChange = (text) => {
+        setValue(text);
+    }
 
     const popover = (
         <Popover style={infoW ? { ...textInputStyles.popover, width: infoW }: textInputStyles.popover}>
@@ -33,16 +37,16 @@ function TextInput({ label, placeholder, additional, setValue, warningMessage, w
             {
                 disabled ?
                 <div style={ w ? { ...textInputStyles.defaultTextInput, width: w } :  { ...textInputStyles.defaultTextInput } }>
-                    <p style={{ fontSize: '20px', color: colors.darkgrey }}>{defaultValue}</p>
+                    <p style={{ fontSize: '20px', color: colors.darkgrey }}>{value}</p>
                 </div>
                 :
                 hide ?
                 <div style={{ position: 'relative' }}>
                     <input style={ w ? { ...textInputStyles.defaultTextInput, width: w } :  { ...textInputStyles.defaultTextInput } }
                     type={hidden ? 'password' : 'text'}
-                    value={defaultValue} 
+                    value={value} 
                     placeholder={placeholder} 
-                    onChange={(e) => setValue(e.target.value)} />
+                    onChange={(e) => handleChange(e.target.value)} />
                     {
                         hidden ?
                         <img src={openedEye} style={textInputStyles.eye} onClick={() => setHidden(!hidden)} />
@@ -55,9 +59,9 @@ function TextInput({ label, placeholder, additional, setValue, warningMessage, w
                 <div style={{ position: 'relative' }}>
                     <input style={ w ? { ...textInputStyles.defaultTextInput, width: w } :  { ...textInputStyles.defaultTextInput } }
                     type='text'
-                    value={defaultValue} 
+                    value={value}  
                     placeholder={placeholder} 
-                    onChange={(e) => setValue(e.target.value)} />
+                    onChange={(e) => handleChange(e.target.value)} />
                     <OverlayTrigger trigger="click" placement="right" overlay={popover}>
                         <img src={questionMark} style={textInputStyles.info} />
                     </OverlayTrigger>
@@ -65,9 +69,9 @@ function TextInput({ label, placeholder, additional, setValue, warningMessage, w
 
                 :
                 <input style={ w ? { ...textInputStyles.defaultTextInput, width: w, paddingRight: '24px' } :  { ...textInputStyles.defaultTextInput, paddingRight: '24px' } }
-                value={defaultValue}
+                value={value} 
                 placeholder={placeholder} 
-                onChange={(e) => setValue(e.target.value)} />
+                onChange={(e) => handleChange(e.target.value)} />
             }
             <div style={ w ? { ...textInputStyles.warningMessageContainer, width: w} : { ...textInputStyles.warningMessageContainer } }>
                 <p style={textInputStyles.warningMessage}>{warningMessage}</p>

@@ -13,7 +13,7 @@ import Line from '../Line';
 
 import { useNavigate } from "react-router-dom";
 
-function EditLinkForm({ overlay, setOverlay }) {
+function EditLinkForm({ overlay, setOverlay, linkName, url }) {
 
     const brazilStates = [
         "Todos",
@@ -57,8 +57,8 @@ function EditLinkForm({ overlay, setOverlay }) {
                 <img src={close} style={styles.close} onClick={() => setOverlay(false)} />
                 <p style={styles.titleStyles}>Editar Link</p>
                 <div style={styles.mainInfo}>
-                    <TextInput label='Nome do seu QR' placeholder='Baixe o aplicativo' />
-                    <TextInput label='Link' placeholder='https://app.com' />
+                    <TextInput label='Nome do seu QR' placeholder='Baixe o aplicativo' value={linkName} />
+                    <TextInput label='Link' placeholder='https://app.com' value={url} />
                 </div>
                 <div style={styles.header}>
                     <p style={selected == 0 ? styles.subtitleSelected : styles.subtitle} onClick={() => setSelected(0)}>Sistema operacional</p>

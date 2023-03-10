@@ -9,7 +9,7 @@ import Line from "../components/Line";
 import CartReview from "../components/CartReview";
 
 import useFetchUserQR from "../hooks/useFetchUserQRs";
-
+import useFetchPlans from "../hooks/useFetchPlans";
 import styles from "../assets/styles/CheckoutStyles";
 
 function Checkout() {
@@ -27,11 +27,8 @@ function Checkout() {
     const [street, setStreet] = useState('');
     const [number, setNumber] = useState('');
 
-    const plans = {
-        'Plano Básico': 20,
-        'Plano Empresa': 50,
-        'Plano Premium': 90
-    }
+    const plans = useFetchPlans();
+    const planPrice = plans.filter(el => el.productName = selectedPlan)[0].productPrice;
     
     return(
         <div style={{ display: 'flex' }}>
@@ -48,7 +45,7 @@ function Checkout() {
                             :
                             <AddressInformation />
                         }
-                        <CartReview planName={selectedPlan} planPrice={plans[selectedPlan]} />
+                        <CartReview planName={selectedPlan} planPrice={planPrice} />
                     </div>
                 </div>
             </div>

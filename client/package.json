@@ -24,6 +24,7 @@
     "react-select": "^5.7.0",
     "reactstrap": "^9.1.6",
     "redux": "^4.2.1",
+    "reshake": "^1.2.4",
     "styled-components": "^5.3.6",
     "web-vitals": "^2.1.4"
   },

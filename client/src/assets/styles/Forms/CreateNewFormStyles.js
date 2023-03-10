@@ -19,7 +19,8 @@ const styles = {
         alignItems: 'center',
         justifyContent: 'space-evenly',
         borderRadius: '16px',
-        zIndex: '10'
+        zIndex: '10',
+        position: 'relative'
     },
 
     inputsStyles: {
@@ -38,8 +39,8 @@ const styles = {
         ...globalStyles.pointer,
         width: '20px',
         position: 'absolute',
-        top: 'calc(100vh/2 - 194px)',
-        left: 'calc(100vw/2 + 220px)'
+        top: '16px',
+        left: 'calc(100% - 36px)'
     }
 }
 
