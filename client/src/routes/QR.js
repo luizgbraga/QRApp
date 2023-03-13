@@ -24,7 +24,8 @@ import SideBar from "../layouts/SideBar";
 import TopBar from "../layouts/TopBar";
 
 import CreateNewForm from '../components/Forms/CreateNewForm';
-import Delete from "../components/Delete";
+import DeleteQR from "../components/DeleteQR";
+import DeleteLink from "../components/DeleteLink";
 
 
 function QR() {
@@ -55,13 +56,16 @@ function QR() {
 
     const success = 0
 
+    console.log(deleteLinkOverlay)
+
     return(
         <div style={{ display: 'flex' }}>
             <AddLinkForm overlay={linkOverlay} setOverlay={setLinkOverlay} qrId={qr._id} userPlan={user.plan} />
             <CreateNewForm overlay={overlay} setOverlay={setOverlay} />
             <EditQRForm overlay={editQROverlay} setOverlay={setEditQROverlay} qr={qr} />
             <EditLinkForm overlay={editOverlay} setOverlay={setEditOverlay} />
-            <Delete overlay={deleteQROverlay} setOverlay={setDeleteQROverlay} />
+            <DeleteQR overlay={deleteQROverlay} setOverlay={setDeleteQROverlay} />
+            <DeleteLink overlay={deleteLinkOverlay} setOverlay={setDeleteLinkOverlay} />
             <SideBar qrList={qrList} setOverlay={setOverlay} />
             <div>
                 <TopBar setOverlay={setOverlay} />
@@ -69,7 +73,7 @@ function QR() {
                 <Selector options={["Links cadastrados", "Leituras do QR Code"]} selected={selects} setSelector={setSelects} />
                 {
                     selects == 0 ?
-                    <Links links={links} defaultLink={qr.defaultLink} setOverlay={setLinkOverlay} setEditOverlay={setEditOverlay} />
+                    <Links links={links} defaultLink={qr.defaultLink} setOverlay={setLinkOverlay} setEditOverlay={setEditOverlay} setDeleteLinkOverlay={setDeleteLinkOverlay} />
                     : false
                 }
             </div>

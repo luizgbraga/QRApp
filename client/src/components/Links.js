@@ -5,18 +5,18 @@ import DefaultButton from "./Buttons/DefaultButton";
 
 import LinkBox from "./LinkBox";
 
-function Links({ links, defaultLink, setOverlay, setEditOverlay }) {
+function Links({ links, defaultLink, setOverlay, setEditOverlay, setDeleteLinkOverlay }) {
 
     return(
         <div style={styles.container}>
             <div style={styles.linksContainer}>
                 <div style={styles.links}>
                     <p style={styles.linkDescription}>Principal</p>
-                        <LinkBox linkName='Link Principal' url={defaultLink} main setEditOverlay={setEditOverlay} />
+                        <LinkBox linkName='Link Principal' url={defaultLink} main setEditOverlay={setEditOverlay} setDeleteLinkOverlay={setDeleteLinkOverlay} />
                         <p style={styles.linkDescription}>Outros</p>
                         {
                             links.filter(el => !el.default).map(el => (
-                                <LinkBox linkName={el.linkName} url={el.url} key={el._id} linkId={el._id} setEditOverlay={setEditOverlay} />      
+                                <LinkBox linkName={el.linkName} url={el.url} key={el._id} linkId={el._id} setEditOverlay={setEditOverlay} setDeleteLinkOverlay={setDeleteLinkOverlay} />      
                             ))
                             
                         }

@@ -23,7 +23,7 @@ function HeaderInfoQR({ qrName, url, scans, links, defaultLink, success, setOver
         <div>
             <div style={styles.headerInfoContainerStyles}>
                 <div style={styles.qrContainerStyles}>
-                    <QRCode value={url} size={180} />
+                    <QRCode value={url} size={148} />
                 </div>
                 <div style={styles.infoContainerStyles}>
                     <div style={styles.headerTitle}>
@@ -31,14 +31,11 @@ function HeaderInfoQR({ qrName, url, scans, links, defaultLink, success, setOver
                         <div style={styles.iconsContainer}>
                             <img src={edit} style={styles.icon} onClick={() => setOverlay(true)} />
                             <img src={trash} style={styles.icon} onClick={() => {
-                                // deleteQR(token, selectedQR);
                                 setDeleteOverlay(true);
-                                //localStorage.setItem('selectedQR', '');
-                                //navigate('/home');
                             }} />
                         </div>
                     </div>
-                    <Line mt='16px' mb='16px' />
+                    <Line mt='12px' mb='12px' />
                     <p style={{ fontSize: '20px' }}>{url}</p>
                     <div style={styles.dataContainerStyles}>
                         <InfoHeader name='Scans' value={scans} />

@@ -4,7 +4,7 @@ import colors from "./Global/colors";
 const styles = {
     container: {
         ...globalStyles.horizontalSpaceBetween,
-        margin: '30px 0px 20px 100px',
+        margin: '24px 0px 18px 100px',
         width: '600px'
     },
 
@@ -12,7 +12,7 @@ const styles = {
         ...globalStyles.center,
         ...globalStyles.pointer,
         width: '280px',
-        height: '44px',
+        height: '42px',
         borderRadius: '30px',
         border: '1px solid',
         borderColor: colors.grey,
@@ -23,7 +23,7 @@ const styles = {
         ...globalStyles.center,
         ...globalStyles.pointer,
         width: '280px',
-        height: '44px',
+        height: '42px',
         backgroundColor: colors.green,
         borderRadius: '30px',
         fontWeight: '500'

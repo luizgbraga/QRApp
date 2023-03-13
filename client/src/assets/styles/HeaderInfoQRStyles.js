@@ -4,7 +4,7 @@ const styles = {
     headerInfoContainerStyles: {
         ...globalStyles.row,
         width: 'calc(100vw - 310px)',
-        height: '190px',
+        height: '152px',
         padding: '0px 100px 0px 100px'
     },
 
@@ -20,7 +20,7 @@ const styles = {
     },
 
     titleStyles: {
-        fontSize: '36px',
+        fontSize: '32px',
         fontWeight: 'bold'
     },
 
@@ -29,12 +29,12 @@ const styles = {
         flexDirection: 'row',
         width: '40%',
         justifyContent: 'space-between',
-        marginTop: '20px'
+        marginTop: '12px'
     },
 
     optionsContainer: {
         ...globalStyles.horizontalSpaceBetween,
-        margin: '30px 0px 0px 100px',
+        margin: '20px 0px 0px 100px',
         width: '600px',
         height: '40px'
     },

@@ -7,7 +7,7 @@ const styles = {
     },
 
     linksContainer: {
-        height: 'calc(100vh - 540px)',
+        height: 'calc(100vh - 480px)',
         width: '90%',
         overflowY: 'scroll',
         margin: '0px 0px 32px 0px'

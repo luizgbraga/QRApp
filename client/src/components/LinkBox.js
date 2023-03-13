@@ -8,7 +8,7 @@ import trash from '../assets/icons/trash.png';
 
 import deleteLink from "../hooks/deleteLink";
 
-function LinkBox({ linkName, setEditOverlay, main, url, accesses, linkId }) {
+function LinkBox({ linkName, setEditOverlay, setDeleteLinkOverlay, main, url, accesses, linkId }) {
     
     const token = localStorage.getItem('token');
 
@@ -30,7 +30,10 @@ function LinkBox({ linkName, setEditOverlay, main, url, accesses, linkId }) {
             <div style={styles.actions}>
                 <div style={{ width: '14px' }}></div>
                 <img src={edit} style={styles.icons} onClick={() => setEditOverlay(true)} />
-                <img src={trash} style={styles.icons} onClick={() => deleteLink(token, linkId)} />
+                <img src={trash} style={styles.icons} onClick={() => {
+                    localStorage.setItem('selectedLink', linkId);
+                    setDeleteLinkOverlay(true);
+                }} />
             </div>
         </div>
     )
